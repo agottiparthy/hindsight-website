@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Container } from "@/components/ui/container"
 import { Linkedin, Twitter } from "lucide-react"
 
@@ -37,11 +38,14 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
           {/* Logo and Info */}
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-[#3EA7ED] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">H</span>
-              </div>
-              <span className="text-[#11214C] font-semibold text-lg">Hindsight</span>
+            <Link href="/" className="flex items-center mb-4">
+              <Image
+                src="/hindsightlogo-clear.png"
+                alt="Hindsight"
+                width={140}
+                height={32}
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="text-[#11214C]/50 text-sm mb-4">backed by</p>
             <div className="flex gap-4">

@@ -1,23 +1,75 @@
+"use client"
+
 import Link from "next/link"
+import Image from "next/image"
+import { useEffect, useState } from "react"
 import { Container } from "@/components/ui/container"
 import { Button } from "@/components/ui/button"
 
+const rotatingTexts = [
+  "competitive intel.",
+  "win-loss analysis.",
+  "messaging strategy.",
+  "competitive enablement.",
+]
+
 export function HeroSection() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
+  const [cardsVisible, setCardsVisible] = useState(false)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true)
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % rotatingTexts.length)
+        setIsAnimating(false)
+      }, 300)
+    }, 3000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  // Trigger card animations after mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCardsVisible(true)
+    }, 500)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-gradient-to-b from-[#E8F4FC] via-[#F5F8FB] to-[#F5F8FB] overflow-hidden pt-20">
-      {/* Decorative gradient blobs */}
+    <section className="relative min-h-screen flex items-start overflow-hidden pt-28 pb-0">
+      {/* Background image */}
+      <Image
+        src="/hero/bg-hero.png"
+        alt=""
+        fill
+        className="object-cover object-top"
+        priority
+      />
+      {/* Decorative gradient blobs
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#3EA7ED]/20 rounded-full blur-3xl" />
       <div className="absolute top-20 right-1/4 w-80 h-80 bg-[#A0C6E6]/30 rounded-full blur-3xl" />
-      
+       */}
       <Container className="relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#11214C] leading-tight mb-4">
-            Winning more starts with
+          <h1 className="text-display mb-2">
+            AI agents for
           </h1>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#3EA7ED] leading-tight mb-6 italic">
-            knowing why you lose.
-          </h1>
-          <p className="text-lg md:text-xl text-[#11214C]/70 max-w-2xl mx-auto mb-8">
+          <div className="relative h-[60px] md:h-[72px] lg:h-[84px] mb-6 flex justify-center items-center" style={{ perspective: "1000px" }}>
+            <div
+              className={`flip-card ${
+                isAnimating
+                  ? "flip-card-animate-out"
+                  : "flip-card-animate-in"
+              }`}
+              style={{ minWidth: "340px" }}
+            >
+              {rotatingTexts[currentIndex]}
+            </div>
+          </div>
+          <p className="text-body-lg max-w-2xl mx-auto mb-8">
             Hindsight analyzes every deal to show why you win and lose. It turns those insights into battlecards, enablement, and decisions teams act on.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
@@ -28,14 +80,80 @@ export function HeroSection() {
               <Link href="/request-demo">Get a Demo</Link>
             </Button>
           </div>
-          <p className="text-[#11214C]/50 text-sm mb-12">No credit card required.</p>
+          <p className="text-muted text-sm mb-8">No credit card required.</p>
           
-          {/* Hero image placeholder */}
-          <div className="relative mx-auto max-w-3xl">
-            <div className="bg-white rounded-2xl shadow-2xl shadow-[#11214C]/10 border border-[#E8EEF4] p-4 aspect-[16/10]">
-              <div className="w-full h-full bg-gradient-to-br from-[#F5F8FB] to-[#E8F4FC] rounded-xl flex items-center justify-center">
-                <span className="text-[#11214C]/30 text-lg">Product Screenshot</span>
-              </div>
+          {/* Hero cards composition */}
+          <div className="relative mx-auto max-w-4xl h-[500px] md:h-[600px] lg:h-[700px]">
+            {/* Background left card */}
+            <div 
+              className={`absolute left-20 top-10 w-[35%] z-0 transition-all duration-1000 ease-out ${
+                cardsVisible 
+                  ? "opacity-100 translate-x-0 translate-y-0" 
+                  : "opacity-0 translate-y-20"
+              }`}
+              style={{ transitionDelay: "200ms" }}
+            >
+              <Image
+                src="/hero/UI/hero-card-bg-left.png"
+                alt="Deal Analysis Card"
+                width={845}
+                height={1017}
+                className="w-full h-auto drop-shadow-xl"
+              />
+            </div>
+
+            {/* Background right card */}
+            <div 
+              className={`absolute right-20 top-10 w-[35%] z-0 transition-all duration-1000 ease-out ${
+                cardsVisible 
+                  ? "opacity-100 translate-x-0 translate-y-0" 
+                  : "opacity-0 translate-y-20"
+              }`}
+              style={{ transitionDelay: "200ms" }}
+            >
+              <Image
+                src="/hero/UI/hero-card-bg-right.png"
+                alt="Analytics Card"
+                width={845}
+                height={1017}
+                className="w-full h-auto drop-shadow-xl"
+              />
+            </div>
+
+            {/* Main center card - in front at bottom */}
+            <div 
+              className={`absolute left-1/2 -translate-x-1/2 bottom-40 w-[75%] z-20 transition-all duration-1000 ease-out ${
+                cardsVisible 
+                  ? "opacity-100 translate-y-0" 
+                  : "opacity-0 translate-y-20"
+              }`}
+              style={{ transitionDelay: "400ms" }}
+            >
+              <Image
+                src="/hero/UI/hero-card-main.png"
+                alt="Hindsight Platform"
+                width={845}
+                height={1017}
+                className="w-full h-auto drop-shadow-2xl"
+                priority
+              />
+            </div>
+
+            {/* Center top card */}
+            <div 
+              className={`absolute left-1/2 -translate-x-1/2 top-0 w-[55%] z-10 transition-all duration-1000 ease-out ${
+                cardsVisible 
+                  ? "opacity-100 translate-y-0" 
+                  : "opacity-0 translate-y-20"
+              }`}
+            >
+              <Image
+                src="/hero/UI/hero-card-center.png"
+                alt="Ask Anything Card"
+                width={753}
+                height={946}
+                className="w-full h-auto drop-shadow-2xl"
+              />
             </div>
           </div>
         </div>

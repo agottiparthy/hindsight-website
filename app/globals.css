@@ -63,7 +63,7 @@
   --card-foreground: #11214C;
   --popover: #ffffff;
   --popover-foreground: #11214C;
-  --primary: #3EA7ED;
+  --primary: #379BFF;
   --primary-foreground: #ffffff;
   --secondary: #A0C6E6;
   --secondary-foreground: #11214C;
@@ -133,5 +133,73 @@
   body {
     @apply bg-background text-foreground;
     @apply bg-background text-foreground;
+  }
+}
+
+/* Typography System */
+@layer components {
+  /* Headings */
+  .text-display {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold text-[#11214C] leading-[1.1];
+  }
+
+  .text-heading-1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-[#11214C];
+  }
+
+  .text-heading-2 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold text-[#11214C];
+  }
+
+  .text-heading-3 {
+    @apply text-xl md:text-2xl font-semibold text-[#11214C];
+  }
+
+  .text-heading-4 {
+    @apply text-lg font-semibold text-[#11214C];
+  }
+
+  /* Body text */
+  .text-body-lg {
+    @apply text-lg md:text-xl text-[#11214C]/70;
+  }
+
+  .text-body {
+    @apply text-base text-[#11214C]/70;
+  }
+
+  .text-body-sm {
+    @apply text-sm text-[#11214C]/70;
+  }
+
+  /* Accent/Brand text */
+  .text-accent {
+    @apply text-[#3EA7ED];
+  }
+
+  .text-accent-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-[#3EA7ED];
+  }
+
+  .text-muted {
+    @apply text-[#11214C]/50;
+  }
+
+  /* Flip card styles */
+  .flip-card {
+    @apply inline-block bg-[#3EA7ED] text-white font-bold text-3xl md:text-4xl lg:text-5xl px-6 py-2 rounded-xl shadow-lg;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card-animate-in {
+    @apply transition-all duration-500;
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+
+  .flip-card-animate-out {
+    @apply transition-all duration-500;
+    transform: rotateX(90deg);
+    opacity: 0;
   }
 }
