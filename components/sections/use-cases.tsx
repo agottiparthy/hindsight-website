@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Container } from "@/components/ui/container"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight } from "lucide-react"
@@ -10,11 +11,15 @@ const useCases = [
     title: "Accurate competitive messaging that wins deals.",
     description:
       "Hindsight monitors competitors and tracks winning and losing messaging. PMMs create battlecards and enablement assets once, Hindsight maintains them, and gives reps answers in Slack.",
+    image: "/hero/graphic-header-competitive-enablement.png",
     quote: {
       text: "My reps are winning deals thanks to messaging identified by Hindsight. It helps us replicate what is working.",
       author: "Tye Davis",
       role: "Sr. PMM - Compete",
       company: "LaunchDarkly",
+      avatar: "/customer_pictures/tye davis.jpeg",
+      logoSrc: "/customer_logos/launchdarkly-Logo-Vector.svg-.png",
+      logoAlt: "LaunchDarkly",
     },
     caseStudyHref: "/customers/how-launchdarkly-scaled-win-loss-and-ci-to-200-reps",
     learnMoreHref: "/competitive-enablement",
@@ -25,11 +30,15 @@ const useCases = [
     title: "Understand why you win and lose with full coverage.",
     description:
       "Hindsight analyzes your GTM data and conducts interviews to fill in any gaps. Get real data on how factors like sales execution, messaging, and product are affecting deals.",
+    image: "/hero/graphic-header-win-loss-analysis.png",
     quote: {
       text: "The best win-loss report we've had in years. We replaced sampled interviews with full analysis, at a lower price.",
       author: "Toby LaForest",
       role: "Sr. Director, PMM",
       company: "Ironclad",
+      avatar: "/customer_pictures/toby laforest.jpeg",
+      logoSrc: "/customer_logos/ironclad logo.svg",
+      logoAlt: "Ironclad",
     },
     caseStudyHref: "/customers/ironclad",
     learnMoreHref: "/win-loss-analysis",
@@ -40,11 +49,15 @@ const useCases = [
     title: "Turn win-loss insights into action across the business.",
     description:
       "Build workflows to share the right insight at the right time. Hindsight ties insights directly into sales coaching, messaging strategy, and product decisions.",
+    image: "/hero/graphic-header-workflows.png",
     quote: {
       text: "Knowing why we win or losing deals today instead of waiting a quarter let's us enable our team to react quickly.",
       author: "Travis Allred",
       role: "Sr. Director, PMM",
       company: "PurpleLab",
+      avatar: "/customer_pictures/Travis Allred.jpg",
+      logoSrc: "/customer_logos/PURPLELAB-LOGO-August2024-1024x224.png",
+      logoAlt: "PurpleLab",
     },
     caseStudyHref: "/customers/purplelab",
     learnMoreHref: "/workflows",
@@ -79,11 +92,28 @@ export function UseCasesSection() {
                   <Link href={useCase.caseStudyHref} className="block group">
                     <div className="bg-white border border-[#E8EEF4] rounded-xl p-4 mb-6 shadow-sm hover:shadow-md transition-shadow">
                       <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 bg-[#A0C6E6]/30 rounded-full flex-shrink-0" />
-                        <div>
+                        <Image
+                          src={useCase.quote.avatar}
+                          alt={useCase.quote.author}
+                          width={40}
+                          height={40}
+                          className="rounded-full object-cover w-10 h-10 flex-shrink-0"
+                        />
+                        <div className="flex-1 min-w-0">
                           <p className="text-[#11214C]/80 text-sm italic mb-2">&quot;{useCase.quote.text}&quot;</p>
-                          <p className="text-[#11214C] font-medium text-sm">{useCase.quote.author}</p>
-                          <p className="text-[#11214C]/50 text-xs">{useCase.quote.role}</p>
+                          <div className="flex items-center justify-between gap-2">
+                            <div>
+                              <p className="text-[#11214C] font-medium text-sm">{useCase.quote.author}</p>
+                              <p className="text-[#11214C]/50 text-xs">{useCase.quote.role}</p>
+                            </div>
+                            <Image
+                              src={useCase.quote.logoSrc}
+                              alt={useCase.quote.logoAlt}
+                              width={80}
+                              height={20}
+                              className="object-contain max-h-5 opacity-40 flex-shrink-0"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -97,10 +127,15 @@ export function UseCasesSection() {
                   </Link>
                 </div>
 
-                {/* Placeholder for visual */}
+                {/* Feature image */}
                 <div className={index % 2 === 1 ? "md:order-1" : ""}>
-                  <div className="bg-white border border-[#E8EEF4] rounded-2xl shadow-lg shadow-[#11214C]/5 aspect-[4/3] flex items-center justify-center">
-                    <span className="text-[#11214C]/30">Screenshot Placeholder</span>
+                  <div className="aspect-[4/3] relative">
+                    <Image
+                      src={useCase.image}
+                      alt={useCase.badge}
+                      fill
+                      className="object-contain"
+                    />
                   </div>
                 </div>
               </div>

@@ -1,31 +1,43 @@
 import { Container } from "@/components/ui/container"
+import Image from "next/image"
 
 const logos = [
-  { name: "Kustomer", placeholder: true },
-  { name: "Teamwork", placeholder: true },
-  { name: "Joor", placeholder: true },
-  { name: "Fathom", placeholder: true },
-  { name: "Ironclad", placeholder: true },
-  { name: "LaunchDarkly", placeholder: true },
-  { name: "Simpro", placeholder: true },
-  { name: "Interfolio", placeholder: true },
+  { name: "PurpleLab", src: "/customer_logos/PURPLELAB-LOGO-August2024-1024x224.png" },
+  { name: "Amplitude", src: "/customer_logos/amplitude logo.png" },
+  { name: "EventMobi", src: "/customer_logos/eventmobi logo.webp" },
+  { name: "Fathom", src: "/customer_logos/fathom logo.svg" },
+  { name: "Hyperbrowser", src: "/customer_logos/hyperbrowser (black).svg" },
+  { name: "Ironclad", src: "/customer_logos/ironclad logo.svg" },
+  { name: "LaunchDarkly", src: "/customer_logos/launchdarkly-Logo-Vector.svg-.png" },
+  { name: "Nixtla", src: "/customer_logos/nixtla logo.svg" },
+  { name: "Raken", src: "/customer_logos/raken app logo.png" },
+  { name: "Simpro", src: "/customer_logos/simpro.svg" },
+  { name: "Treasury Prime", src: "/customer_logos/treasury prime.png" },
+  { name: "Uberall", src: "/customer_logos/uberall.svg" },
 ]
 
 export function LogoCloudSection() {
   return (
-    <section className="bg-[#F5F8FB] py-12 border-y border-[#E8EEF4]">
+    <section className="bg-[#F5F8FB] py-12 border-b border-[#E8EEF4]">
       <Container>
         <p className="text-center text-[#11214C]/60 text-sm mb-8">
           50+ GTM Teams Use Hindsight to Win More Deals
         </p>
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border-l border-t border-[#E8EEF4]">
           {logos.map((logo, i) => (
             <div
               key={i}
-              className="h-6 md:h-8 w-24 md:w-28 bg-[#11214C]/10 rounded flex items-center justify-center"
+              className="border-r border-b border-[#E8EEF4] flex items-center justify-center px-6 py-6"
               title={logo.name}
             >
-              <span className="text-[#11214C]/40 text-xs font-medium">{logo.name}</span>
+              <div className="relative h-7 w-full">
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  fill
+                  className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                />
+              </div>
             </div>
           ))}
         </div>

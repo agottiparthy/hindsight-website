@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Container } from "@/components/ui/container"
 import { Badge } from "@/components/ui/badge"
@@ -24,7 +25,13 @@ export function CaseStudySection() {
                   &quot;My reps are winning deals thanks to Hindsight.&quot;
                 </p>
                 <footer className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-white/20 rounded-full" />
+                  <Image
+                    src="/customer_pictures/tye davis.jpeg"
+                    alt="Tye Davis"
+                    width={40}
+                    height={40}
+                    className="rounded-full object-cover w-10 h-10"
+                  />
                   <div>
                     <p className="text-white font-medium">Tye Davis</p>
                     <p className="text-white/60 text-sm">Sr. PMM - Compete</p>
@@ -32,8 +39,15 @@ export function CaseStudySection() {
                 </footer>
               </blockquote>
 
-              {/* Company logo placeholder */}
-              <div className="w-32 h-8 bg-white/20 rounded mb-6" />
+              <div className="mb-6">
+                <Image
+                  src="/customer_logos/launchdarkly-Logo-Vector.svg-.png"
+                  alt="LaunchDarkly"
+                  width={140}
+                  height={32}
+                  className="object-contain brightness-0 invert"
+                />
+              </div>
 
               <Button className="bg-[#3EA7ED] text-white hover:bg-[#3EA7ED]/90" asChild>
                 <Link href="/customers/how-launchdarkly-scaled-win-loss-and-ci-to-200-reps">
