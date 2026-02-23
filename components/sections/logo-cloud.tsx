@@ -1,3 +1,5 @@
+"use client"
+
 import { Container } from "@/components/ui/container"
 import Image from "next/image"
 
@@ -18,16 +20,45 @@ const logos = [
 
 export function LogoCloudSection() {
   return (
-    <section className="bg-[#F5F8FB] py-12 border-b border-[#E8EEF4]">
+    <section
+      className="py-12"
+      style={{
+        background: "#F8F6F1",
+        borderBottom: "1px solid #E8E4DC",
+      }}
+    >
+      <style>{`
+        .logo-img { opacity: 0.45; filter: saturate(0); transition: opacity 0.2s; }
+        .logo-cell:hover .logo-img { opacity: 0.7; }
+      `}</style>
       <Container>
-        <p className="text-center text-[#11214C]/60 text-sm mb-8">
-          50+ GTM Teams Use Hindsight to Win More Deals
+        <p
+          className="text-center mb-8"
+          style={{
+            fontSize: "11px",
+            fontWeight: 500,
+            letterSpacing: "1.5px",
+            textTransform: "uppercase",
+            color: "#6B7280",
+          }}
+        >
+          Trusted by GTM teams at
         </p>
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border-l border-t border-[#E8EEF4]">
+        <div
+          className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+          style={{
+            borderLeft: "1px solid #E8E4DC",
+            borderTop: "1px solid #E8E4DC",
+          }}
+        >
           {logos.map((logo, i) => (
             <div
               key={i}
-              className="border-r border-b border-[#E8EEF4] flex items-center justify-center px-6 py-6"
+              className="logo-cell flex items-center justify-center px-6 py-6"
+              style={{
+                borderRight: "1px solid #E8E4DC",
+                borderBottom: "1px solid #E8E4DC",
+              }}
               title={logo.name}
             >
               <div className="relative h-7 w-full">
@@ -35,7 +66,7 @@ export function LogoCloudSection() {
                   src={logo.src}
                   alt={logo.name}
                   fill
-                  className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                  className="logo-img object-contain"
                 />
               </div>
             </div>

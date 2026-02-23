@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playfair = Playfair_Display({
+  variable: "--font-serif",
   subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
-  title: "Hindsight - Competitive Intel and Win-Loss Analysis",
-  description: "Winning more starts with knowing why you lose. Hindsight analyzes every deal to show why you win and lose, turning insights into actionable battlecards and enablement.",
+  title: "Hindsight — Win-Loss & Competitive Intelligence, Done For You",
+  description: "Hindsight runs your win-loss and competitive intelligence program — fully managed, AI-powered, and live on every deal. No analyst to hire. No consultant to wait for.",
 };
 
 export default function RootLayout({
@@ -25,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${playfair.variable} antialiased`}
       >
         {children}
       </body>

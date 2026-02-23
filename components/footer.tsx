@@ -1,142 +1,69 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Container } from "@/components/ui/container"
-import { Linkedin, Twitter } from "lucide-react"
+"use client"
 
-const footerLinks = {
-  platform: [
-    { label: "Competitive Enablement", href: "/competitive-enablement" },
-    { label: "Win-Loss Analysis", href: "/win-loss-analysis" },
-    { label: "AI Workflows", href: "/workflows" },
-    { label: "Win-Loss Interviews", href: "/win-loss-research" },
-    { label: "Dashboards", href: "/dashboards" },
-    { label: "Sales Assistant", href: "/slack-assistant" },
-    { label: "Enrich CRM", href: "/enrich-crm" },
-  ],
-  solutions: [
-    { label: "Product Marketing", href: "/solutions/product-marketing" },
-    { label: "Competitive Intelligence", href: "/solutions/for-competitive-intelligence" },
-    { label: "Sales Enablement", href: "/solutions/for-sales-enablement" },
-  ],
-  resources: [
-    { label: "Blog", href: "/blog" },
-    { label: "Documentation", href: "https://docs.usehindsight.com/overview" },
-    { label: "Terms & Conditions", href: "/terms" },
-    { label: "Privacy", href: "/privacy" },
-  ],
-  company: [
-    { label: "Careers", href: "/careers" },
-    { label: "Contact", href: "/contact" },
-    { label: "FAQs", href: "/faqs" },
-  ],
-}
+import Link from "next/link"
+
+const footerLinks = [
+  { label: "Platform", href: "/platform" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Case Studies", href: "/resources/case-studies" },
+  { label: "Docs", href: "https://docs.usehindsight.com/overview" },
+  { label: "Privacy", href: "/legal/privacy" },
+]
 
 export function Footer() {
   return (
-    <footer className="bg-[#F5F8FB] text-[#11214C] border-t border-[#E8EEF4]">
-      <Container size="wide" className="py-16">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
-          {/* Logo and Info */}
-          <div className="col-span-2">
-            <Link href="/" className="flex items-center mb-4">
-              <Image
-                src="/hindsightlogo-clear.png"
-                alt="Hindsight"
-                width={140}
-                height={32}
-                className="h-8 w-auto"
-              />
-            </Link>
-            <p className="text-[#11214C]/50 text-sm mb-4">backed by</p>
-            <div className="flex gap-4">
-              {/* Placeholder for investor logos */}
-              <div className="w-20 h-6 bg-[#11214C]/10 rounded" />
-              <div className="w-20 h-6 bg-[#11214C]/10 rounded" />
-            </div>
-            <p className="text-[#11214C]/50 text-xs mt-6">
-              © 2026 Baseplate Tech Inc.
-              <br />
-              85 Broad Street, Floor 17
-              <br />
-              New York, NY, 10004
-            </p>
+    <footer
+      style={{
+        background: "#0F1F3D",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        padding: "40px 60px",
+      }}
+    >
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-7xl mx-auto">
+        {/* Logo + tagline */}
+        <div>
+          <div
+            style={{
+              fontFamily: "var(--font-serif), 'Playfair Display', Georgia, serif",
+              fontWeight: 700,
+              fontSize: "18px",
+              color: "#FFFFFF",
+              marginBottom: "4px",
+            }}
+          >
+            Hindsight
           </div>
-
-          {/* Platform */}
-          <div>
-            <h4 className="text-[#11214C] font-medium mb-4">Platform</h4>
-            <ul className="space-y-3">
-              {footerLinks.platform.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-[#11214C]/60 hover:text-[#11214C] text-sm transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Solutions */}
-          <div>
-            <h4 className="text-[#11214C] font-medium mb-4">Solutions</h4>
-            <ul className="space-y-3">
-              {footerLinks.solutions.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-[#11214C]/60 hover:text-[#11214C] text-sm transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h4 className="text-[#11214C] font-medium mb-4">Resources</h4>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-[#11214C]/60 hover:text-[#11214C] text-sm transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="text-[#11214C] font-medium mb-4">Company</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-[#11214C]/60 hover:text-[#11214C] text-sm transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="flex gap-3 mt-6">
-              <Link
-                href="https://www.linkedin.com/company/hindsighthq/"
-                className="text-[#11214C]/60 hover:text-[#11214C] transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin size={20} />
-              </Link>
-              <Link
-                href="https://x.com/hindsight_ai"
-                className="text-[#11214C]/60 hover:text-[#11214C] transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Twitter size={20} />
-              </Link>
-            </div>
+          <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.35)" }}>
+            Winning more starts with knowing why you lose.
           </div>
         </div>
-      </Container>
+
+        {/* Links */}
+        <ul className="flex items-center flex-wrap justify-center gap-7" style={{ listStyle: "none" }}>
+          {footerLinks.map((link) => (
+            <li key={link.label}>
+              <Link
+                href={link.href}
+                className="text-sm transition-colors"
+                style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}
+                onMouseEnter={(e) => {
+                  ;(e.currentTarget as HTMLElement).style.color = "#D4A843"
+                }}
+                onMouseLeave={(e) => {
+                  ;(e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.4)"
+                }}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {/* Copyright */}
+        <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.25)" }}>
+          © 2026 Baseplate Tech Inc.
+        </div>
+      </div>
     </footer>
   )
 }
