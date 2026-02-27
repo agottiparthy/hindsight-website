@@ -2,127 +2,105 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
-import { Container } from "@/components/ui/container"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 
 const navLinks = [
-  {
-    label: "Platform",
-    href: "/platform",
-    children: [
-      { label: "Competitive Enablement", href: "/competitive-enablement" },
-      { label: "Win-Loss Analysis", href: "/win-loss-analysis" },
-      { label: "AI Workflows", href: "/workflows" },
-      { label: "Win-Loss Interviews", href: "/win-loss-research" },
-      { label: "Dashboards", href: "/dashboards" },
-      { label: "Sales Assistant", href: "/slack-assistant" },
-      { label: "Enrich CRM", href: "/enrich-crm" },
-    ],
-  },
-  {
-    label: "Solutions",
-    href: "/solutions",
-    children: [
-      { label: "Product Marketing", href: "/solutions/product-marketing" },
-      { label: "Competitive Intelligence", href: "/solutions/for-competitive-intelligence" },
-      { label: "Sales Enablement", href: "/solutions/for-sales-enablement" },
-    ],
-  },
-  { label: "Customers", href: "/customers" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Results", href: "#results" },
+  { label: "Compare", href: "#compare" },
   { label: "Pricing", href: "/pricing" },
-  {
-    label: "Resources",
-    href: "/resources",
-    children: [
-      { label: "Blog", href: "/blog" },
-      { label: "Documentation", href: "https://docs.usehindsight.com/overview" },
-    ],
-  },
 ]
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    window.addEventListener("scroll", onScroll)
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#E8EEF4]">
-      <Container size="wide">
-        <nav className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/hindsightlogo-clear.png"
-              alt="Hindsight"
-              width={140}
-              height={32}
-              className="h-8 w-auto"
-            />
-          </Link>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "border-b border-[#E8E4DC]" : "border-b border-transparent"
+      }`}
+      style={{ background: "rgba(248,246,241,0.92)", backdropFilter: "blur(12px)" }}
+    >
+      <div className="max-w-[1280px] mx-auto px-12 flex items-center justify-between h-[72px]">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/hindsightlogo-clear.png"
+            alt="Hindsight"
+            width={140}
+            height={32}
+            className="h-8 w-auto"
+          />
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-[#11214C]/70 hover:text-[#11214C] text-sm font-medium transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button variant="ghost" className="text-[#11214C]/70 hover:text-[#11214C] hover:bg-[#11214C]/5" asChild>
-              <Link href="https://app.usehindsight.com/sign-in">Sign In</Link>
-            </Button>
-            <Button className="bg-[#3EA7ED] text-white hover:bg-[#3EA7ED]/90" asChild>
-              <Link href="https://app.usehindsight.com/sign-up">Try it Free</Link>
-            </Button>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="lg:hidden text-[#11214C] p-2"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-9">
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="font-sans text-sm text-[#374151] hover:text-[#0F1F3D] transition-colors"
+              style={{ fontFamily: "Arial, Helvetica, sans-serif", letterSpacing: "0.01em" }}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            href="/request-demo"
+            className="bg-[#0F1F3D] text-white text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded hover:bg-[#1a3660] transition-colors"
+            style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
           >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            Get a Demo
+          </Link>
         </nav>
 
-        {/* Mobile Navigation */}
-        <div
-          className={cn(
-            "lg:hidden overflow-hidden transition-all duration-300",
-            mobileOpen ? "max-h-[400px] pb-6" : "max-h-0"
-          )}
+        {/* Mobile toggle */}
+        <button
+          className="lg:hidden text-[#0F1F3D] p-2"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
         >
-          <div className="flex flex-col gap-4 pt-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-[#11214C]/70 hover:text-[#11214C] text-sm font-medium transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="flex flex-col gap-2 pt-4 border-t border-[#E8EEF4]">
-              <Button variant="ghost" className="text-[#11214C]/70 hover:text-[#11214C] hover:bg-[#11214C]/5 justify-start" asChild>
-                <Link href="https://app.usehindsight.com/sign-in">Sign In</Link>
-              </Button>
-              <Button className="bg-[#3EA7ED] text-white hover:bg-[#3EA7ED]/90" asChild>
-                <Link href="https://app.usehindsight.com/sign-up">Try it Free</Link>
-              </Button>
-            </div>
-          </div>
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <div
+        className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-[#E8E4DC] ${
+          mobileOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+        }`}
+        style={{ background: "rgba(248,246,241,0.98)" }}
+      >
+        <div className="max-w-[1280px] mx-auto px-12 py-6 flex flex-col gap-5">
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-sm text-[#374151] hover:text-[#0F1F3D]"
+              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            href="/request-demo"
+            className="bg-[#0F1F3D] text-white text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded text-center"
+            style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+            onClick={() => setMobileOpen(false)}
+          >
+            Get a Demo
+          </Link>
         </div>
-      </Container>
+      </div>
     </header>
   )
 }

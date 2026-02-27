@@ -1,63 +1,542 @@
-import { Container } from "@/components/ui/container"
-import { Badge } from "@/components/ui/badge"
+"use client"
+
+import { useEffect, useRef, useState } from "react"
 
 const steps = [
   {
-    number: 1,
-    title: "Connect and Research",
-    description:
-      "Connect your tools in a few clicks. Hindsight conducts layered analysis of your market, messaging, and deals.",
+    num: "01",
+    title: "Aggregate without trusting",
+    body: "Hindsight ingests from Gong, Salesforce, HubSpot, Clari, Outreach, and more. Data stays in-sync, is organized, vectorized, and tagged - ready for complex AI workflows.",
   },
   {
-    number: 2,
-    title: "Build Your Workflows",
-    description:
-      "Build tailored Recipes that combine insights from the web and your deals into battlecards, product comparisons, win-loss reports, newsletters, and more.",
+    num: "02",
+    title: "Deal Review Agent",
+    body: "Where transcripts contradict CRM fields, Hindsight resolves it. Where data is missing, Hindsight fills gaps by autonomously sourcing buyer and seller interviews.",
   },
   {
-    number: 3,
-    title: "Distribute Insights",
-    description:
-      "Hindsight plugs into Slack, Email, Zapier, Glean, and other systems via API to help your teams take action.",
+    num: "03",
+    title: "Unstructured noise → structured outputs",
+    body: "Verified loss reasons. Correctly attributed competitors. Full deal context. Confidence levels on every field. Structured for AI to parse cleanly.",
+  },
+  {
+    num: "04",
+    title: "Purpose-built MCP for agents",
+    body: "Allow your agents to select deals via semantic search or structured queries. Get deep qualitative and quantitative insights at your Agent's fingertips.",
   },
 ]
 
-export function HowItWorksSection() {
+/* ─── Panel 01: Aggregate ─────────────────────────────────────────────────── */
+function AggregatePanel() {
   return (
-    <section className="bg-white py-20 md:py-28">
-      <Container>
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div>
-            <Badge variant="brand" className="mb-4">How it Works</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#11214C] mb-6">
-              AI agents that understand why you win or lose.
-            </h2>
-            <p className="text-lg text-[#11214C]/70 mb-8">
-              Hindsight makes sure fixable mistakes and exploitable opportunities are detected quickly - and the right stakeholders are notified to take action.
-            </p>
+    <div className="bg-white border border-[#E8E4DC] rounded-xl p-6 shadow-[0_8px_40px_rgba(15,31,61,0.08)]">
+      <div className="flex items-center justify-between mb-5 pb-4 border-b border-[#E8E4DC]">
+        <span
+          className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#6B7280]"
+          style={{ fontFamily: "Arial, sans-serif" }}
+        >
+          Data Ingestion Layer
+        </span>
+        <span
+          className="text-[10px] px-2 py-0.5 rounded-sm tracking-widest text-[#D4A843] bg-[#D4A843]/10"
+          style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+        >
+          LIVE
+        </span>
+      </div>
 
-            <div className="space-y-6">
-              {steps.map((step) => (
-                <div key={step.number} className="flex gap-4">
-                  {/* Step number */}
-                  <div className="w-8 h-8 rounded-full bg-[#3EA7ED] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    {step.number}
+      <div className="grid grid-cols-2 gap-2.5 mb-5">
+        {[
+          { name: "Salesforce", records: "2,847 deals", dot: "#0070D2" },
+          { name: "Gong", records: "41,293 calls", dot: "#FF4B00" },
+          { name: "HubSpot", records: "1,204 contacts", dot: "#FF7A59" },
+          { name: "Outreach", records: "8,341 sequences", dot: "#5951DD" },
+        ].map((src) => (
+          <div key={src.name} className="border border-[#E8E4DC] rounded-lg p-3.5 bg-[#FAFAF8]">
+            <div className="flex items-center gap-2 mb-2">
+              <div
+                className="w-2 h-2 rounded-full"
+                style={{ backgroundColor: src.dot }}
+              />
+              <span
+                className="text-xs font-bold text-[#0F1F3D]"
+                style={{ fontFamily: "Arial, sans-serif" }}
+              >
+                {src.name}
+              </span>
+            </div>
+            <div
+              className="text-[11px] text-[#6B7280]"
+              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+            >
+              {src.records}
+            </div>
+            <div
+              className="text-[10px] text-[#D4A843] mt-1.5 tracking-widest"
+              style={{ fontFamily: "Arial, sans-serif" }}
+            >
+              SYNCING ↓
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="flex justify-center mb-3">
+        <div className="flex flex-col items-center gap-0.5">
+          <div className="w-px h-5 bg-[#D4A843]/30" />
+          <div className="text-[#D4A843]">↓</div>
+        </div>
+      </div>
+
+      <div className="bg-[#0F1F3D] rounded-lg p-4 flex items-center justify-between">
+        <div>
+          <div
+            className="text-white text-sm font-bold"
+            style={{ fontFamily: "Georgia, serif" }}
+          >
+            Hindsight
+          </div>
+          <div
+            className="text-white/40 text-[11px] mt-0.5"
+            style={{ fontFamily: "Arial, sans-serif" }}
+          >
+            ingesting · not trusting
+          </div>
+        </div>
+        <div className="text-right">
+          <div
+            className="text-[#D4A843] text-sm font-bold"
+            style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+          >
+            54,385
+          </div>
+          <div
+            className="text-white/40 text-[10px]"
+            style={{ fontFamily: "Arial, sans-serif" }}
+          >
+            records queued
+          </div>
+
+          {/* Callout */}
+          <div className="mt-8 flex items-center gap-3">
+            <div className="h-px flex-1 bg-[#E8E4DC]" />
+            <a
+              href="#"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#D4A843]/40 bg-[#D4A843]/5 hover:bg-[#D4A843]/10 transition-colors group"
+            >
+              <span
+                className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0F1F3D]"
+                style={{ fontFamily: "Arial, sans-serif" }}
+              >
+                Or use our native Agents interface
+              </span>
+              <span className="text-[#D4A843] text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </a>
+            <div className="h-px flex-1 bg-[#E8E4DC]" />
+          </div>
+
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ─── Panel 02: Verify ────────────────────────────────────────────────────── */
+function VerifyPanel() {
+  return (
+    <div className="bg-white border border-[#E8E4DC] rounded-xl p-6 shadow-[0_8px_40px_rgba(15,31,61,0.08)]">
+      <div className="flex items-center justify-between mb-5 pb-4 border-b border-[#E8E4DC]">
+        <span
+          className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#6B7280]"
+          style={{ fontFamily: "Arial, sans-serif" }}
+        >
+          Deal Review Agent
+        </span>
+        <span
+          className="text-[10px] px-2 py-0.5 rounded-sm bg-[#2A5C45] text-white tracking-widest"
+          style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+        >
+          VERIFYING
+        </span>
+      </div>
+
+      <div className="mb-4">
+        <div
+          className="text-[13px] font-bold text-[#0F1F3D]"
+          style={{ fontFamily: "Georgia, serif" }}
+        >
+          Meridian Health — $240K ARR
+        </div>
+        <div
+          className="text-[11px] text-[#6B7280] mt-0.5"
+          style={{ fontFamily: "Arial, sans-serif" }}
+        >
+          Closed lost · Q4 2025 · vs. Competitor A
+        </div>
+      </div>
+
+      <div
+        className="text-[10px] font-bold uppercase tracking-widest text-[#6B7280] mb-2"
+        style={{ fontFamily: "Arial, sans-serif" }}
+      >
+        Sources compared
+      </div>
+
+      <div className="flex flex-col gap-2 mb-4">
+        <div className="flex items-start gap-2 bg-[#FEF2F2] border border-red-100 rounded-lg p-3">
+          <span
+            className="text-[10px] font-bold text-[#EF4444] px-1.5 py-0.5 rounded bg-red-50 mt-0.5 shrink-0"
+            style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+          >
+            CRM
+          </span>
+          <span
+            className="text-sm text-[#9CA3AF] line-through"
+            style={{ fontFamily: "Arial, sans-serif" }}
+          >
+            Lost on pricing
+          </span>
+        </div>
+        <div className="flex items-start gap-2 bg-[#F0FDF4] border border-green-100 rounded-lg p-3">
+          <span
+            className="text-[10px] font-bold text-[#16A34A] px-1.5 py-0.5 rounded bg-green-50 mt-0.5 shrink-0"
+            style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+          >
+            Gong
+          </span>
+          <span
+            className="text-sm text-[#374151]"
+            style={{ fontFamily: "Arial, sans-serif" }}
+          >
+            "Integration with existing stack was the blocker"
+          </span>
+        </div>
+        <div className="flex items-start gap-2 bg-[#F0FDF4] border border-green-100 rounded-lg p-3">
+          <span
+            className="text-[10px] font-bold text-[#16A34A] px-1.5 py-0.5 rounded bg-green-50 mt-0.5 shrink-0"
+            style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+          >
+            Interview
+          </span>
+          <span
+            className="text-sm text-[#374151]"
+            style={{ fontFamily: "Arial, sans-serif" }}
+          >
+            "Competitor had a native connector. We didn't."
+          </span>
+        </div>
+      </div>
+
+      <div className="bg-[#0F1F3D] rounded-lg p-3.5">
+        <div
+          className="text-[10px] text-white/40 mb-1"
+          style={{ fontFamily: "Arial, sans-serif" }}
+        >
+          ✓ Resolved — 3 sources reviewed
+        </div>
+        <div
+          className="text-sm text-white font-bold"
+          style={{ fontFamily: "Georgia, serif" }}
+        >
+          Integration gap vs. Competitor A
+        </div>
+        <div className="flex items-center gap-2 mt-2">
+          <div className="flex-1 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div className="h-full bg-[#D4A843] rounded-full" style={{ width: "92%" }} />
+          </div>
+          <span
+            className="text-[11px] text-[#D4A843]"
+            style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+          >
+            92%
+          </span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ─── Panel 03: Output ────────────────────────────────────────────────────── */
+function OutputPanel() {
+  return (
+    <div className="bg-white border border-[#E8E4DC] rounded-xl p-6 shadow-[0_8px_40px_rgba(15,31,61,0.08)]">
+      <div className="flex items-center justify-between mb-5 pb-4 border-b border-[#E8E4DC]">
+        <span
+          className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#6B7280]"
+          style={{ fontFamily: "Arial, sans-serif" }}
+        >
+          Structured Output
+        </span>
+        <span
+          className="text-[10px] px-2 py-0.5 rounded-sm bg-[#2A5C45] text-white tracking-widest"
+          style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+        >
+          AI-READY
+        </span>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        {[
+          {
+            field: "loss_reason",
+            value: "Integration gap — missing native connector",
+            conf: "92%",
+          },
+          {
+            field: "competitor",
+            value: "Competitor A (semantic match, not keyword)",
+            conf: "88%",
+          },
+          {
+            field: "buyer_quote",
+            value: '"Competitor had native connector. We didn\'t." — Jan 2026',
+            conf: "verified",
+          },
+          {
+            field: "pattern_signal",
+            value: "Integration cited in 41% of losses vs. Comp A ↑18pts QoQ",
+            conf: "94%",
+          },
+        ].map((item) => (
+          <div
+            key={item.field}
+            className="bg-[#EAF4EF] border border-[rgba(42,92,69,0.15)] rounded-lg px-3.5 py-3"
+          >
+            <div className="flex justify-between items-center mb-1">
+              <div
+                className="text-[11px] text-[#2A5C45]"
+                style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+              >
+                {item.field}
+              </div>
+              <div
+                className="text-[10px] font-bold text-[#D4A843]"
+                style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+              >
+                {item.conf}
+              </div>
+            </div>
+            <div
+              className="text-[13px] text-[#374151]"
+              style={{ fontFamily: "Arial, sans-serif" }}
+            >
+              {item.value}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/* ─── Panel 04: Interface (MCP) ───────────────────────────────────────────── */
+function InterfacePanel() {
+  return (
+    <div className="bg-white border border-[#E8E4DC] rounded-xl p-6 shadow-[0_8px_40px_rgba(15,31,61,0.08)]">
+      <div className="flex items-center justify-between mb-5 pb-4 border-b border-[#E8E4DC]">
+        <span
+          className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#6B7280]"
+          style={{ fontFamily: "Arial, sans-serif" }}
+        >
+          Hindsight MCP · Query Interface
+        </span>
+        <span
+          className="text-[10px] px-2 py-0.5 rounded-sm bg-[#2A5C45] text-white tracking-widest"
+          style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+        >
+          CONNECTED
+        </span>
+      </div>
+
+      <div className="bg-[#0F1F3D] rounded-lg p-5 mb-4">
+        <div
+          className="text-xs text-white/40 mb-2"
+          style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+        >
+          # Query verified deal intelligence
+        </div>
+        <div
+          style={{
+            fontFamily: "var(--font-ibm-plex-mono), monospace",
+            lineHeight: "1.7",
+          }}
+        >
+          <span className="text-sm text-[#D4A843]">hindsight.deals.search(&#123;</span>
+          <br />
+          <span className="text-sm text-white/70 pl-4">competitor: &quot;Competitor A&quot;,</span>
+          <br />
+          <span className="text-sm text-white/70 pl-4">outcome: &quot;lost&quot;,</span>
+          <br />
+          <span className="text-sm text-white/70 pl-4">verified_only: true</span>
+          <br />
+          <span className="text-sm text-[#D4A843]">&#125;)</span>
+        </div>
+      </div>
+
+      <div
+        className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#6B7280] mb-2"
+        style={{ fontFamily: "Arial, sans-serif" }}
+      >
+        Returns
+      </div>
+      <div className="flex flex-col gap-2">
+        {[
+          {
+            key: "verified_loss_reason",
+            val: "Integration gap — missing native connector (92% confidence)",
+          },
+          {
+            key: "buyer_quote",
+            val: '"Competitor had a native connector. We didn\'t." — Buyer interview, Jan 2026',
+          },
+          {
+            key: "pattern_signal",
+            val: "Integration cited in 41% of losses vs. Competitor A — up 18pts QoQ",
+          },
+        ].map((item) => (
+          <div
+            key={item.key}
+            className="bg-[#EAF4EF] border border-[rgba(42,92,69,0.15)] rounded-lg px-3.5 py-3"
+          >
+            <div
+              className="text-[11px] text-[#2A5C45] mb-1"
+              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+            >
+              {item.key}
+            </div>
+            <div
+              className="text-sm text-[#374151]"
+              style={{ fontFamily: "Arial, sans-serif" }}
+            >
+              {item.val}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+const panels = [AggregatePanel, VerifyPanel, OutputPanel, InterfacePanel]
+
+/* ─── Section ─────────────────────────────────────────────────────────────── */
+export function HowItWorksSection() {
+  const [activeStep, setActiveStep] = useState(0)
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return
+      const rect = sectionRef.current.getBoundingClientRect()
+      const scrolled = -rect.top
+      const scrollable = rect.height - window.innerHeight
+      const progress = Math.max(0, Math.min(0.9999, scrolled / scrollable))
+      const step = Math.min(3, Math.floor(progress * 4))
+      setActiveStep(step)
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  return (
+    <div ref={sectionRef} id="how-it-works" style={{ height: "400vh" }}>
+      <div className="sticky top-0 h-screen flex flex-col justify-center px-12 overflow-hidden bg-[#F8F6F1]">
+        <div className="max-w-[1280px] mx-auto w-full">
+
+          {/* Header */}
+          <div className="mb-10">
+            <p
+              className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-3"
+              style={{ fontFamily: "Arial, sans-serif" }}
+            >
+              How It Works
+            </p>
+            <h2
+              className="text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#0F1F3D]"
+              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+            >
+              Aggregate. Verify. Output. Interface.
+            </h2>
+          </div>
+
+          {/* Two-col grid */}
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+
+            {/* Steps list */}
+            <div className="flex flex-col">
+              {steps.map((step, i) => (
+                <div
+                  key={i}
+                  className={`flex gap-6 py-5 transition-all duration-400 ${
+                    i < steps.length - 1 ? "border-b border-[#E8E4DC]" : ""
+                  } ${i === 0 ? "pt-0" : ""}`}
+                  style={{ opacity: i === activeStep ? 1 : 0.25 }}
+                >
+                  <div
+                    className="text-xs text-[#6B7280] tracking-[0.06em] pt-1 min-w-[32px]"
+                    style={{ fontFamily: "var(--font-ibm-plex-mono), 'Courier New', monospace" }}
+                  >
+                    {step.num}
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-[#11214C] mb-1">{step.title}</h3>
-                    <p className="text-[#11214C]/60 text-sm">{step.description}</p>
+                    <h3
+                      className="text-lg font-bold text-[#0F1F3D] mb-1.5"
+                      style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                    >
+                      {step.title}
+                    </h3>
+                    <p
+                      className="text-[14px] text-[#374151] leading-relaxed"
+                      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                    >
+                      {step.body}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
+
+            {/* Panels — stacked in same grid cell via CSS grid */}
+            <div className="grid">
+              {panels.map((Panel, i) => (
+                <div
+                  key={i}
+                  className="col-start-1 row-start-1 transition-all duration-500"
+                  style={{
+                    opacity: i === activeStep ? 1 : 0,
+                    transform: `translateY(${
+                      i === activeStep ? 0 : i < activeStep ? -18 : 18
+                    }px)`,
+                    pointerEvents: i === activeStep ? "auto" : "none",
+                  }}
+                >
+                  <Panel />
+                </div>
+              ))}
+            </div>
+
           </div>
 
-          {/* Visual placeholder */}
-          <div className="bg-[#F5F8FB] border border-[#E8EEF4] rounded-2xl p-6 aspect-square flex items-center justify-center">
-            <span className="text-[#11214C]/30">Product Visual</span>
+          {/* Callout */}
+          <div className="mt-8 flex items-center gap-3">
+            <div className="h-px flex-1 bg-[#E8E4DC]" />
+            <a
+              href="#"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#D4A843]/40 bg-[#D4A843]/5 hover:bg-[#D4A843]/10 transition-colors group"
+            >
+              <span
+                className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0F1F3D]"
+                style={{ fontFamily: "Arial, sans-serif" }}
+              >
+                Or use our native Agents interface
+              </span>
+              <span className="text-[#D4A843] text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </a>
+            <div className="h-px flex-1 bg-[#E8E4DC]" />
           </div>
+
         </div>
-      </Container>
-    </section>
+      </div>
+    </div>
   )
 }

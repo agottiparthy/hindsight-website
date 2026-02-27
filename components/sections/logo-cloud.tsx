@@ -18,16 +18,19 @@ const logos = [
 
 export function LogoCloudSection() {
   return (
-    <section className="bg-[#F5F8FB] py-12 border-b border-[#E8EEF4]">
+    <section className="bg-[#F8F6F1] pb-[50px] border-b border-[#E8E4DC]">
       <Container>
-        <p className="text-center text-[#11214C]/60 text-sm mb-8">
-          50+ GTM Teams Use Hindsight to Win More Deals
+        <p
+          className="text-center text-[11px] uppercase tracking-[0.12em] text-[#6B7280] mb-8"
+          style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+        >
+          AI-Powered GTM Teams Use Hindsight
         </p>
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border-l border-t border-[#E8EEF4]">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border-l border-t border-[#E8E4DC]">
           {logos.map((logo, i) => (
             <div
               key={i}
-              className="border-r border-b border-[#E8EEF4] flex items-center justify-center px-6 py-6"
+              className="border-r border-b border-[#E8E4DC] flex items-center justify-center px-6 py-6"
               title={logo.name}
             >
               <div className="relative h-7 w-full">
@@ -35,7 +38,7 @@ export function LogoCloudSection() {
                   src={logo.src}
                   alt={logo.name}
                   fill
-                  className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                  className="object-contain opacity-60 hover:opacity-90 transition-opacity"
                 />
               </div>
             </div>
