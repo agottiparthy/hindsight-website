@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: "Hindsight - Competitive Intel and Win-Loss Analysis",
-  description: "Winning more starts with knowing why you lose. Hindsight analyzes every deal to show why you win and lose, turning insights into actionable battlecards and enablement.",
+  title: "Hindsight — System of Record for GTM Intelligence",
+  description: "Hindsight verifies every deal — cross-referencing Gong, Salesforce, and buyer interviews — and outputs validated intelligence your AI agents can actually trust.",
 };
 
 export default function RootLayout({
@@ -24,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${ibmPlexMono.variable} antialiased`}>
         {children}
       </body>
     </html>
