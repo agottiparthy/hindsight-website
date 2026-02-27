@@ -14,7 +14,7 @@ export function HeroSection() {
             className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-6"
             style={{ fontFamily: "Arial, Helvetica, sans-serif", animationDelay: "0.1s" }}
           >
-            System of Record · GTM Intelligence
+            System of Record · Win-Loss Intelligence
           </p>
           <h1
             className="text-[clamp(42px,5vw,64px)] font-bold leading-[1.1] tracking-[-0.025em] text-[#0F1F3D] mb-7"
@@ -28,7 +28,7 @@ export function HeroSection() {
             className="text-lg leading-relaxed text-[#374151] max-w-[480px] mb-10"
             style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
           >
-            Hindsight verifies every deal — cross-referencing calls, CRM data, and win-loss interviews — and outputs validated intelligence your AI agents can actually trust.
+            Hindsight reviews and verifies every deal — cross-referencing your calls and other GTM data, then filling in the gaps with win-loss interviews. Feed your AI Agents high-quality validated intelligence you can actually trust.
           </p>
           <div className="flex items-center gap-4 mb-14">
             <Link

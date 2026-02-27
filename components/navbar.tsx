@@ -2,12 +2,30 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
+import { Menu, X, ChevronDown } from "lucide-react"
+
+const solutionsLinks = [
+  {
+    label: "Competitive Intelligence",
+    href: "/solutions/competitive-intelligence",
+    desc: "Battlecards & competitor monitoring from deal data",
+  },
+  {
+    label: "Win-Loss Analysis",
+    href: "/solutions/win-loss-analysis",
+    desc: "Understand why every deal was won or lost",
+  },
+  {
+    label: "Sales Enablement",
+    href: "/solutions/sales-enablement",
+    desc: "Verified answers for reps, mid-deal, in Slack",
+  },
+]
 
 const navLinks = [
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Results", href: "#results" },
+  { label: "Results", href: "/results" },
   { label: "Compare", href: "#compare" },
   { label: "Pricing", href: "/pricing" },
 ]
@@ -15,11 +33,24 @@ const navLinks = [
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [solutionsOpen, setSolutionsOpen] = useState(false)
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener("scroll", onScroll)
     return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setSolutionsOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
   return (
@@ -49,6 +80,47 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-9">
+          {/* Solutions dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setSolutionsOpen((o) => !o)}
+              className="flex items-center gap-1 font-sans text-sm text-[#374151] hover:text-[#0F1F3D] transition-colors"
+              style={{ fontFamily: "Arial, Helvetica, sans-serif", letterSpacing: "0.01em" }}
+            >
+              Solutions
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${solutionsOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            {solutionsOpen && (
+              <div className="absolute top-full left-0 mt-3 w-[320px] bg-white border border-[#E8E4DC] rounded-xl shadow-[0_8px_32px_rgba(15,31,61,0.12)] overflow-hidden">
+                {solutionsLinks.map((s) => (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    onClick={() => setSolutionsOpen(false)}
+                    className="flex flex-col px-5 py-4 hover:bg-[#F8F6F1] transition-colors border-b border-[#F0EDE8] last:border-0 group"
+                  >
+                    <span
+                      className="text-[13px] font-bold text-[#0F1F3D] mb-0.5 group-hover:text-[#D4A843] transition-colors"
+                      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                    >
+                      {s.label}
+                    </span>
+                    <span
+                      className="text-[12px] text-[#6B7280] leading-snug"
+                      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                    >
+                      {s.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -81,11 +153,38 @@ export function Navbar() {
       {/* Mobile menu */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-[#E8E4DC] ${
-          mobileOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+          mobileOpen ? "max-h-[480px] opacity-100" : "max-h-0 opacity-0"
         }`}
         style={{ background: "rgba(248,246,241,0.98)" }}
       >
         <div className="max-w-[1280px] mx-auto px-12 py-6 flex flex-col gap-5">
+          {/* Mobile Solutions accordion */}
+          <button
+            className="flex items-center justify-between text-sm text-[#374151] hover:text-[#0F1F3D] text-left"
+            style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+            onClick={() => setMobileSolutionsOpen((o) => !o)}
+          >
+            Solutions
+            <ChevronDown
+              size={14}
+              className={`transition-transform duration-200 ${mobileSolutionsOpen ? "rotate-180" : ""}`}
+            />
+          </button>
+          {mobileSolutionsOpen && (
+            <div className="flex flex-col gap-3 pl-4 border-l-2 border-[#D4A843]/30 -mt-2">
+              {solutionsLinks.map((s) => (
+                <Link
+                  key={s.href}
+                  href={s.href}
+                  className="text-sm text-[#374151] hover:text-[#0F1F3D]"
+                  style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {s.label}
+                </Link>
+              ))}
+            </div>
+          )}
           {navLinks.map((link) => (
             <Link
               key={link.label}
