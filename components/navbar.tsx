@@ -29,7 +29,7 @@ export function Navbar() {
       }`}
       style={{ background: "rgba(248,246,241,0.92)", backdropFilter: "blur(12px)" }}
     >
-      <div className="max-w-[1280px] mx-auto px-12 flex items-center justify-between h-[72px]">
+      <div className="max-w-[1280px] mx-auto flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link href="/" className="flex flex-row gap-2 items-center">
           <Image
