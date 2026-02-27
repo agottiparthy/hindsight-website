@@ -4,16 +4,16 @@ import Image from "next/image"
 const logos = [
   { name: "PurpleLab", src: "/customer_logos/PURPLELAB-LOGO-August2024-1024x224.png" },
   { name: "Amplitude", src: "/customer_logos/amplitude logo.png" },
-  { name: "EventMobi", src: "/customer_logos/eventmobi logo.webp" },
   { name: "Fathom", src: "/customer_logos/fathom logo.svg" },
-  { name: "Hyperbrowser", src: "/customer_logos/hyperbrowser (black).svg" },
   { name: "Ironclad", src: "/customer_logos/ironclad logo.svg" },
   { name: "LaunchDarkly", src: "/customer_logos/launchdarkly-Logo-Vector.svg-.png" },
+    { name: "Hyperbrowser", src: "/customer_logos/hyperbrowser (black).svg" },
   { name: "Nixtla", src: "/customer_logos/nixtla logo.svg" },
   { name: "Raken", src: "/customer_logos/raken app logo.png" },
   { name: "Simpro", src: "/customer_logos/simpro.svg" },
-  { name: "Treasury Prime", src: "/customer_logos/treasury prime.png" },
+  { name: "Treasury Prime", src: "/customer_logos/mimica logo.svg" },
   { name: "Uberall", src: "/customer_logos/uberall.svg" },
+    { name: "EventMobi", src: "/customer_logos/eventmobi logo.webp" },
 ]
 
 export function LogoCloudSection() {

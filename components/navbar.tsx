@@ -31,14 +31,20 @@ export function Navbar() {
     >
       <div className="max-w-[1280px] mx-auto px-12 flex items-center justify-between h-[72px]">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex flex-row gap-2 items-center">
           <Image
-            src="/hindsightlogo-clear.png"
+            src="/hindsightlogo-mark-only.svg"
             alt="Hindsight"
             width={140}
             height={32}
             className="h-8 w-auto"
           />
+            <h1
+            className="text-3xl font-bold leading-[1.1] tracking-[-0.025em] text-[#0F1F3D] mb-1"
+            style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+          >
+            Hindsight
+          </h1>
         </Link>
 
         {/* Desktop nav */}

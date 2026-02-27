@@ -11,17 +11,17 @@ const steps = [
   {
     num: "02",
     title: "Deal Review Agent",
-    body: "Where transcripts contradict CRM fields, Hindsight resolves it. Where data is missing, Hindsight fills gaps by autonomously sourcing buyer and seller interviews.",
+    body: "Hindsight investigates every closed deal like an expert human analyst would - cross-referencing CRM data, call transcripts, email threads, and win-loss interviews to surface the real reasons behind every win and loss.",
   },
   {
     num: "03",
-    title: "Unstructured noise → structured outputs",
-    body: "Verified loss reasons. Correctly attributed competitors. Full deal context. Confidence levels on every field. Structured for AI to parse cleanly.",
+    title: "Win-Loss Interviews",
+    body: "Where data has gaps, Hindsight fills them. Personalized interviews are automatically sent to reps via Slack and buyers via email within 48 hours of close — targeted to the specific deal context, not generic surveys.",
   },
   {
     num: "04",
-    title: "Purpose-built MCP for agents",
-    body: "Allow your agents to select deals via semantic search or structured queries. Get deep qualitative and quantitative insights at your Agent's fingertips.",
+    title: "Trusted Deal Context for AI Agents",
+    body: "Go from low-trust, low-context document chunks to clean, structured deal context. Allow your agents to find deep quantitative and qualitative deal insights via semantic search or structured queries via our APIs and MCP.",
   },
 ]
 
@@ -117,22 +117,7 @@ function AggregatePanel() {
           </div>
 
           {/* Callout */}
-          <div className="mt-8 flex items-center gap-3">
-            <div className="h-px flex-1 bg-[#E8E4DC]" />
-            <a
-              href="#"
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#D4A843]/40 bg-[#D4A843]/5 hover:bg-[#D4A843]/10 transition-colors group"
-            >
-              <span
-                className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0F1F3D]"
-                style={{ fontFamily: "Arial, sans-serif" }}
-              >
-                Or use our Done-For-You Agent Workflows
-              </span>
-              <span className="text-[#D4A843] text-sm group-hover:translate-x-0.5 transition-transform">→</span>
-            </a>
-            <div className="h-px flex-1 bg-[#E8E4DC]" />
-          </div>
+          
 
         </div>
       </div>
@@ -255,8 +240,8 @@ function VerifyPanel() {
   )
 }
 
-/* ─── Panel 03: Output ────────────────────────────────────────────────────── */
-function OutputPanel() {
+/* ─── Panel 03: Win-Loss Interviews ──────────────────────────────────────── */
+function InterviewPanel() {
   return (
     <div className="bg-white border border-[#E8E4DC] rounded-xl p-6 shadow-[0_8px_40px_rgba(15,31,61,0.08)]">
       <div className="flex items-center justify-between mb-5 pb-4 border-b border-[#E8E4DC]">
@@ -264,65 +249,96 @@ function OutputPanel() {
           className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#6B7280]"
           style={{ fontFamily: "Arial, sans-serif" }}
         >
-          Structured Output
+          Win-Loss Interviews · Auto-sent
         </span>
         <span
           className="text-[10px] px-2 py-0.5 rounded-sm bg-[#2A5C45] text-white tracking-widest"
           style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
         >
-          AI-READY
+          48H POST-CLOSE
         </span>
       </div>
 
-      <div className="flex flex-col gap-2">
-        {[
-          {
-            field: "loss_reason",
-            value: "Integration gap — missing native connector",
-            conf: "92%",
-          },
-          {
-            field: "competitor",
-            value: "Competitor A (semantic match, not keyword)",
-            conf: "88%",
-          },
-          {
-            field: "buyer_quote",
-            value: '"Competitor had native connector. We didn\'t." — Jan 2026',
-            conf: "verified",
-          },
-          {
-            field: "pattern_signal",
-            value: "Integration cited in 41% of losses vs. Comp A ↑18pts QoQ",
-            conf: "94%",
-          },
-        ].map((item) => (
-          <div
-            key={item.field}
-            className="bg-[#EAF4EF] border border-[rgba(42,92,69,0.15)] rounded-lg px-3.5 py-3"
-          >
-            <div className="flex justify-between items-center mb-1">
-              <div
-                className="text-[11px] text-[#2A5C45]"
-                style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
-              >
-                {item.field}
-              </div>
-              <div
-                className="text-[10px] font-bold text-[#D4A843]"
-                style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
-              >
-                {item.conf}
-              </div>
+      {/* Seller interview — Slack */}
+      <div className="mb-4">
+        <div
+          className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#6B7280] mb-2"
+          style={{ fontFamily: "Arial, sans-serif" }}
+        >
+          Seller interview · via Slack
+        </div>
+        <div className="flex flex-col gap-2">
+          <div className="bg-[#0F1F3D] rounded-lg rounded-bl-sm px-3.5 py-3 max-w-[85%]">
+            <div
+              className="text-[11px] text-[#D4A843] mb-1"
+              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+            >
+              @Hindsight
             </div>
             <div
-              className="text-[13px] text-[#374151]"
+              className="text-[13px] text-white/90 leading-snug"
               style={{ fontFamily: "Arial, sans-serif" }}
             >
-              {item.value}
+              You lost Meridian Health vs. Competitor A. Did the integration gap
+              come up before the final call, or only at close?
             </div>
           </div>
-        ))}
+          <div className="bg-[#F0FDF4] border border-green-100 rounded-lg rounded-br-sm px-3.5 py-3 max-w-[85%] self-end">
+            <div
+              className="text-[11px] text-[#16A34A] mb-1"
+              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+            >
+              Rep · 14 min ago
+            </div>
+            <div
+              className="text-[13px] text-[#374151] leading-snug"
+              style={{ fontFamily: "Arial, sans-serif" }}
+            >
+              It was there from demo 1 actually. They kept asking about native
+              connectors and we kept saying &ldquo;roadmap.&rdquo;
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Buyer interview — email */}
+      <div className="border-t border-[#E8E4DC] pt-4">
+        <div
+          className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#6B7280] mb-2"
+          style={{ fontFamily: "Arial, sans-serif" }}
+        >
+          Buyer interview · via email
+        </div>
+        <div className="bg-[#FAFAF8] border border-[#E8E4DC] rounded-lg px-3.5 py-3">
+          <div className="flex justify-between items-start mb-2">
+            <div
+              className="text-[12px] font-bold text-[#0F1F3D]"
+              style={{ fontFamily: "Arial, sans-serif" }}
+            >
+              Re: Quick question about your evaluation
+            </div>
+            <div
+              className="text-[10px] text-[#6B7280]"
+              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+            >
+              2d ago
+            </div>
+          </div>
+          <div
+            className="text-[13px] text-[#374151] leading-snug italic"
+            style={{ fontFamily: "Georgia, serif" }}
+          >
+            &ldquo;Honestly the native connector was the deciding factor. We
+            needed it live in 30 days and the roadmap answer wasn&rsquo;t
+            enough.&rdquo;
+          </div>
+          <div
+            className="text-[11px] text-[#6B7280] mt-2"
+            style={{ fontFamily: "Arial, sans-serif" }}
+          >
+            — VP of Engineering, Meridian Health
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -416,7 +432,7 @@ function InterfacePanel() {
   )
 }
 
-const panels = [AggregatePanel, VerifyPanel, OutputPanel, InterfacePanel]
+const panels = [AggregatePanel, VerifyPanel, InterviewPanel, InterfacePanel]
 
 /* ─── Section ─────────────────────────────────────────────────────────────── */
 export function HowItWorksSection() {
@@ -455,7 +471,7 @@ export function HowItWorksSection() {
               className="text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#0F1F3D]"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
             >
-              Aggregate. Verify. Output. Interface.
+              Aggregate. Verify. Enrich. Interface.
             </h2>
           </div>
 
@@ -515,24 +531,6 @@ export function HowItWorksSection() {
               ))}
             </div>
 
-          </div>
-
-          {/* Callout */}
-          <div className="mt-8 flex items-center gap-3">
-            <div className="h-px flex-1 bg-[#E8E4DC]" />
-            <a
-              href="#"
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#D4A843]/40 bg-[#D4A843]/5 hover:bg-[#D4A843]/10 transition-colors group"
-            >
-              <span
-                className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0F1F3D]"
-                style={{ fontFamily: "Arial, sans-serif" }}
-              >
-                Or use our Done-For-You Agent Workflows
-              </span>
-              <span className="text-[#D4A843] text-sm group-hover:translate-x-0.5 transition-transform">→</span>
-            </a>
-            <div className="h-px flex-1 bg-[#E8E4DC]" />
           </div>
 
         </div>

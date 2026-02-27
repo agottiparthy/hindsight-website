@@ -14,7 +14,7 @@ const problems = [
   {
     num: "03 / AI Agents",
     title: "Smarter models can't fix bad data",
-    body: "Everyone is building AI Agents. The outputs are convincing, but on shaky foundation. Garbage in, garbage out — at AI speed.",
+    body: "Everyone is building AI Agents. The outputs are convincing, but on shaky foundation. Slop in, slop out — at AI speed.",
     stat: "~95% of data-driven errors and hallucinations go undetected until it's too late.",
   },
 ]
@@ -35,14 +35,15 @@ export function ProblemSection() {
           className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-5"
           style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
         >
-          The Problem
+          The Slop Problem
         </p>
         <h2
           className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-white mb-4"
           style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
         >
           GTM AI is running on<br />
-          systematically bad data.
+                 <em className="italic text-[#D4A843]">bad data.</em>
+
         </h2>
         <p
           className="text-lg leading-relaxed text-white/60 max-w-[560px] mb-12"

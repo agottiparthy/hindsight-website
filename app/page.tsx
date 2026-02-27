@@ -6,6 +6,7 @@ import {
   StatsBarSection,
   ProblemSection,
   HowItWorksSection,
+  SolutionsSection,
   ComparisonSection,
   KeyResultsSection,
   CTASection,
@@ -17,12 +18,15 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
-                <LogoCloudSection />
+        <LogoCloudSection />
         <ProblemSection />
         <HowItWorksSection />
-        <StatsBarSection />
-        <ComparisonSection />
+        <SolutionsSection />
         <KeyResultsSection />
+        <StatsBarSection />
+
+        <ComparisonSection />
+
         <CTASection />
       </main>
       <Footer />
