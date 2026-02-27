@@ -10,7 +10,7 @@ const results = [
 
 const testimonials = [
   {
-    quote: "We used to rely on CRM notes, which are not reliable. It wasn't a full picture of what we were trying to learn from our lost and won deals. Hindsight helps our sellers know what's actually working in other deals. ",
+    quote: "We used to rely on CRM notes, which are not reliable. It wasn't a full picture of what we were trying to learn from our lost and won deals. Hindsight helps our sellers know what's actually working in other deals - which helps them win. ",
     initials: "TD",
     name: "Jason Bonhert",
     role: "Sr. PMM - Simpro Group",

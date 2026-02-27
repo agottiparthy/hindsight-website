@@ -127,7 +127,7 @@ function AggregatePanel() {
                 className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0F1F3D]"
                 style={{ fontFamily: "Arial, sans-serif" }}
               >
-                Or use our native Agents interface
+                Or use our Done-For-You Agent Workflows
               </span>
               <span className="text-[#D4A843] text-sm group-hover:translate-x-0.5 transition-transform">→</span>
             </a>
@@ -528,7 +528,7 @@ export function HowItWorksSection() {
                 className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0F1F3D]"
                 style={{ fontFamily: "Arial, sans-serif" }}
               >
-                Or use our native Agents interface
+                Or use our Done-For-You Agent Workflows
               </span>
               <span className="text-[#D4A843] text-sm group-hover:translate-x-0.5 transition-transform">→</span>
             </a>

@@ -167,7 +167,12 @@ export function ComparisonSection() {
                     borderColor: "#E8E4DC",
                   }}
                 >
-                  Traditional programs take ~86 days on average. Most cover less than 1% of closed deals.
+                  <p
+                    className="text-[15px] italic text-[#0F1F3D] leading-relaxed"
+                    style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                  >
+                    &ldquo;Because of cost we were covering ~1% of deals. By the time we got insights back, it was next quarter and they didn't matter. &rdquo;
+                  </p>
                 </div>
               )}
 
@@ -180,7 +185,12 @@ export function ComparisonSection() {
                     borderColor: "#E8E4DC",
                   }}
                 >
-                  ~33% of deals analyzed show significant mismatch between CRM loss reasons and what transcripts revealed.
+                  <p
+                    className="text-[15px] italic text-[#0F1F3D] leading-relaxed"
+                    style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                  >
+                    &ldquo;Our teams are obviously experimenting with new AI workflows. But the data flowing in is questionable. There's no sense of what "good" looks like. &rdquo;
+                  </p>
                 </div>
               )}
             </div>
@@ -194,7 +204,7 @@ export function ComparisonSection() {
         >
           {[
             { label: "Traditional programs", stat: "<1%", desc: "of deals covered" },
-            { label: "Gong + AI on bad data", stat: "33%", desc: "of deals have CRM mismatches — undetected" },
+            { label: "AI on bad data", stat: "33%", desc: "of deals misunderstand the key competitor or win-loss reason" },
             { label: "Hindsight", stat: "100%", desc: "of deals analyzed, verified, and AI-ready", highlight: true },
           ].map((item, i) => (
             <div

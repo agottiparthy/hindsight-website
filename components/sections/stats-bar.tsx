@@ -1,8 +1,8 @@
 const stats = [
   { num: "350", suffix: "K+", desc: "Deals analyzed and verified" },
-  { num: "3",   suffix: "K+", desc: "Buyer interviews conducted" },
-  { num: "44",  suffix: "%",  desc: "Avg improvement in loss reason accuracy" },
-  { num: "75",  suffix: "%",  desc: "Better competitor attribution vs. Gong" },
+  { num: "13",   suffix: "K+", desc: "Win-Loss interviews conducted" },
+  { num: "128",  suffix: "K+",  desc: "Inaccuracies detected and corrected" },
+  { num: "44",  suffix: "%",  desc: "Avg improvement in win-loss accuracy" },
 ]
 
 export function StatsBarSection() {
