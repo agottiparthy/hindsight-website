@@ -9,15 +9,15 @@ const problems = [
   },
   {
     num: "02 / Call Transcripts",
-    title: "Naive RAG misses the point",
-    body: "Gong can tell you how often something was said. It can't tell you what impacted deal outcomes. AI inherits the noise.",
-    stat: "~45% worse competitor attribution than Hindsight's semantic analysis",
+    title: "Frequency isn't causality",
+    body: "Gong tells you what came up, not what drove the outcome. Pricing was mentioned in 40% of deals against competitor X — but did it actually impact the decision?",
+    stat: "75% more accurate competitor attribution than keyword-based tracking.",
   },
   {
     num: "03 / AI Agents",
-    title: "Smarter models can't fix bad data",
-    body: "Everyone is building AI Agents. The outputs are convincing, but on shaky foundation. Slop in, slop out — at AI speed.",
-    stat: "~95% of data-driven errors and hallucinations go undetected until it's too late.",
+    title: "Bad inputs, convincing outputs",
+    body: "Everyone is building AI workflows. Confident summaries of bad data are harder to catch than obvious errors — and nobody's catching them.",
+    stat: "Hindsight corrected 128,000+ loss reasons in 2025.",
   },
 ]
 
@@ -103,7 +103,7 @@ function ConveyorBelt() {
           className="text-[10px] uppercase tracking-[0.14em] text-white/20 mt-3"
           style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
         >
-          Raw GTM Data
+          Unverified Deal Data
         </p>
       </div>
 
@@ -161,13 +161,13 @@ export function ProblemSection() {
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
             >
               GTM AI is running on<br />
-              <em className="italic text-[#D4A843]">bad data.</em>
+              <em className="italic text-[#D4A843]">bad win-loss data.</em>
             </h2>
             <p
               className="text-lg leading-relaxed text-white/60 max-w-[480px]"
               style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
             >
-              Teams are plugging Gong and Salesforce into AI workflows via MCP and raw APIs. The AI trusts what it finds. What it finds is wrong.
+             Tracking why you win and lose deals is critical for decision making. That data is now leaking into positioning, messaging, and product decisions across your org. 
             </p>
           </div>
 

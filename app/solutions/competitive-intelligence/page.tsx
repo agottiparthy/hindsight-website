@@ -1,22 +1,28 @@
 import Link from "next/link"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { CompetitiveIntelligenceHero } from "@/components/ui/competitive-intelligence-hero"
+import { KnowledgeBaseAnimation } from "@/components/ui/knowledge-base-animation"
+import { CompetitorMonitoringAnimation } from "@/components/ui/competitor-monitoring-animation"
+import { HarveyBallAnimation } from "@/components/ui/harvey-ball-animation"
+import { SlackEnablementAnimation } from "@/components/ui/slack-enablement-animation"
+import { IntegrationsFlipGrid } from "@/components/ui/integrations-flip-grid"
 
 const features = [
   {
-    label: "Auto-Updated Battlecards",
+    label: "Auto-Updated Knowledge Base",
     headline: "Battlecards that never go stale.",
     copy:
-      "PMMs build a battlecard once. Hindsight keeps it current — pulling from deal data, call transcripts, and competitor monitoring to update messaging, objection responses, and win themes automatically.",
+      "PMMs build or import your existing competitive assets. Hindsight keeps it current — pulling from deal data, call transcripts, and competitor monitoring to suggest updates.",
   },
   {
     label: "Competitor Monitoring",
     headline: "Track every meaningful competitor move.",
     copy:
-      "Continuous monitoring across product pages, pricing, release notes, ads, and community forums. Get alerts the moment a competitor changes their pricing, ships a new feature, or shifts messaging.",
+      "Continuous monitoring across product pages, pricing, release notes, ads, and community forums. Get alerts when a competitor changes their pricing, ships a new feature, or shifts messaging.",
   },
   {
-    label: "Feature Comparison",
+    label: "Feature Comparisons",
     headline: "Harvey Ball charts built from real deal data.",
     copy:
       "AI scores competitors 1–4 on each feature, sourced from your internal deal conversations and external research — not biased analyst reports. Always grounded in what buyers actually said.",
@@ -27,12 +33,6 @@ const features = [
     copy:
       "Reps DM @Hindsight in Slack and get verified competitive answers before their next call. Talk tracks, objection responses, and battle-tested positioning — all sourced from what's actually worked.",
   },
-]
-
-const stats = [
-  { num: "+12%", label: "Competitive win rate", company: "LaunchDarkly" },
-  { num: "100%", label: "Deal coverage", company: "vs. <5% industry avg" },
-  { num: "86d", label: "Faster time-to-insight", company: "Ironclad" },
 ]
 
 const testimonials = [
@@ -54,13 +54,13 @@ const problems = [
   },
   {
     icon: "📋",
-    title: "CRM tells you topics, not outcomes",
-    body: "Tools like Gong show you how often competitors are mentioned. They don't tell you how your win rate changes when a specific competitor comes up.",
+    title: "Good data is hard to find",
+    body: "CRMs are filled with inaccurate competitive data. They might tell you who was mentioned in the deal, but not how you were positioned vs. each competitor or what's actually winning deals.",
   },
   {
     icon: "🔍",
-    title: "Low coverage means missed signals",
-    body: "Most teams review under 5% of deals. Critical competitive patterns — pricing pressure, feature gaps, messaging misses — stay invisible until it's too late.",
+    title: "Compete is nobody's full-time job",
+    body: "CI is often owned by PMM teams that are already stretched thin. Too many competitors, too much context, too much data. Deals with competitive insights often go unnoticed or unacted upon.",
   },
 ]
 
@@ -115,35 +115,9 @@ export default function CompetitiveIntelligencePage() {
                 </Link>
               </div>
             </div>
-            {/* Stats */}
-            <div className="flex flex-col gap-4">
-              {stats.map((s, i) => (
-                <div
-                  key={i}
-                  className="border border-white/10 rounded-lg px-8 py-6 bg-white/[0.04] flex items-center gap-6"
-                >
-                  <div
-                    className="text-[42px] font-bold text-[#D4A843] leading-none tracking-[-0.03em]"
-                    style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-                  >
-                    {s.num}
-                  </div>
-                  <div>
-                    <div
-                      className="text-sm font-bold text-white mb-0.5"
-                      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                    >
-                      {s.label}
-                    </div>
-                    <div
-                      className="text-[12px] text-white/40 uppercase tracking-[0.1em]"
-                      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                    >
-                      {s.company}
-                    </div>
-                  </div>
-                </div>
-              ))}
+            {/* Hero animation */}
+            <div className="flex items-center justify-center">
+              <CompetitiveIntelligenceHero />
             </div>
           </div>
         </section>
@@ -161,7 +135,7 @@ export default function CompetitiveIntelligencePage() {
               className="text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#0F1F3D] mb-14 max-w-2xl"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
             >
-              Your competitive intelligence program is probably broken.
+              More competitors. Suspect data. Not enough time.
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {problems.map((p, i) => (
@@ -198,32 +172,65 @@ export default function CompetitiveIntelligencePage() {
               className="text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#0F1F3D] mb-16 max-w-2xl"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
             >
-              Competitive intelligence that runs itself.
+              Competitive intelligence that actually works.
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
-              {features.map((f, i) => (
-                <div key={i} className="bg-white border border-[#E8E4DC] rounded-xl p-9">
-                  <div className="w-8 h-[3px] bg-[#D4A843] mb-6" />
-                  <p
-                    className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-3"
-                    style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+              {features.map((f, i) => {
+                const hasAnimation = i === 0 || i === 1 || i === 2 || i === 3
+                return (
+                  <div
+                    key={i}
+                    className={`bg-white border border-[#E8E4DC] rounded-xl overflow-hidden ${
+                      hasAnimation ? "" : "p-9"
+                    }`}
                   >
-                    {f.label}
-                  </p>
-                  <h3
-                    className="text-[20px] font-bold leading-[1.3] tracking-[-0.01em] text-[#0F1F3D] mb-4"
-                    style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-                  >
-                    {f.headline}
-                  </h3>
-                  <p
-                    className="text-[14px] text-[#374151] leading-relaxed"
-                    style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                  >
-                    {f.copy}
-                  </p>
-                </div>
-              ))}
+                    {/* Animation panels for first two cards */}
+                    {i === 0 && (
+                      <div className="border-b border-[#E8E4DC] h-[375px] overflow-hidden">
+                        <KnowledgeBaseAnimation />
+                      </div>
+                    )}
+                    {i === 1 && (
+                      <div className="border-b border-[#E8E4DC] h-[375px] overflow-hidden">
+                        <CompetitorMonitoringAnimation />
+                      </div>
+                    )}
+                    {i === 2 && (
+                      <div className="border-b border-[#E8E4DC] h-[375px] overflow-hidden">
+                        <HarveyBallAnimation />
+                      </div>
+                    )}
+                    {i === 3 && (
+                      <div className="border-b border-[#E8E4DC] h-[375px] overflow-hidden">
+                        <SlackEnablementAnimation />
+                      </div>
+                    )}
+
+                    {/* Text content */}
+                    <div className={hasAnimation ? "p-8" : ""}>
+                      <div className="w-8 h-[3px] bg-[#D4A843] mb-6" />
+                      <p
+                        className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-3"
+                        style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                      >
+                        {f.label}
+                      </p>
+                      <h3
+                        className="text-[20px] font-bold leading-[1.3] tracking-[-0.01em] text-[#0F1F3D] mb-4"
+                        style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                      >
+                        {f.headline}
+                      </h3>
+                      <p
+                        className="text-[14px] text-[#374151] leading-relaxed"
+                        style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                      >
+                        {f.copy}
+                      </p>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -296,40 +303,7 @@ export default function CompetitiveIntelligencePage() {
                 See It In Action
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { name: "Salesforce", color: "#0070D2", category: "CRM" },
-                { name: "HubSpot", color: "#FF7A59", category: "CRM" },
-                { name: "Gong", color: "#FF4B00", category: "Call Intelligence" },
-                { name: "Slack", color: "#4A154B", category: "Messaging" },
-                { name: "Outreach", color: "#5951DD", category: "Sales Engagement" },
-                { name: "Clari", color: "#0F1F3D", category: "Revenue Intelligence" },
-              ].map((tool) => (
-                <div
-                  key={tool.name}
-                  className="bg-white border border-[#E8E4DC] rounded-lg p-4 flex items-center gap-3"
-                >
-                  <div
-                    className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: tool.color }}
-                  />
-                  <div>
-                    <div
-                      className="text-sm font-bold text-[#0F1F3D]"
-                      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                    >
-                      {tool.name}
-                    </div>
-                    <div
-                      className="text-[11px] text-[#9CA3AF]"
-                      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                    >
-                      {tool.category}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <IntegrationsFlipGrid />
           </div>
         </section>
 

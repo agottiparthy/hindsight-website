@@ -30,8 +30,7 @@ export function HeroSection() {
             className="text-lg leading-relaxed text-[#374151] max-w-[480px] mb-10"
             style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
           >
-            Hindsight reviews and verifies every deal — cross-referencing your calls and other GTM data, then filling in the gaps with win-loss interviews. Feed your AI Agents high-quality validated intelligence you can actually trust.
-          </p>
+Hindsight cross-references every deal across your calls, CRM, and emails — then fills the gaps with buyer interviews. The result is win-loss intelligence you can actually trust and act on.          </p>
           <div className="flex items-center gap-4 mb-14">
             <Link
               href="/request-demo"

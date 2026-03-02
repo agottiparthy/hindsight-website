@@ -19,7 +19,7 @@ const solutions = [
     label: "SALES ENABLEMENT",
     headline: "Get verified answers to reps when it matters.",
     copy: "Reps DM @Hindsight in Slack mid-deal and get answers grounded in actual deal data — not hallucinated content. Talk tracks, objection responses, and one-pagers generated from what's actually working in the field.",
-    proof: "25,000+ rep questions answered to date.",
+    proof: "Simpro saw an 11% lift in new business win rate when using Hindsight.",
     href: "#how-it-works",
   },
 ]
@@ -29,34 +29,18 @@ export function SolutionsSection() {
     <section className="bg-[#F8F6F1] px-12 pb-[100px]">
       <div className="max-w-[1280px] mx-auto">
         {/* Eyebrow + headline */}
-        {/* <p
+        <p
           className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-5"
           style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
         >
-          What teams use it for
+          Use Cases
         </p>
         <h2
           className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#0F1F3D] mb-16 max-w-2xl"
           style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
         >
-          Intelligence your whole GTM team acts on.
-        </h2> */}
-        <div className="pb-20 flex items-center gap-3">
-            <div className="h-px flex-1 bg-[#E8E4DC]" />
-            <a
-              href="#"
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#D4A843]/40 bg-[#D4A843]/5 hover:bg-[#D4A843]/10 transition-colors group"
-            >
-              <span
-                className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0F1F3D]"
-                style={{ fontFamily: "Arial, sans-serif" }}
-              >
-                Or use our Done-For-You Agent Workflows
-              </span>
-              <span className="text-[#D4A843] text-sm group-hover:translate-x-0.5 transition-transform">→</span>
-            </a>
-            <div className="h-px flex-1 bg-[#E8E4DC]" />
-          </div>
+          Win-Loss insights that help you win more deals.
+        </h2>
         {/* Three columns */}
         <div className="grid md:grid-cols-3 gap-0 divide-x divide-[#E8E4DC]">
           {solutions.map((s, i) => (
@@ -89,12 +73,14 @@ export function SolutionsSection() {
               </p>
 
               {/* Proof point */}
-              <p
-                className="text-[13px] font-bold text-[#D4A843] mb-6 leading-snug"
-                style={{ fontFamily: "'IBM Plex Mono', 'Courier New', monospace" }}
-              >
-                {s.proof}
-              </p>
+              <div className="mb-6 px-3.5 py-3 rounded-lg bg-[#FDF8EE] border border-[#E8D9A8] border-l-[3px] border-l-[#D4A843]">
+                <p
+                  className="text-[12px] font-bold text-[#0F1F3D] leading-snug"
+                  style={{ fontFamily: "'IBM Plex Mono', 'Courier New', monospace" }}
+                >
+                  {s.proof}
+                </p>
+              </div>
 
               {/* Link */}
               <Link
