@@ -2,82 +2,64 @@ import Link from "next/link"
 
 const solutions = [
   {
-    label: "COMPETITIVE INTELLIGENCE",
-    headline: "Know what's working against every competitor.",
-    copy: "Battlecards and messaging built from what's winning deals - not just what's being said. Research, content creation, and knowledge base included.",
-    proof: "Used by LaunchDarkly to close 12% more competitive deals.",
+    label: "PRODUCT MARKETING / CI",
+    headline: "Know exactly why you are losing to each competitor.",
+    copy: "Battlecards built from what is actually winning deals, updated automatically as new deals close. No more stale decks. No more one-person bottleneck. Every team can pull the cut of data they need without asking you first.",
+    proof: "\"We used to rely on CRM notes, which are not reliable. Hindsight helps our sellers know what's actually working in other deals.\" — Jason Bonhert, Sr. PMM, Simpro",
     href: "#how-it-works",
   },
   {
-    label: "WIN-LOSS ANALYSIS",
-    headline: "Drive action with insights on what's impacting deals.",
-    copy: "Understand exactly why deals are won and lost with analysis grounded in deal data and win-loss interviews. Surface insights on deal risks, competitive threats, and growth opportunities.",
-    proof: "Ironclad went from <1% deal coverage to 100% in 90 days.",
-    href: "#results",
-  },
-  {
-    label: "SALES ENABLEMENT",
+    label: "SALES",
     headline: "Get verified answers to reps when it matters.",
-    copy: "Reps DM @Hindsight in Slack mid-deal and get answers grounded in actual deal data — not hallucinated content. Talk tracks, objection responses, and one-pagers generated from what's actually working in the field.",
-    proof: "Simpro saw an 11% lift in new business win rate when using Hindsight.",
+    copy: "Reps DM @Hindsight in Slack mid-deal and get verified answers grounded in actual deal data. What worked against this competitor last quarter. How to handle the objection that just came up. Built from what actually closed deals.",
+    proof: "\"My reps are going into deals with the most up-to-date information, letting them compete with confidence.\" — Tye Davis, Sr. PMM, LaunchDarkly",
     href: "#how-it-works",
+  },
+  {
+    label: "REVOPS",
+    headline: "A verification layer for the stack you already built.",
+    copy: "Plug in via API and MCP. Your existing tools read verified deal records instead of raw transcripts. Clean inputs. Reliable outputs. Hindsight sits in your operational hub and generates the insights every other team acts on.",
+    proof: "\"It really kind of sits in our operational hub, to generate insights that everybody else will act on.\" — Travis Allred, VP Commercial Operations, PurpleLab",
+    href: "#compare",
   },
 ]
 
 export function SolutionsSection() {
   return (
-    <section className="bg-[#F8F6F1] px-12 pb-[100px]">
+    <section className="bg-surface px-12 pb-[100px]">
       <div className="max-w-[1280px] mx-auto">
         {/* Eyebrow + headline */}
-        <p
-          className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-5"
-          style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-        >
-          Use Cases
+        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
+          Who Uses It
         </p>
-        <h2
-          className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#0F1F3D] mb-16 max-w-2xl"
-          style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-        >
-          Win-Loss insights that help you win more deals.
+        <h2 className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy mb-16 max-w-2xl">
+          Win-loss intelligence for every team that touches a deal.
         </h2>
         {/* Three columns */}
-        <div className="grid md:grid-cols-3 gap-0 divide-x divide-[#E8E4DC]">
+        <div className="grid md:grid-cols-3 gap-0 divide-x divide-border">
           {solutions.map((s, i) => (
             <div key={i} className="px-10 first:pl-0 last:pr-0 flex flex-col">
               {/* Amber top rule */}
-              <div className="w-8 h-[3px] bg-[#D4A843] mb-8" />
+              <div className="w-8 h-[3px] bg-amber mb-8" />
 
               {/* Label */}
-              <p
-                className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-4"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-              >
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-amber mb-4 font-mono">
                 {s.label}
               </p>
 
               {/* Headline */}
-              <h3
-                className="text-[22px] font-bold leading-[1.25] tracking-[-0.01em] text-[#0F1F3D] mb-4"
-                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-              >
+              <h3 className="text-[22px] font-bold leading-[1.25] tracking-[-0.01em] text-navy mb-4">
                 {s.headline}
               </h3>
 
               {/* Description */}
-              <p
-                className="text-[15px] text-[#374151] leading-relaxed mb-6 flex-1"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-              >
+              <p className="text-[15px] text-body leading-relaxed mb-6 flex-1">
                 {s.copy}
               </p>
 
               {/* Proof point */}
-              <div className="mb-6 px-3.5 py-3 rounded-lg bg-[#FDF8EE] border border-[#E8D9A8] border-l-[3px] border-l-[#D4A843]">
-                <p
-                  className="text-[12px] font-bold text-[#0F1F3D] leading-snug"
-                  style={{ fontFamily: "'IBM Plex Mono', 'Courier New', monospace" }}
-                >
+              <div className="mb-6 px-3.5 py-3 rounded-lg bg-surface border border-[#D3DAE8] border-l-[3px] border-l-amber">
+                <p className="text-[12px] text-body leading-snug italic">
                   {s.proof}
                 </p>
               </div>
@@ -85,8 +67,7 @@ export function SolutionsSection() {
               {/* Link */}
               <Link
                 href={s.href}
-                className="text-[13px] font-bold text-[#0F1F3D] hover:text-[#D4A843] transition-colors"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                className="text-[13px] font-bold text-navy hover:text-amber transition-colors"
               >
                 Learn more →
               </Link>

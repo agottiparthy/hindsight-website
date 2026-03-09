@@ -8,8 +8,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-ibm-plex-mono);
+  --font-sans: var(--font-sora);
+  --font-mono: var(--font-dm-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -44,55 +44,55 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* Hindsight Brand Colors — v3 */
-  --color-navy:     #0F1F3D;
-  --color-amber:    #D4A843;
-  --color-off-white: #F8F6F1;
-  --color-slate:    #4A7FA5;
-  --color-charcoal: #374151;
-  --color-mgrey:    #6B7280;
-  --color-lgrey:    #E8E4DC;
-  --color-verified: #2A5C45;
+  /* ── Hindsight Brand Tokens — v4 ───────────────────────────────────── */
+  --color-navy:    #0D1B3E;   /* primary bg & headings */
+  --color-blue:    #1A6FD4;   /* CTAs, interactive */
+  --color-sky:     #5BB8F5;   /* accent on dark */
+  --color-amber:   #D97706;   /* key highlight / CTA accent */
+  --color-surface: #F6F8FC;   /* light section backgrounds */
+  --color-body:    #2E3F58;   /* body text */
+  --color-sub:     #4A5A72;   /* secondary body / pull quotes */
+  /* Data UI — used by animation components */
+  --color-verified:    #2A5C45;
   --color-verified-bg: #EAF4EF;
-  --color-flagged:  #7A2828;
-  --color-flagged-bg: #FAEAEA;
+  --color-flagged:     #7A2828;
+  --color-flagged-bg:  #FAEAEA;
 }
 
 :root {
   --radius: 0.625rem;
 
-  /* v3 color scheme */
-  --background: #F8F6F1;
-  --foreground: #0F1F3D;
+  --background: #F6F8FC;
+  --foreground: #0D1B3E;
   --card: #ffffff;
-  --card-foreground: #0F1F3D;
+  --card-foreground: #0D1B3E;
   --popover: #ffffff;
-  --popover-foreground: #0F1F3D;
-  --primary: #0F1F3D;
+  --popover-foreground: #0D1B3E;
+  --primary: #0D1B3E;
   --primary-foreground: #ffffff;
-  --secondary: #D4A843;
-  --secondary-foreground: #0F1F3D;
-  --muted: #E8E4DC;
-  --muted-foreground: #6B7280;
-  --accent: #D4A843;
-  --accent-foreground: #0F1F3D;
+  --secondary: #D97706;
+  --secondary-foreground: #0D1B3E;
+  --muted: #EAEEF5;
+  --muted-foreground: #8A97AE;
+  --accent: #D97706;
+  --accent-foreground: #0D1B3E;
   --destructive: #DC2626;
-  --border: #E8E4DC;
-  --input: #E8E4DC;
-  --ring: #D4A843;
-  --chart-1: #D4A843;
-  --chart-2: #4A7FA5;
-  --chart-3: #0F1F3D;
+  --border: #EAEEF5;
+  --input: #EAEEF5;
+  --ring: #D97706;
+  --chart-1: #D97706;
+  --chart-2: #1A6FD4;
+  --chart-3: #0D1B3E;
   --chart-4: #2A5C45;
-  --chart-5: #374151;
+  --chart-5: #2E3F58;
   --sidebar: #ffffff;
-  --sidebar-foreground: #0F1F3D;
-  --sidebar-primary: #0F1F3D;
+  --sidebar-foreground: #0D1B3E;
+  --sidebar-primary: #0D1B3E;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #D4A843;
-  --sidebar-accent-foreground: #0F1F3D;
-  --sidebar-border: #E8E4DC;
-  --sidebar-ring: #D4A843;
+  --sidebar-accent: #D97706;
+  --sidebar-accent-foreground: #0D1B3E;
+  --sidebar-border: #EAEEF5;
+  --sidebar-ring: #D97706;
 }
 
 @layer base {
@@ -104,7 +104,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--font-sora), sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -136,10 +136,6 @@
   .reveal-d3 { transition-delay: 0.3s; }
   .reveal-d4 { transition-delay: 0.4s; }
 
-  .font-serif { font-family: Georgia, 'Times New Roman', serif; }
-  .font-sans  { font-family: Arial, Helvetica, sans-serif; }
-  .font-mono  { font-family: 'IBM Plex Mono', 'Courier New', monospace; }
-
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -162,6 +158,6 @@
   100% { transform: translateX(-32px); }
 }
 @keyframes machinePulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(212,168,67,0.0); }
-  50%       { box-shadow: 0 0 18px 4px rgba(212,168,67,0.18); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(217,119,6,0.0); }
+  50%       { box-shadow: 0 0 18px 4px rgba(217,119,6,0.18); }
 }

@@ -3,20 +3,20 @@
 const problems = [
   {
     num: "01 / CRM",
-    title: "Win-Loss reasons are fiction",
-    body: "Reps enter loss reasons under time pressure, after a deal they'd rather forget. The data reflects what's convenient, not what's true.",
+    title: "Win-loss reasons are fiction",
+    body: "Reps fill in loss reasons after deals they would rather forget. The data reflects what was convenient, not what was true.",
     stat: "~33% of deals show significant mismatch between CRM loss reasons and buyer interview results.",
   },
   {
     num: "02 / Call Transcripts",
-    title: "Frequency isn't causality",
-    body: "Gong tells you what came up, not what drove the outcome. Pricing was mentioned in 40% of deals against competitor X — but did it actually impact the decision?",
+    title: "Frequency is not causality",
+    body: "Gong tells you what came up, not what drove the outcome. Pricing was mentioned in 40% of calls — but did it cost you the deal?",
     stat: "75% more accurate competitor attribution than keyword-based tracking.",
   },
   {
     num: "03 / AI Agents",
     title: "Bad inputs, convincing outputs",
-    body: "Everyone is building AI workflows. Confident summaries of bad data are harder to catch than obvious errors — and nobody's catching them.",
+    body: "Win-loss programs cover less than 5% of deals and take months to deliver insights. That data is now flowing into every positioning, product, and competitive decision your team makes.",
     stat: "Hindsight corrected 128,000+ loss reasons in 2025.",
   },
 ]
@@ -37,17 +37,14 @@ function ConveyorBelt() {
       {/* Machine box */}
       <div
         className="absolute right-0 top-1/2 -translate-y-1/2 w-[108px] h-[148px] rounded-xl
-          border border-[#D4A843]/40 bg-[rgba(15,31,61,0.85)]
+          border border-amber/40 bg-navy/85
           flex flex-col items-center justify-center gap-2 z-10"
         style={{ animation: "machinePulse 2.4s ease-in-out infinite" }}
       >
         {/* Input slot on left edge */}
-        <div className="absolute -left-[5px] top-1/2 -translate-y-1/2 w-[5px] h-10 bg-[#D4A843]/40 rounded-l" />
+        <div className="absolute -left-[5px] top-1/2 -translate-y-1/2 w-[5px] h-10 bg-amber/40 rounded-l" />
         <div className="text-2xl">🤖</div>
-        <p
-          className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#D4A843] text-center leading-snug"
-          style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-        >
+        <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-amber text-center leading-snug font-mono">
           Your<br />AI Agents
         </p>
         {/* Output glow dot */}
@@ -86,7 +83,7 @@ function ConveyorBelt() {
             style={{
               animation: "beltStripe 0.9s linear infinite",
               background:
-                "repeating-linear-gradient(90deg, rgba(212,168,67,0.5) 0px, rgba(212,168,67,0.5) 10px, transparent 10px, transparent 22px)",
+                "repeating-linear-gradient(90deg, rgba(217,119,6,0.5) 0px, rgba(217,119,6,0.5) 10px, transparent 10px, transparent 22px)",
             }}
           />
         </div>
@@ -99,10 +96,7 @@ function ConveyorBelt() {
         </div>
 
         {/* Feed label */}
-        <p
-          className="text-[10px] uppercase tracking-[0.14em] text-white/20 mt-3"
-          style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-        >
+        <p className="text-[10px] uppercase tracking-[0.14em] text-white/20 mt-3 font-mono">
           Unverified Deal Data
         </p>
       </div>
@@ -112,20 +106,14 @@ function ConveyorBelt() {
           <div className="flex items-center gap-1.5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/random_icons/paper.png" alt="paper" width={16} height={16} />
-            <span
-              className="text-[10px] text-white/30 uppercase tracking-[0.1em]"
-              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-            >
+            <span className="text-[10px] text-white/30 uppercase tracking-[0.1em] font-mono">
              Noise
             </span>
           </div>
           <div className="flex items-center gap-1.5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/random_icons/light-bulb.png" alt="insight" width={16} height={16} />
-            <span
-              className="text-[10px] text-white/30 uppercase tracking-[0.1em]"
-              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-            >
+            <span className="text-[10px] text-white/30 uppercase tracking-[0.1em] font-mono">
               Insight
             </span>
           </div>
@@ -136,12 +124,12 @@ function ConveyorBelt() {
 
 export function ProblemSection() {
   return (
-    <section className="bg-[#0F1F3D] px-12 py-[100px] relative overflow-hidden">
+    <section className="bg-navy px-12 py-[100px] relative overflow-hidden">
       {/* Radial glow */}
       <div
         className="absolute bottom-0 right-0 w-[40%] h-full pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse at bottom right, rgba(212,168,67,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at bottom right, rgba(217,119,6,0.08) 0%, transparent 70%)",
         }}
       />
 
@@ -150,24 +138,15 @@ export function ProblemSection() {
         {/* Top: text left, animation right */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <p
-              className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-5"
-              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-            >
-              The Slop Problem
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
+              The Problem
             </p>
-            <h2
-              className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-white mb-4"
-              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-            >
-              GTM AI is running on<br />
-              <em className="italic text-[#D4A843]">bad win-loss data.</em>
+            <h2 className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-white mb-4">
+              That deal is not<br />
+              <em className="italic text-amber">an exception.</em>
             </h2>
-            <p
-              className="text-lg leading-relaxed text-white/60 max-w-[480px]"
-              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-            >
-             Tracking why you win and lose deals is critical for decision making. That data is now leaking into positioning, messaging, and product decisions across your org. 
+            <p className="text-lg leading-relaxed text-white/60 max-w-[480px]">
+              Most teams have the right instincts. CRM fields required. Gong connected. A win-loss process in place. The problem is structural. The data was never accurate enough to act on.
             </p>
           </div>
 
@@ -184,30 +163,18 @@ export function ProblemSection() {
           {problems.map((p, i) => (
             <div
               key={i}
-              className="bg-[rgba(15,31,61,0.6)] px-8 py-9 hover:bg-[rgba(255,255,255,0.04)] transition-colors"
+              className="bg-navy/60 px-8 py-9 hover:bg-white/[0.04] transition-colors"
             >
-              <div
-                className="text-[11px] text-[#D4A843] tracking-[0.1em] mb-5"
-                style={{ fontFamily: "var(--font-ibm-plex-mono), 'Courier New', monospace" }}
-              >
+              <div className="text-[11px] text-amber tracking-[0.1em] mb-5 font-mono">
                 {p.num}
               </div>
-              <h3
-                className="text-xl font-bold text-white leading-snug mb-3"
-                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-              >
+              <h3 className="text-xl font-bold text-white leading-snug mb-3">
                 {p.title}
               </h3>
-              <p
-                className="text-sm text-white/55 leading-relaxed mb-5"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-              >
+              <p className="text-sm text-white/55 leading-relaxed mb-5">
                 {p.body}
               </p>
-              <p
-                className="text-[11px] text-[#D4A843] tracking-[0.04em] pt-4 border-t border-white/[0.08]"
-                style={{ fontFamily: "var(--font-ibm-plex-mono), 'Courier New', monospace" }}
-              >
+              <p className="text-[11px] text-amber tracking-[0.04em] pt-4 border-t border-white/[0.08] font-mono">
                 {p.stat}
               </p>
             </div>
