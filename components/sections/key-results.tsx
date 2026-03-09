@@ -50,7 +50,7 @@ const testimonials = [
 
 export function KeyResultsSection() {
   return (
-    <section id="results" className="bg-[#0D1B3E] px-12 pt-[100px] pb-[50px] relative overflow-hidden">
+    <section id="results" className="bg-navy px-12 pt-[100px] pb-[50px] relative overflow-hidden">
       {/* Radial glow */}
       <div
         className="absolute -top-[200px] -left-[200px] w-[600px] h-[600px] pointer-events-none"
@@ -60,16 +60,10 @@ export function KeyResultsSection() {
       />
 
       <div className="max-w-[1280px] mx-auto relative">
-        <p
-          className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D97706] mb-5"
-          style={{ fontFamily: "var(--font-dm-mono), 'DM Mono', monospace" }}
-        >
+        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
           Proven Results
         </p>
-        <h2
-          className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-white mb-12"
-          style={{ fontFamily: "var(--font-sora), sans-serif" }}
-        >
+        <h2 className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-white mb-12">
           The numbers that matter<br />to the teams that use it.
         </h2>
 
@@ -81,24 +75,15 @@ export function KeyResultsSection() {
           {results.map((r, i) => (
             <div
               key={i}
-              className="bg-[rgba(13,27,62,0.5)] px-6 py-8 text-center hover:bg-[rgba(255,255,255,0.04)] transition-colors"
+              className="bg-navy/50 px-6 py-8 text-center hover:bg-white/[0.04] transition-colors"
             >
-              <div
-                className="text-[40px] font-bold text-[#D97706] leading-none tracking-[-0.03em] mb-2"
-                style={{ fontFamily: "var(--font-sora), sans-serif" }}
-              >
+              <div className="text-[40px] font-bold text-amber leading-none tracking-[-0.03em] mb-2">
                 {r.num}
               </div>
-              <div
-                className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/40 mb-2"
-                style={{ fontFamily: "var(--font-dm-mono), 'DM Mono', monospace" }}
-              >
+              <div className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/40 mb-2 font-mono">
                 {r.company}
               </div>
-              <div
-                className="text-sm text-white/60 leading-snug"
-                style={{ fontFamily: "var(--font-sora), sans-serif" }}
-              >
+              <div className="text-sm text-white/60 leading-snug">
                 {r.desc}
               </div>
             </div>
@@ -123,36 +108,24 @@ export function KeyResultsSection() {
                 />
               </div>
 
-              <p
-                className="text-lg italic text-white/85 leading-relaxed mb-6 flex-1"
-                style={{ fontFamily: "var(--font-sora), sans-serif" }}
-              >
+              <p className="text-lg italic text-white/85 leading-relaxed mb-6 flex-1">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-9 h-9 rounded-full bg-[#4A5A72] flex items-center justify-center overflow-hidden flex-shrink-0">
+                <div className="w-9 h-9 rounded-full bg-sub flex items-center justify-center overflow-hidden flex-shrink-0">
                   {t.photo ? (
                     <Image src={t.photo} alt={t.name} width={36} height={36} className="object-cover w-full h-full" />
                   ) : (
-                    <span
-                      className="text-[11px] font-bold text-white"
-                      style={{ fontFamily: "var(--font-sora), sans-serif" }}
-                    >
+                    <span className="text-[11px] font-bold text-white">
                       {t.initials}
                     </span>
                   )}
                 </div>
                 <div>
-                  <div
-                    className="text-sm font-bold text-white"
-                    style={{ fontFamily: "var(--font-sora), sans-serif" }}
-                  >
+                  <div className="text-sm font-bold text-white">
                     {t.name}
                   </div>
-                  <div
-                    className="text-xs text-white/40"
-                    style={{ fontFamily: "var(--font-sora), sans-serif" }}
-                  >
+                  <div className="text-xs text-white/40">
                     {t.role}
                   </div>
                 </div>
@@ -162,8 +135,7 @@ export function KeyResultsSection() {
               <div className="border-t border-white/[0.08] pt-5">
                 <Link
                   href={`/results/${t.slug}`}
-                  className="text-sm font-bold text-[#D97706] hover:text-[#e8a83a] transition-colors"
-                  style={{ fontFamily: "var(--font-sora), sans-serif" }}
+                  className="text-sm font-bold text-amber hover:text-[#e8a83a] transition-colors"
                 >
                   See case study →
                 </Link>

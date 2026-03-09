@@ -26,58 +26,40 @@ const solutions = [
 
 export function SolutionsSection() {
   return (
-    <section className="bg-[#F6F8FC] px-12 pb-[100px]">
+    <section className="bg-surface px-12 pb-[100px]">
       <div className="max-w-[1280px] mx-auto">
         {/* Eyebrow + headline */}
-        <p
-          className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D97706] mb-5"
-          style={{ fontFamily: "var(--font-dm-mono), 'DM Mono', monospace" }}
-        >
+        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
           Who Uses It
         </p>
-        <h2
-          className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#0D1B3E] mb-16 max-w-2xl"
-          style={{ fontFamily: "var(--font-sora), sans-serif" }}
-        >
+        <h2 className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy mb-16 max-w-2xl">
           Win-loss intelligence for every team that touches a deal.
         </h2>
         {/* Three columns */}
-        <div className="grid md:grid-cols-3 gap-0 divide-x divide-[#EAEEF5]">
+        <div className="grid md:grid-cols-3 gap-0 divide-x divide-border">
           {solutions.map((s, i) => (
             <div key={i} className="px-10 first:pl-0 last:pr-0 flex flex-col">
               {/* Amber top rule */}
-              <div className="w-8 h-[3px] bg-[#D97706] mb-8" />
+              <div className="w-8 h-[3px] bg-amber mb-8" />
 
               {/* Label */}
-              <p
-                className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#D97706] mb-4"
-                style={{ fontFamily: "var(--font-dm-mono), 'DM Mono', monospace" }}
-              >
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-amber mb-4 font-mono">
                 {s.label}
               </p>
 
               {/* Headline */}
-              <h3
-                className="text-[22px] font-bold leading-[1.25] tracking-[-0.01em] text-[#0D1B3E] mb-4"
-                style={{ fontFamily: "var(--font-sora), sans-serif" }}
-              >
+              <h3 className="text-[22px] font-bold leading-[1.25] tracking-[-0.01em] text-navy mb-4">
                 {s.headline}
               </h3>
 
               {/* Description */}
-              <p
-                className="text-[15px] text-[#2E3F58] leading-relaxed mb-6 flex-1"
-                style={{ fontFamily: "var(--font-sora), sans-serif" }}
-              >
+              <p className="text-[15px] text-body leading-relaxed mb-6 flex-1">
                 {s.copy}
               </p>
 
               {/* Proof point */}
-              <div className="mb-6 px-3.5 py-3 rounded-lg bg-[#F6F8FC] border border-[#D3DAE8] border-l-[3px] border-l-[#D97706]">
-                <p
-                  className="text-[12px] text-[#2E3F58] leading-snug italic"
-                  style={{ fontFamily: "var(--font-sora), sans-serif" }}
-                >
+              <div className="mb-6 px-3.5 py-3 rounded-lg bg-surface border border-[#D3DAE8] border-l-[3px] border-l-amber">
+                <p className="text-[12px] text-body leading-snug italic">
                   {s.proof}
                 </p>
               </div>
@@ -85,8 +67,7 @@ export function SolutionsSection() {
               {/* Link */}
               <Link
                 href={s.href}
-                className="text-[13px] font-bold text-[#0D1B3E] hover:text-[#D97706] transition-colors"
-                style={{ fontFamily: "var(--font-sora), sans-serif" }}
+                className="text-[13px] font-bold text-navy hover:text-amber transition-colors"
               >
                 Learn more →
               </Link>

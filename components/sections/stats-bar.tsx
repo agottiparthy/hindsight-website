@@ -7,7 +7,7 @@ const stats = [
 
 export function StatsBarSection() {
   return (
-    <section className="bg-[#0D1B3E] py-10 px-12 relative overflow-hidden">
+    <section className="bg-navy py-10 px-12 relative overflow-hidden">
       {/* Diagonal stripe texture */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -28,17 +28,11 @@ export function StatsBarSection() {
               key={i}
               className={`py-2 px-10 ${i !== 0 ? "border-l border-white/[0.08]" : ""} ${i === 0 ? "pl-0" : ""}`}
             >
-              <div
-                className="text-[40px] font-bold text-white leading-none tracking-[-0.03em] mb-1.5"
-                style={{ fontFamily: "var(--font-sora), sans-serif" }}
-              >
+              <div className="text-[40px] font-bold text-white leading-none tracking-[-0.03em] mb-1.5">
                 {s.num}
-                <span className="text-[#D97706]">{s.suffix}</span>
+                <span className="text-amber">{s.suffix}</span>
               </div>
-              <div
-                className="text-sm text-white/50 leading-snug"
-                style={{ fontFamily: "var(--font-sora), sans-serif" }}
-              >
+              <div className="text-sm text-white/50 leading-snug">
                 {s.desc}
               </div>
             </div>

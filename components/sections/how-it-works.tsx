@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
 import { DealReviewCard } from "@/components/ui/deal-review-card"
 import { InterviewPanel } from "../ui/interview-animation"
 import { InterfacePanel } from "../ui/interface-animation"
@@ -57,21 +56,15 @@ export function HowItWorksSection() {
 
   return (
     <div ref={sectionRef} id="how-it-works" style={{ height: "400vh" }}>
-      <div className="sticky top-0 h-screen flex flex-col justify-center px-12 overflow-hidden bg-[#F6F8FC]">
+      <div className="sticky top-0 h-screen flex flex-col justify-center px-12 overflow-hidden bg-surface">
         <div className="max-w-[1280px] mx-auto w-full">
 
           {/* Header */}
           <div className="mb-10">
-            <p
-              className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D97706] mb-3"
-              style={{ fontFamily: "var(--font-dm-mono), 'DM Mono', monospace" }}
-            >
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-3 font-mono">
               How It Works
             </p>
-            <h2
-              className="text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#0D1B3E]"
-              style={{ fontFamily: "var(--font-sora), sans-serif" }}
-            >
+            <h2 className="text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy">
               Every closed deal. Automatically.<br />No analyst required.
             </h2>
           </div>
@@ -85,27 +78,18 @@ export function HowItWorksSection() {
                 <div
                   key={i}
                   className={`flex gap-6 py-5 transition-all duration-400 ${
-                    i < steps.length - 1 ? "border-b border-[#EAEEF5]" : ""
+                    i < steps.length - 1 ? "border-b border-border" : ""
                   } ${i === 0 ? "pt-0" : ""}`}
                   style={{ opacity: i === activeStep ? 1 : 0.25 }}
                 >
-                  <div
-                    className="text-xs text-[#8A97AE] tracking-[0.06em] pt-1 min-w-[32px]"
-                    style={{ fontFamily: "var(--font-dm-mono), 'DM Mono', monospace" }}
-                  >
+                  <div className="text-xs text-muted-foreground tracking-[0.06em] pt-1 min-w-[32px] font-mono">
                     {step.num}
                   </div>
                   <div>
-                    <h3
-                      className="text-lg font-bold text-[#0D1B3E] mb-1.5"
-                      style={{ fontFamily: "var(--font-sora), sans-serif" }}
-                    >
+                    <h3 className="text-lg font-bold text-navy mb-1.5">
                       {step.title}
                     </h3>
-                    <p
-                      className="text-[14px] text-[#2E3F58] leading-relaxed"
-                      style={{ fontFamily: "var(--font-sora), sans-serif" }}
-                    >
+                    <p className="text-[14px] text-body leading-relaxed">
                       {step.body}
                     </p>
                   </div>
