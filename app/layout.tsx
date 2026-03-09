@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Sora, DM_Mono } from "next/font/google";
 import "./globals.css";
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -8,9 +8,21 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
+
+const dmMono = DM_Mono({
+  variable: "--font-dm-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
 export const metadata: Metadata = {
-  title: "Hindsight — System of Record for GTM Intelligence",
-  description: "Hindsight verifies every deal — cross-referencing Gong, Salesforce, and buyer interviews — and outputs validated intelligence your AI agents can actually trust.",
+  title: "Hindsight — Win-Loss Intelligence",
+  description: "Hindsight investigates every closed deal, interviews buyers automatically, and tells you what actually happened.",
 };
 
 export default function RootLayout({
@@ -20,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ibmPlexMono.variable} antialiased`}>
+      <body className={`${ibmPlexMono.variable} ${sora.variable} ${dmMono.variable} antialiased`}>
         {children}
       </body>
     </html>

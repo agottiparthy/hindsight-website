@@ -1,25 +1,25 @@
 const traditionalItems = [
-  "Manual interview programs cover <1% of deals. Decisions made on anecdotes, not patterns.",
-  "Takes ~86 days from deal close to insight. The market has moved on before you act.",
-  "Expensive. Traditional firms charge $50–100K per project for a point-in-time report.",
-  "No ongoing monitoring. Battlecards go stale within weeks and reps stop trusting them.",
-  "Disconnected from your stack. Findings live in a slide deck, not your CRM or Slack.",
+  "Less than 1% of deals covered. Decisions made on anecdotes, not patterns.",
+  "~86 days from deal close to insight. The market has moved on before you act.",
+  "Expensive. $50K to $100K per project for a point-in-time report.",
+  "No ongoing monitoring. Battlecards go stale. Reps stop trusting them.",
+  "Findings live in a slide deck, not your CRM or Slack.",
 ]
 
 const gongSfdcItems = [
-  "Keyword-based tracking and naive RAG. Pricing came up 40% of the time — but did it cost you the deal?",
-  "CRM loss reasons are fiction — entered by reps after deals they'd rather forget. AI inherits the bias.",
-  "Calls, deals, and emails treated as separate silos. No resource has the full deal context.",
-  "Transcripts, Salesforce, and emails contradict each other. No system ever resolves the conflict.",
-  "ChatGPT on bad data is still bad data. Inconsistent outputs from the same broken inputs.",
+  "Pricing came up in 40% of calls. Did it cost you the deal?",
+  "CRM loss reasons are fiction. Reps enter what was convenient. AI inherits the bias.",
+  "Calls, deals, and emails treated as silos. No source has the full deal context.",
+  "Transcripts, Salesforce, and emails contradict each other. No system resolves the conflict.",
+  "Bad inputs, convincing outputs. Nobody is catching it.",
 ]
 
 const hindsightItems = [
-  "100% deal coverage. Every closed deal analyzed automatically — not a sample, not a survey.",
-  "Cross-source validation. CRM, transcripts, and email cross-referenced. Conflicts flagged and resolved.",
-  "Semantic competitor attribution — 75% more accurate than keyword matching. No false positives.",
-  "Autonomous buyer interviews fill the gaps that no existing source captures. Primary data, at scale.",
-  "Verified intelligence with confidence scores — structured for AI agents to query accurately, not just search.",
+  "100% deal coverage. Every closed deal analyzed automatically.",
+  "CRM, transcripts, and email cross-referenced. Conflicts resolved.",
+  "75% more accurate competitor attribution than keyword matching.",
+  "Buyer interviews confirm what no existing source captures.",
+  "Verified deal records your team and AI can query accurately.",
 ]
 
 const columns = [
@@ -30,8 +30,9 @@ const columns = [
     items: traditionalItems,
     dark: false,
     featured: false,
-    checkColor: "#6B7280",
+    checkColor: "#8A97AE",
     cross: true,
+    pullQuote: "Because of cost we were covering ~1% of deals. By the time we got insights back, it was next quarter and they didn't matter.",
   },
   {
     label: "Gong + Salesforce + AI",
@@ -40,64 +41,66 @@ const columns = [
     items: gongSfdcItems,
     dark: false,
     featured: false,
-    checkColor: "#6B7280",
+    checkColor: "#8A97AE",
     cross: true,
+    pullQuote: "Our teams are experimenting with AI workflows. But the data flowing in is questionable. There's no sense of what good looks like.",
   },
   {
     label: "Hindsight",
-    title: "Verified intelligence your AI can trust",
-    subtitle: "The system of record for GTM deal intelligence",
+    title: "Verified intelligence your whole team trusts",
+    subtitle: "The verified context layer for GTM",
     items: hindsightItems,
     dark: true,
     featured: true,
-    checkColor: "#D4A843",
+    checkColor: "#D97706",
     cross: false,
+    pullQuote: "We get 50x to 100x more interviews using Hindsight, and insights on 100% of deals.",
   },
 ]
 
 export function ComparisonSection() {
   return (
-    <section id="compare" className="border-t border-b border-[#E8E4DC] bg-[#F8F6F1] px-12 py-[100px]">
+    <section id="compare" className="border-t border-b border-[#EAEEF5] bg-[#F6F8FC] px-12 py-[100px]">
       <div className="max-w-[1280px] mx-auto">
 
         {/* Header */}
         <p
-          className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-5"
-          style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+          className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D97706] mb-5"
+          style={{ fontFamily: "var(--font-dm-mono), 'DM Mono', monospace" }}
         >
           The Honest Comparison
         </p>
         <div className="flex items-end justify-between mb-12 gap-8 flex-wrap">
           <h2
-            className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#0F1F3D]"
-            style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+            className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#0D1B3E]"
+            style={{ fontFamily: "var(--font-sora), sans-serif" }}
           >
             Three ways to run<br />win-loss. One that works.
           </h2>
           <p
-            className="text-lg leading-relaxed text-[#374151] max-w-[420px]"
-            style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+            className="text-lg leading-relaxed text-[#2E3F58] max-w-[420px]"
+            style={{ fontFamily: "var(--font-sora), sans-serif" }}
           >
-            Most teams choose between slow analysis or fast-but-wrong. Hindsight is the first option that's both real-time and verified.
+            Most teams choose between slow analysis or fast-but-wrong. Hindsight is the first option that is both real-time and verified.
           </p>
         </div>
 
         {/* Columns */}
         <div
-          className="grid md:grid-cols-3 rounded-lg overflow-hidden border border-[#E8E4DC]"
-          style={{ gap: "2px", background: "#E8E4DC" }}
+          className="grid md:grid-cols-3 rounded-lg overflow-hidden border border-[#EAEEF5]"
+          style={{ gap: "2px", background: "#EAEEF5" }}
         >
           {columns.map((col, colIdx) => (
             <div
               key={colIdx}
-              className={`px-8 py-10 flex flex-col ${col.dark ? "bg-[#0F1F3D]" : "bg-[#F8F6F1]"}`}
+              className={`px-8 py-10 flex flex-col ${col.dark ? "bg-[#0D1B3E]" : "bg-[#F6F8FC]"}`}
             >
               {/* Column header */}
               <p
                 className="text-[10px] font-bold uppercase tracking-[0.14em] mb-3"
                 style={{
-                  fontFamily: "Arial, Helvetica, sans-serif",
-                  color: col.featured ? "#D4A843" : "#6B7280",
+                  fontFamily: "var(--font-dm-mono), 'DM Mono', monospace",
+                  color: col.featured ? "#D97706" : "#8A97AE",
                 }}
               >
                 {col.label}
@@ -105,8 +108,8 @@ export function ComparisonSection() {
               <h3
                 className="text-xl font-bold leading-snug mb-2"
                 style={{
-                  fontFamily: "Georgia, 'Times New Roman', serif",
-                  color: col.dark ? "#ffffff" : "#0F1F3D",
+                  fontFamily: "var(--font-sora), sans-serif",
+                  color: col.dark ? "#ffffff" : "#0D1B3E",
                 }}
               >
                 {col.title}
@@ -114,9 +117,9 @@ export function ComparisonSection() {
               <p
                 className="text-[12px] mb-8 pb-8 border-b"
                 style={{
-                  fontFamily: "Arial, Helvetica, sans-serif",
-                  color: col.dark ? "rgba(255,255,255,0.35)" : "#6B7280",
-                  borderColor: col.dark ? "rgba(255,255,255,0.08)" : "#E8E4DC",
+                  fontFamily: "var(--font-sora), sans-serif",
+                  color: col.dark ? "rgba(255,255,255,0.35)" : "#8A97AE",
+                  borderColor: col.dark ? "rgba(255,255,255,0.08)" : "#EAEEF5",
                 }}
               >
                 {col.subtitle}
@@ -128,15 +131,15 @@ export function ComparisonSection() {
                   <div key={i} className="flex gap-3 items-start">
                     <span
                       className="text-sm mt-0.5 shrink-0"
-                      style={{ color: col.cross ? "#9CA3AF" : col.checkColor }}
+                      style={{ color: col.cross ? "#8A97AE" : col.checkColor }}
                     >
                       {col.cross ? "✗" : "✓"}
                     </span>
                     <span
                       className="text-sm leading-relaxed"
                       style={{
-                        fontFamily: "Arial, Helvetica, sans-serif",
-                        color: col.dark ? "rgba(255,255,255,0.7)" : "#374151",
+                        fontFamily: "var(--font-sora), sans-serif",
+                        color: col.dark ? "rgba(255,255,255,0.7)" : "#2E3F58",
                       }}
                     >
                       {item}
@@ -145,62 +148,29 @@ export function ComparisonSection() {
                 ))}
               </div>
 
-              {/* Hindsight CTA / pull quote */}
-              {col.featured && (
-                <div className="mt-10 bg-[#D4A843] rounded px-6 py-5">
-                  <p
-                    className="text-[15px] italic text-[#0F1F3D] leading-relaxed"
-                    style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-                  >
-                    &ldquo;We get 50x-100x more interviews using Hindsight, and insights on 100% of deals. &rdquo;
-                  </p>
-                </div>
-              )}
-
-              {/* Non-featured footnote */}
-              {!col.featured && colIdx === 0 && (
-                <div
-                  className="mt-10 pt-8 border-t text-xs leading-relaxed"
+              {/* Pull quote */}
+              <div
+                className={`mt-10 rounded px-6 py-5 ${col.featured ? "bg-[#D97706]" : "pt-8 border-t"}`}
+                style={{ borderColor: col.dark ? "rgba(255,255,255,0.08)" : "#EAEEF5" }}
+              >
+                <p
+                  className="text-[15px] italic leading-relaxed"
                   style={{
-                    fontFamily: "Arial, Helvetica, sans-serif",
-                    color: "#9CA3AF",
-                    borderColor: "#E8E4DC",
+                    fontFamily: "var(--font-sora), sans-serif",
+                    color: col.featured ? "#0D1B3E" : "#4A5A72",
                   }}
                 >
-                  <p
-                    className="text-[15px] italic text-[#0F1F3D] leading-relaxed"
-                    style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-                  >
-                    &ldquo;Because of cost we were covering ~1% of deals. By the time we got insights back, it was next quarter and they didn't matter. &rdquo;
-                  </p>
-                </div>
-              )}
-
-              {!col.featured && colIdx === 1 && (
-                <div
-                  className="mt-10 pt-8 border-t text-xs leading-relaxed"
-                  style={{
-                    fontFamily: "Arial, Helvetica, sans-serif",
-                    color: "#9CA3AF",
-                    borderColor: "#E8E4DC",
-                  }}
-                >
-                  <p
-                    className="text-[15px] italic text-[#0F1F3D] leading-relaxed"
-                    style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-                  >
-                    &ldquo;Our teams are obviously experimenting with new AI workflows. But the data flowing in is questionable. There's no sense of what "good" looks like. &rdquo;
-                  </p>
-                </div>
-              )}
+                  &ldquo;{col.pullQuote}&rdquo;
+                </p>
+              </div>
             </div>
           ))}
         </div>
 
         {/* Bottom stat row */}
         <div
-          className="mt-6 grid grid-cols-3 gap-[2px] rounded-lg overflow-hidden border border-[#E8E4DC]"
-          style={{ background: "#E8E4DC" }}
+          className="mt-6 grid grid-cols-3 gap-[2px] rounded-lg overflow-hidden border border-[#EAEEF5]"
+          style={{ background: "#EAEEF5" }}
         >
           {[
             { label: "Traditional programs", stat: "<1%", desc: "of deals covered" },
@@ -209,13 +179,13 @@ export function ComparisonSection() {
           ].map((item, i) => (
             <div
               key={i}
-              className={`px-8 py-6 flex items-center gap-6 ${item.highlight ? "bg-[#0F1F3D]" : "bg-[#F8F6F1]"}`}
+              className={`px-8 py-6 flex items-center gap-6 ${item.highlight ? "bg-[#0D1B3E]" : "bg-[#F6F8FC]"}`}
             >
               <div
                 className="text-[36px] font-bold leading-none tracking-tight shrink-0"
                 style={{
-                  fontFamily: "Georgia, 'Times New Roman', serif",
-                  color: item.highlight ? "#D4A843" : "#9CA3AF",
+                  fontFamily: "var(--font-sora), sans-serif",
+                  color: item.highlight ? "#D97706" : "#8A97AE",
                 }}
               >
                 {item.stat}
@@ -224,8 +194,8 @@ export function ComparisonSection() {
                 <div
                   className="text-[10px] font-bold uppercase tracking-[0.12em] mb-1"
                   style={{
-                    fontFamily: "Arial, Helvetica, sans-serif",
-                    color: item.highlight ? "rgba(255,255,255,0.4)" : "#9CA3AF",
+                    fontFamily: "var(--font-dm-mono), 'DM Mono', monospace",
+                    color: item.highlight ? "rgba(255,255,255,0.4)" : "#8A97AE",
                   }}
                 >
                   {item.label}
@@ -233,8 +203,8 @@ export function ComparisonSection() {
                 <div
                   className="text-sm leading-snug"
                   style={{
-                    fontFamily: "Arial, Helvetica, sans-serif",
-                    color: item.highlight ? "rgba(255,255,255,0.7)" : "#374151",
+                    fontFamily: "var(--font-sora), sans-serif",
+                    color: item.highlight ? "rgba(255,255,255,0.7)" : "#2E3F58",
                   }}
                 >
                   {item.desc}

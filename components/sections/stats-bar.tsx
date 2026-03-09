@@ -1,13 +1,13 @@
 const stats = [
   { num: "350", suffix: "K+", desc: "Deals analyzed and verified" },
-  { num: "13",   suffix: "K+", desc: "Win-Loss interviews conducted" },
+  { num: "13",   suffix: "K+", desc: "Win-loss interviews conducted" },
   { num: "128",  suffix: "K+",  desc: "Inaccuracies detected and corrected" },
   { num: "44",  suffix: "%",  desc: "Avg improvement in win-loss accuracy" },
 ]
 
 export function StatsBarSection() {
   return (
-    <section className="bg-[#0F1F3D] py-10 px-12 relative overflow-hidden">
+    <section className="bg-[#0D1B3E] py-10 px-12 relative overflow-hidden">
       {/* Diagonal stripe texture */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -30,14 +30,14 @@ export function StatsBarSection() {
             >
               <div
                 className="text-[40px] font-bold text-white leading-none tracking-[-0.03em] mb-1.5"
-                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                style={{ fontFamily: "var(--font-sora), sans-serif" }}
               >
                 {s.num}
-                <span className="text-[#D4A843]">{s.suffix}</span>
+                <span className="text-[#D97706]">{s.suffix}</span>
               </div>
               <div
                 className="text-sm text-white/50 leading-snug"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                style={{ fontFamily: "var(--font-sora), sans-serif" }}
               >
                 {s.desc}
               </div>
