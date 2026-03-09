@@ -43,7 +43,7 @@ const footerColumns = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#0F1F3D] px-12 pt-16 pb-10">
+    <footer className="bg-[#080F1E] px-12 pt-16 pb-10 border-t border-white/[0.06]">
       <div className="max-w-[1280px] mx-auto">
         {/* Top row: logo + columns */}
         <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-10 mb-14">
