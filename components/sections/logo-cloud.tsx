@@ -18,7 +18,7 @@ const logos = [
 
 export function LogoCloudSection() {
   return (
-    <section className="bg-[#F8F6F1] pb-[50px] border-b border-[#E8E4DC]">
+    <section className="bg-background pb-[50px] border-b border-[#E8E4DC]">
       <Container>
         <p
           className="text-center text-[11px] uppercase tracking-[0.12em] text-[#6B7280] mb-8"

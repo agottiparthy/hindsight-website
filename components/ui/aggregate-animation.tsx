@@ -104,7 +104,7 @@ export function AggregatePanel() {
   }, [])
 
   return (
-    <div className="bg-white border border-[#E8E4DC] rounded-xl p-6 shadow-[0_8px_40px_rgba(15,31,61,0.08)]">
+    <div className="bg-card border border-[#E8E4DC] rounded-xl p-6 shadow-[0_8px_40px_rgba(15,31,61,0.08)]">
 
       {/* Header */}
       <div className="flex items-center justify-between mb-5 pb-4 border-b border-[#E8E4DC]">
@@ -255,7 +255,7 @@ export function AggregatePanel() {
 
       {/* Footer stats bar */}
       <div
-        className={`border border-[#E8E4DC] rounded-lg bg-[#FAFAF8] px-4 py-3 transition-opacity duration-500 ${
+        className={`border border-[#E8E4DC] rounded-lg bg-background px-4 py-3 transition-opacity duration-500 ${
           phase === "idle" ? "opacity-0" : "opacity-100"
         }`}
       >

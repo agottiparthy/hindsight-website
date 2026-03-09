@@ -113,7 +113,7 @@ export function CompetitiveIntelligenceHero() {
 
         {/* ── Top-left: Monitoring ─────────────────────────────────────── */}
         <div
-          className="bg-white rounded-2xl p-4 flex flex-col gap-2 z-10 transition-all duration-500"
+          className="bg-card rounded-2xl p-4 flex flex-col gap-2 z-10 transition-all duration-500"
           style={{
             boxShadow: "0 8px 32px rgba(15,31,61,0.18), 0 1px 4px rgba(0,0,0,0.08)",
             opacity: phase === "hidden" ? 0 : 1,
@@ -121,10 +121,7 @@ export function CompetitiveIntelligenceHero() {
             transitionDelay: "0ms",
           }}
         >
-          <span
-            className="text-[12px] font-bold text-[#0F1F3D]"
-            style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-          >
+          <span className="text-[12px] font-bold text-navy">
             Monitoring
           </span>
 
@@ -146,7 +143,7 @@ export function CompetitiveIntelligenceHero() {
                 >
                   {/* Front face */}
                   <div
-                    className="absolute inset-0 rounded-lg bg-[#F8F9FA] border border-[#E8E4DC] flex items-center justify-center"
+                    className="absolute inset-0 rounded-lg bg-background border border-[#E8E4DC] flex items-center justify-center"
                     style={{ backfaceVisibility: "hidden" }}
                   >
                     <Image src={pair[0].src} alt={pair[0].alt} width={20} height={20} className="object-contain" />
@@ -166,13 +163,13 @@ export function CompetitiveIntelligenceHero() {
           {/* Status line */}
           <div className="flex items-center gap-1.5 pt-1">
             <div className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" style={{ animation: "pulse 2s ease-in-out infinite" }} />
-            <span className="text-[9px] text-[#6B7280]" style={{ fontFamily: "Arial, sans-serif" }}>Monitoring 11 sources</span>
+            <span className="text-[9px] text-[#6B7280]">Monitoring 11 sources</span>
           </div>
         </div>
 
         {/* ── Top-right: Win Drivers ────────────────────────────────────── */}
         <div
-          className="bg-white rounded-2xl p-4 flex flex-col gap-1.5 z-10 overflow-hidden transition-all duration-500"
+          className="bg-card rounded-2xl p-4 flex flex-col gap-1.5 z-10 overflow-hidden transition-all duration-500"
           style={{
             boxShadow: "0 8px 32px rgba(15,31,61,0.18), 0 1px 4px rgba(0,0,0,0.08)",
             opacity: phase === "hidden" ? 0 : 1,
@@ -181,26 +178,17 @@ export function CompetitiveIntelligenceHero() {
           }}
         >
           <div className="flex items-center gap-1 mb-0.5">
-            <span
-              className="text-[11px] font-bold text-[#0F1F3D]"
-              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-            >
+            <span className="text-[11px] font-bold text-navy">
               Win Drivers vs. ACME
             </span>
           </div>
           {WIN_DRIVERS.map((d, i) => (
             <div key={d.label} className="flex flex-col gap-[3px]">
               <div className="flex items-center justify-between">
-                <span
-                  className="text-[9px] text-[#6B7280] truncate max-w-[80px]"
-                  style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                >
+                <span className="text-[9px] text-[#6B7280] truncate max-w-[80px]">
                   {d.label}
                 </span>
-                <span
-                  className="text-[9px] font-bold text-[#0F1F3D] ml-1 shrink-0"
-                  style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                >
+                <span className="text-[9px] font-bold text-navy ml-1 shrink-0">
                   {d.amount}
                 </span>
               </div>
@@ -220,7 +208,7 @@ export function CompetitiveIntelligenceHero() {
 
         {/* ── Bottom-left: Frequency + Win Rate line chart ─────────────── */}
         <div
-          className="bg-white rounded-2xl p-4 flex flex-col z-10 transition-all duration-500"
+          className="bg-card rounded-2xl p-4 flex flex-col z-10 transition-all duration-500"
           style={{
             boxShadow: "0 8px 32px rgba(15,31,61,0.18), 0 1px 4px rgba(0,0,0,0.08)",
             opacity: phase === "hidden" ? 0 : 1,
@@ -230,20 +218,17 @@ export function CompetitiveIntelligenceHero() {
         >
           {/* Title + legend */}
           <div className="flex items-start justify-between mb-2">
-            <span
-              className="text-[11px] font-bold text-[#0F1F3D] leading-tight"
-              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-            >
+            <span className="text-[11px] font-bold text-navy leading-tight">
               vs. ACME
             </span>
             <div className="flex flex-col gap-[3px] items-end">
               <div className="flex items-center gap-1">
-                <div className="w-4 h-[2px] rounded-full bg-[#0F1F3D]" />
-                <span className="text-[8px] text-[#6B7280]" style={{ fontFamily: "Arial, sans-serif" }}>Frequency</span>
+                <div className="w-4 h-[2px] rounded-full bg-navy" />
+                <span className="text-[8px] text-[#6B7280]">Frequency</span>
               </div>
               <div className="flex items-center gap-1">
-                <div className="w-4 h-[2px] rounded-full bg-[#D4A843]" />
-                <span className="text-[8px] text-[#6B7280]" style={{ fontFamily: "Arial, sans-serif" }}>Win Rate</span>
+                <div className="w-4 h-[2px] rounded-full bg-amber" />
+                <span className="text-[8px] text-[#6B7280]">Win Rate</span>
               </div>
             </div>
           </div>
@@ -311,7 +296,6 @@ export function CompetitiveIntelligenceHero() {
                   textAnchor="middle"
                   fontSize="7"
                   fill="#9CA3AF"
-                  fontFamily="Arial, sans-serif"
                 >
                   {m}
                 </text>
@@ -322,7 +306,7 @@ export function CompetitiveIntelligenceHero() {
 
         {/* ── Bottom-right: Battlecard ──────────────────────────────────── */}
         <div
-          className="bg-white rounded-2xl p-4 flex flex-col gap-2 z-10 transition-all duration-500"
+          className="bg-card rounded-2xl p-4 flex flex-col gap-2 z-10 transition-all duration-500"
           style={{
             boxShadow: "0 8px 32px rgba(15,31,61,0.18), 0 1px 4px rgba(0,0,0,0.08)",
             opacity: phase === "hidden" ? 0 : 1,
@@ -331,23 +315,16 @@ export function CompetitiveIntelligenceHero() {
           }}
         >
           <div className="flex items-center justify-between">
-            <span
-              className="text-[12px] font-bold text-[#0F1F3D]"
-              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-            >
+            <span className="text-[12px] font-bold text-navy">
               Acme Battlecard
             </span>
             <span
-              className="text-[9px] text-white bg-[#0F1F3D] px-2 py-0.5 rounded-md font-bold tracking-wide"
-              style={{ fontFamily: "Arial, sans-serif" }}
+              className="text-[9px] text-white bg-navy px-2 py-0.5 rounded-md font-bold tracking-wide"
             >
               .md
             </span>
           </div>
-          <p
-            className="text-[10px] text-[#6B7280] leading-[1.55] flex-1"
-            style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-          >
+          <p className="text-[10px] text-[#6B7280] leading-[1.55] flex-1">
             Our base battlecard for sales reps on Acme. I'll personalize this for reps based on the deal scenario.
           </p>
           <div className="flex items-center justify-between pt-2 border-t border-[#E8E4DC]">
@@ -364,10 +341,7 @@ export function CompetitiveIntelligenceHero() {
                   className="brightness-0 invert"
                 />
               </div>
-              <span
-                className="text-[10px] text-[#374151]"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-              >
+              <span className="text-[10px] text-[#374151]">
                 Feb 20
               </span>
             </div>
@@ -375,10 +349,7 @@ export function CompetitiveIntelligenceHero() {
               <div className="w-5 h-5 rounded-full bg-[#DBEAFE] flex items-center justify-center">
                 <span className="text-[8px] font-bold text-[#2563eb]">RD</span>
               </div>
-              <span
-                className="text-[10px] text-[#374151]"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-              >
+              <span className="text-[10px] text-[#374151]">
                 Riley Davis
               </span>
             </div>

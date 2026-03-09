@@ -153,9 +153,9 @@ export function DealReviewCard() {
   const visibleSteps = steps.filter((s) => s.status !== "waiting")
 
   return (
-    <div className="bg-white border border-[#E8E4DC] rounded-xl shadow-[0_8px_40px_rgba(15,31,61,0.12),0_2px_8px_rgba(15,31,61,0.06)] overflow-hidden">
+    <div className="bg-card border border-[#E8E4DC] rounded-xl shadow-[0_8px_40px_rgba(15,31,61,0.12),0_2px_8px_rgba(15,31,61,0.06)] overflow-hidden">
       {/* Card header */}
-      <div className="flex items-center justify-between px-6 py-4 border-b border-[#E8E4DC] bg-[#FAFAF8]">
+      <div className="flex items-center justify-between px-6 py-4 border-b border-[#E8E4DC] bg-background">
         <span
           className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#6B7280]"
           style={{ fontFamily: "Arial, Helvetica, sans-serif" }}

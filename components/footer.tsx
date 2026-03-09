@@ -51,18 +51,12 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex flex-row gap-2 items-center mb-3">
               <Image
-                src="/hindsightlogo-mark-only.svg"
+                src="/hindsightlogo-clear-white.svg"
                 alt="Hindsight"
                 width={32}
                 height={32}
-                className="h-8 w-auto brightness-0 invert"
+                className="h-8 w-auto"
               />
-              <span
-                className="text-2xl font-bold text-white leading-none tracking-[-0.025em]"
-                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-              >
-                Hindsight
-              </span>
             </Link>
             <p
               className="text-sm text-white/40 max-w-[220px] leading-relaxed"

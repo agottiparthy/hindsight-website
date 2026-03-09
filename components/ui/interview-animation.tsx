@@ -134,14 +134,14 @@ export function InterviewPanel() {
       </div>
 
       {/* ── Sliding viewport ── */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden" style={{ height: 420 }}>
         <div
           className="flex transition-transform duration-700 ease-in-out"
-          style={{ transform: onBuyerScreen ? "translateX(-50%)" : "translateX(0%)", width: "200%" }}
+          style={{ transform: onBuyerScreen ? "translateX(-50%)" : "translateX(0%)", width: "200%", height: "100%" }}
         >
 
           {/* ─── SCREEN 1: Seller / Slack ─────────────────────── */}
-          <div className="w-1/2 flex flex-col border-r border-[#E8E4DC]">
+          <div className="w-1/2 h-full flex flex-col border-r border-[#E8E4DC]">
             {/* Slack chrome bar */}
             <div className="flex items-center gap-2.5 px-4 py-2.5 bg-[#3F0F40]">
               <div className="w-5 h-5 rounded bg-[#0F1F3D] flex items-center justify-center shrink-0">
@@ -157,7 +157,7 @@ export function InterviewPanel() {
             </div>
 
             {/* Messages */}
-            <div className="bg-white px-4 py-3 flex flex-col gap-3.5">
+            <div className="bg-white px-4 py-3 flex flex-col gap-3.5 flex-1 overflow-y-auto">
               {SLACK_MESSAGES.filter((msg) => visibleMsgs.includes(msg.id)).map((msg) => (
                   <div
                     key={msg.id}
@@ -202,7 +202,7 @@ export function InterviewPanel() {
           </div>
 
           {/* ─── SCREEN 2: Buyer (email → call) ──────────────── */}
-          <div className="w-1/2 flex flex-col relative">
+          <div className="w-1/2 h-full flex flex-col relative">
 
             {/* EMAIL view — always visible */}
             <div>

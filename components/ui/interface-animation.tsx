@@ -61,7 +61,7 @@ export function InterfacePanel() {
   }, [])
 
   return (
-    <div className="h-fit">
+    <div className="bg-card border border-[#E8E4DC] rounded-xl overflow-hidden shadow-[0_8px_40px_rgba(15,31,61,0.12),0_2px_8px_rgba(15,31,61,0.06)]">
 
       {/* Header
       <div className="flex items-center justify-between px-6 py-4 border-b border-[#E8E4DC]">
@@ -74,15 +74,15 @@ export function InterfacePanel() {
       </div> */}
 
       {/* 2×2 grid canvas */}
-      <div className="bg-[#F7F6F3] p-3 grid grid-cols-2 gap-3" style={{ height: 360, gridTemplateRows: "1fr 1fr" }}>
+      <div className="bg-background p-3 grid grid-cols-2 gap-3" style={{ height: 420, gridTemplateRows: "1fr 1fr" }}>
 
         {/* ── Card 1: Win-loss bar chart — top-left ── */}
         <div
-          className={`rounded-lg overflow-hidden border border-[#E8E4DC] bg-white shadow-[0_4px_20px_rgba(15,31,61,0.10)] transition-all duration-500 ${
+          className={`rounded-lg overflow-hidden border border-[#E8E4DC] bg-card shadow-[0_4px_20px_rgba(15,31,61,0.10)] transition-all duration-500 ${
             visible >= 1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <div className="flex items-center justify-between px-3.5 py-2 bg-[#FAFAF8] border-b border-[#E8E4DC]">
+          <div className="flex items-center justify-between px-3.5 py-2 bg-background border-b border-[#E8E4DC]">
             <span className="text-[11px] font-bold text-[#0F1F3D]" style={{ fontFamily: "Arial, sans-serif" }}>
               Loss Reasons · Q1 2026
             </span>
@@ -96,7 +96,7 @@ export function InterfacePanel() {
                 <div className="w-[90px] shrink-0 text-[10px] text-[#374151] truncate" style={{ fontFamily: "Arial, sans-serif" }}>
                   {row.label}
                 </div>
-                <div className="flex-1 h-3 bg-[#F3F0EA] rounded-sm overflow-hidden">
+                <div className="flex-1 h-3 bg-[#E8E4DC] rounded-sm overflow-hidden">
                   <div
                     className="h-full bg-[#0F1F3D] rounded-sm transition-all duration-700 ease-out"
                     style={{ width: barsVisible ? `${row.pct}%` : "0%" }}
@@ -112,7 +112,7 @@ export function InterfacePanel() {
 
         {/* ── Card 2: Slack — top-right ── */}
         <div
-          className={`rounded-lg h-fit border border-[#E8E4DC] bg-white shadow-[0_6px_24px_rgba(15,31,61,0.13)] transition-all duration-500 ${
+          className={`rounded-lg overflow-hidden border border-[#E8E4DC] bg-card shadow-[0_6px_24px_rgba(15,31,61,0.13)] transition-all duration-500 ${
             visible >= 2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -120,7 +120,7 @@ export function InterfacePanel() {
             <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
             <span className="text-[10px] font-bold text-white/80" style={{ fontFamily: "Arial, sans-serif" }}>#ask-hindsight</span>
           </div>
-          <div className="bg-white px-3 py-2.5 flex items-start gap-2">
+          <div className="bg-card px-3 py-2.5 flex items-start gap-2">
             <div className="w-6 h-6 rounded bg-[#E8EAF6] flex items-center justify-center shrink-0 mt-0.5">
               <span className="text-[9px] font-bold text-[#3949AB]" style={{ fontFamily: "Arial, sans-serif" }}>MR</span>
             </div>
@@ -147,7 +147,7 @@ export function InterfacePanel() {
 
         {/* ── Card 3: Claude MCP — bottom-left ── */}
         <div
-          className={`rounded-lg h-fit border border-[#E8E4DC] shadow-[0_8px_28px_rgba(15,31,61,0.16)] transition-all duration-500 flex flex-col ${
+          className={`rounded-lg overflow-hidden border border-[#E8E4DC] shadow-[0_8px_28px_rgba(15,31,61,0.16)] transition-all duration-500 flex flex-col ${
             visible >= 3 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -193,7 +193,7 @@ export function InterfacePanel() {
 
         {/* ── Card 4: Battlecard — bottom-right ── */}
         <div
-          className={`rounded-lg overflow-hidden border border-[#E8E4DC] bg-white shadow-[0_10px_32px_rgba(15,31,61,0.18)] transition-all duration-500 ${
+          className={`rounded-lg overflow-hidden border border-[#E8E4DC] bg-card shadow-[0_10px_32px_rgba(15,31,61,0.18)] transition-all duration-500 ${
             visible >= 4 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >

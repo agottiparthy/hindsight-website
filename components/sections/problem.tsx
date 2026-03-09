@@ -4,20 +4,20 @@ const problems = [
   {
     num: "01 / CRM",
     title: "Win-loss reasons are fiction",
-    body: "Reps fill in loss reasons after deals they would rather forget. The data reflects what was convenient, not what was true.",
+    body: "Reps fill in loss reasons after deals they would rather forget.",
     stat: "~33% of deals show significant mismatch between CRM loss reasons and buyer interview results.",
   },
   {
     num: "02 / Call Transcripts",
     title: "Frequency is not causality",
-    body: "Gong tells you what came up, not what drove the outcome. Pricing was mentioned in 40% of calls — but did it cost you the deal?",
+    body: "Gong tells you what came up, not what drove the decision.",
     stat: "75% more accurate competitor attribution than keyword-based tracking.",
   },
   {
-    num: "03 / AI Agents",
-    title: "Bad inputs, convincing outputs",
-    body: "Win-loss programs cover less than 5% of deals and take months to deliver insights. That data is now flowing into every positioning, product, and competitive decision your team makes.",
-    stat: "Hindsight corrected 128,000+ loss reasons in 2025.",
+    num: "03 / Win-Loss Interviews",
+    title: "Small sample, slow turnaround",
+    body: "Win-loss programs cover less than 5% of deals and take months to deliver insights.",
+    stat: "Hindsight corrected 128K loss reasons and conducted 4,000 interviews within 48 hours of close.",
   },
 ]
 
@@ -146,7 +146,7 @@ export function ProblemSection() {
               <em className="italic text-amber">an exception.</em>
             </h2>
             <p className="text-lg leading-relaxed text-white/60 max-w-[480px]">
-              Most teams have the right instincts. CRM fields required. Gong connected. A win-loss process in place. The problem is structural. The data was never accurate enough to act on.
+              The problem is structural. The data was never accurate enough to act on. And now it is flowing into every positioning, product, and competitive decision your team makes.
             </p>
           </div>
 

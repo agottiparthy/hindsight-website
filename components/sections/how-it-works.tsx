@@ -3,27 +3,32 @@
 import { useEffect, useRef, useState } from "react"
 import { DealReviewCard } from "@/components/ui/deal-review-card"
 import { InterviewPanel } from "../ui/interview-animation"
-import { InterfacePanel } from "../ui/interface-animation"
+import { DealReportAnimation } from "../ui/deal-report-animation"
 import { AggregatePanel } from "../ui/aggregate-animation"
+import { InterfacePanel } from "../ui/interface-animation"
 
 const steps = [
   {
     num: "01",
-    title: "The Deal Review Agent investigates every closed deal.",
-    body: "Within 48 hours of close, Hindsight pulls every call, email, and CRM record for the deal. It cross-references them, flags contradictions, and builds a verified picture of what actually happened. Not a sample. Every deal.",
+    badge: "100% coverage",
+    title: "The Deal Review Agent investigates.",
+    body: "Within 12 hours of close, Hindsight pulls every call, email, and CRM record for the deal. It cross-references them, flags contradictions, and builds a verified picture of what actually happened. Not a sample. Every deal.",
   },
   {
     num: "02",
+    badge: "7–12% response rates",
     title: "AI interviews fill the gaps.",
     body: "Buyers go cold fast. Hindsight sends personalized AI interviews to reps via Slack and buyers via email while the deal is still fresh. The questions are specific to that deal, not a generic survey. The answers fill what no existing source captures.",
   },
   {
     num: "03",
+    badge: "+44% accuracy",
     title: "Every deal becomes a verified record.",
     body: "One clean document per deal. Decision drivers. Competitor attribution. What worked, what did not. Structured for your team to query and for your AI tools to read accurately.",
   },
   {
     num: "04",
+    badge: "+10 win rate",
     title: "Insights flow to where your team works.",
     body: "Battlecards. Win-loss reports. Rep alerts in Slack. Query the data yourself or let your AI agents do it via API and MCP.",
   }
@@ -32,7 +37,7 @@ const steps = [
 
 
 
-const panels = [AggregatePanel, DealReviewCard, InterviewPanel, InterfacePanel]
+const panels = [DealReviewCard, InterviewPanel, DealReportAnimation, InterfacePanel]
 
 /* ─── Section ─────────────────────────────────────────────────────────────── */
 export function HowItWorksSection() {
@@ -86,9 +91,21 @@ export function HowItWorksSection() {
                     {step.num}
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-navy mb-1.5">
-                      {step.title}
-                    </h3>
+                    <div className="flex items-center gap-2.5 mb-1.5">
+                      <h3 className="text-lg font-bold text-navy">
+                        {step.title}
+                      </h3>
+                      <span
+                        className="inline-block shrink-0 text-[10px] font-bold uppercase tracking-[0.1em] px-2 py-0.5 rounded-sm"
+                        style={{
+                          fontFamily: "var(--font-ibm-plex-mono), monospace",
+                          background: "rgba(217,119,6,0.12)",
+                          color: "#D97706",
+                        }}
+                      >
+                        {step.badge}
+                      </span>
+                    </div>
                     <p className="text-[14px] text-body leading-relaxed">
                       {step.body}
                     </p>

@@ -55,13 +55,13 @@ export function KnowledgeBaseAnimation() {
   }, [])
 
   return (
-    <div className="bg-[#FAFAF8] rounded-xl overflow-hidden h-full">
+    <div className="bg-background rounded-xl overflow-hidden h-full">
       <div className="flex flex-col gap-4 p-5 h-full">
 
         {/* ── Google Drive doc card ─────────────────────────────────── */}
-        <div className="bg-white border border-[#E8E4DC] rounded-lg overflow-hidden shadow-[0_2px_12px_rgba(15,31,61,0.06)]">
+        <div className="bg-card border border-[#E8E4DC] rounded-lg overflow-hidden shadow-[0_2px_12px_rgba(15,31,61,0.06)]">
           {/* Doc header */}
-          <div className="flex items-center justify-between px-4 py-2.5 border-b border-[#E8E4DC] bg-[#F8F6F1]">
+          <div className="flex items-center justify-between px-4 py-2.5 border-b border-[#E8E4DC] bg-background">
             <div className="flex items-center gap-2">
               {/* Google Drive triangle icon (inline SVG) */}
               <svg width="14" height="14" viewBox="0 0 87.3 78" className="shrink-0">
@@ -76,7 +76,7 @@ export function KnowledgeBaseAnimation() {
                 className="text-[11px] font-bold text-[#374151] truncate"
                 style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
               >
-                ACME_Battlecard.gdoc
+                ACME_Battlecard
               </span>
             </div>
             <span
@@ -151,7 +151,7 @@ export function KnowledgeBaseAnimation() {
           } ${
             phase === "done"
               ? "border-[#D4A843]/50 bg-[#FFF8E7]"
-              : "border-[#E8E4DC] bg-white"
+              : "border-[#E8E4DC] bg-card"
           }`}
         >
           <div className="px-4 py-3">
@@ -173,7 +173,7 @@ export function KnowledgeBaseAnimation() {
                   >
                     Rising objection discovered — &ldquo;integration gaps&rdquo; mentioned across
                   </div>
-                  <div className="flex items-center gap-2 mt-1.5">
+                  <div className="flex items-center gap-2">
                     <span
                       className="inline-flex items-center gap-1 bg-[#0F1F3D] text-white text-[9px] font-bold px-2 py-0.5 rounded tracking-wide"
                       style={{ fontFamily: "Arial, sans-serif" }}

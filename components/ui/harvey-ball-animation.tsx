@@ -57,11 +57,10 @@ function ScoreBadge({ score, active }: { score: number; active?: boolean }) {
     <span
       className="inline-flex items-center justify-center w-6 h-6 rounded font-bold text-[11px] transition-all duration-200"
       style={{
-        background: active ? "#D4A843" : c.bg,
-        color: active ? "#0F1F3D" : c.text,
-        border: `1.5px solid ${active ? "#D4A843" : c.border}`,
-        boxShadow: active ? "0 0 0 3px rgba(212,168,67,0.25)" : "none",
-        fontFamily: "Arial, sans-serif",
+        background: active ? "var(--color-amber)" : c.bg,
+        color: active ? "var(--color-navy)" : c.text,
+        border: `1.5px solid ${active ? "var(--color-amber)" : c.border}`,
+        boxShadow: active ? "0 0 0 3px rgba(217,119,6,0.25)" : "none",
       }}
     >
       {score}
@@ -105,7 +104,7 @@ export function HarveyBallAnimation() {
   }, [])
 
   return (
-    <div className="bg-[#FAFAF8] h-full flex overflow-hidden relative">
+    <div className="bg-background h-full flex overflow-hidden relative">
 
       {/* ── Left: table ─────────────────────────────────────────────── */}
       <div
@@ -114,16 +113,10 @@ export function HarveyBallAnimation() {
       >
         {/* Header */}
         <div className="flex items-center justify-between mb-3">
-          <span
-            className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B7280]"
-            style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-          >
+          <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B7280]">
             Feature Comparison
           </span>
-          <span
-            className="text-[9px] text-[#9CA3AF]"
-            style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
-          >
+          <span className="text-[9px] text-[#9CA3AF] font-mono">
             sourced from deals
           </span>
         </div>
@@ -134,16 +127,13 @@ export function HarveyBallAnimation() {
             <thead>
               <tr>
                 <th className="pb-2 pr-2 w-[44%]">
-                  <span className="text-[9px] font-bold uppercase tracking-[0.1em] text-[#9CA3AF]" style={{ fontFamily: "Arial, sans-serif" }}>
+                  <span className="text-[9px] font-bold uppercase tracking-[0.1em] text-[#9CA3AF]">
                     Feature
                   </span>
                 </th>
                 {COLS.map((col, ci) => (
                   <th key={col} className="pb-2 text-center">
-                    <span
-                      className={`text-[10px] font-bold ${ci === 0 ? "text-[#0F1F3D]" : "text-[#6B7280]"}`}
-                      style={{ fontFamily: "Arial, sans-serif" }}
-                    >
+                    <span className={`text-[10px] font-bold ${ci === 0 ? "text-navy" : "text-[#6B7280]"}` }>
                       {col}
                     </span>
                   </th>
@@ -159,11 +149,11 @@ export function HarveyBallAnimation() {
                   }`}
                 >
                   <td className="py-2 pr-2">
-                    <div className="text-[10px] font-bold text-[#0F1F3D] leading-none truncate" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+                    <div className="text-[10px] font-bold text-navy leading-none truncate">
                       {feat.name}
                     </div>
                     {!showSidebar && (
-                      <div className="text-[8px] text-[#9CA3AF] mt-0.5 truncate" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+                      <div className="text-[8px] text-[#9CA3AF] mt-0.5 truncate">
                         {feat.desc}
                       </div>
                     )}
@@ -189,7 +179,7 @@ export function HarveyBallAnimation() {
           {([1, 2, 3, 4] as const).map((s) => (
             <div key={s} className="flex items-center gap-1">
               <ScoreBadge score={s} />
-              <span className="text-[8px] text-[#9CA3AF]" style={{ fontFamily: "Arial, sans-serif" }}>
+              <span className="text-[8px] text-[#9CA3AF]">
                 {s === 1 ? "Weak" : s === 2 ? "Partial" : s === 3 ? "Strong" : "Best"}
               </span>
             </div>
@@ -199,7 +189,7 @@ export function HarveyBallAnimation() {
 
       {/* ── Right: sidebar ──────────────────────────────────────────── */}
       <div
-        className="absolute top-0 right-0 h-full bg-white border-l border-[#E8E4DC] flex flex-col transition-all duration-500 ease-in-out overflow-hidden"
+        className="absolute top-0 right-0 h-full bg-card border-l border-[#E8E4DC] flex flex-col transition-all duration-500 ease-in-out overflow-hidden"
         style={{ width: showSidebar ? "48%" : "0%", opacity: showSidebar ? 1 : 0 }}
       >
         {/* Constrain inner content so it doesn't overflow during animation */}
@@ -209,18 +199,18 @@ export function HarveyBallAnimation() {
           <div className="px-3.5 pt-3.5 pb-2.5 border-b border-[#E8E4DC] shrink-0">
             <div className="flex items-center gap-2 mb-1.5">
               <ScoreBadge score={SIDEBAR.score} active />
-              <span className="text-[11px] font-bold text-[#0F1F3D]" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+              <span className="text-[11px] font-bold text-navy">
                 {SIDEBAR.col} · {SIDEBAR.feature}
               </span>
             </div>
-            <p className="text-[9px] text-[#6B7280] leading-relaxed" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+            <p className="text-[9px] text-[#6B7280] leading-relaxed">
               {SIDEBAR.explanation}
             </p>
           </div>
 
           {/* Sources */}
           <div className="px-3.5 py-2.5 border-b border-[#E8E4DC] shrink-0">
-            <div className="text-[8px] font-bold uppercase tracking-[0.1em] text-[#9CA3AF] mb-2" style={{ fontFamily: "Arial, sans-serif" }}>
+            <div className="text-[8px] font-bold uppercase tracking-[0.1em] text-[#9CA3AF] mb-2">
               Sources
             </div>
             <div className="flex flex-col gap-1.5">
@@ -228,8 +218,8 @@ export function HarveyBallAnimation() {
                 <div key={i} className="flex items-start gap-2">
                   <span className="text-[10px] mt-px shrink-0">{s.icon}</span>
                   <div className="min-w-0">
-                    <div className="text-[9px] font-bold text-[#374151] truncate" style={{ fontFamily: "Arial, sans-serif" }}>{s.title}</div>
-                    <div className="text-[8px] text-[#9CA3AF] truncate" style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}>{s.subtitle}</div>
+                    <div className="text-[9px] font-bold text-[#374151] truncate">{s.title}</div>
+                    <div className="text-[8px] text-[#9CA3AF] truncate font-mono">{s.subtitle}</div>
                   </div>
                 </div>
               ))}
@@ -238,7 +228,7 @@ export function HarveyBallAnimation() {
 
           {/* Deals */}
           <div className="px-3.5 py-2.5 flex-1 overflow-hidden">
-            <div className="text-[8px] font-bold uppercase tracking-[0.1em] text-[#9CA3AF] mb-2" style={{ fontFamily: "Arial, sans-serif" }}>
+            <div className="text-[8px] font-bold uppercase tracking-[0.1em] text-[#9CA3AF] mb-2">
               Related Deals
             </div>
             <div className="flex flex-col gap-2">
@@ -249,20 +239,19 @@ export function HarveyBallAnimation() {
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5 flex-wrap">
-                      <span className="text-[9px] font-bold text-[#0F1F3D] truncate" style={{ fontFamily: "Arial, sans-serif" }}>{d.name}</span>
+                      <span className="text-[9px] font-bold text-navy truncate">{d.name}</span>
                       <span
                         className="text-[8px] font-bold px-1 py-px rounded shrink-0"
                         style={{
-                          fontFamily: "Arial, sans-serif",
                           background: d.result === "Win" ? "#F0FDF4" : "#FEF2F2",
                           color: d.result === "Win" ? "#15803D" : "#B91C1C",
                         }}
                       >
                         {d.result}
                       </span>
-                      <span className="text-[8px] text-[#9CA3AF] shrink-0" style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}>{d.amount}</span>
+                      <span className="text-[8px] text-[#9CA3AF] shrink-0 font-mono">{d.amount}</span>
                     </div>
-                    <div className="text-[8px] text-[#6B7280] leading-snug mt-0.5" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>{d.note}</div>
+                    <div className="text-[8px] text-[#6B7280] leading-snug mt-0.5">{d.note}</div>
                   </div>
                 </div>
               ))}

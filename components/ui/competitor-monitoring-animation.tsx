@@ -95,9 +95,9 @@ export function CompetitorMonitoringAnimation() {
   const visibleSteps = STEPS.filter((_, i) => statuses[i] !== "waiting")
 
   return (
-    <div className="bg-white border border-[#E8E4DC] rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(15,31,61,0.06)] h-full flex flex-col">
+    <div className="bg-card border border-[#E8E4DC] rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(15,31,61,0.06)] h-full flex flex-col">
       {/* Header */}
-      <div className="flex items-center justify-between px-5 py-3 border-b border-[#E8E4DC] bg-[#FAFAF8]">
+      <div className="flex items-center justify-between px-5 py-3 border-b border-[#E8E4DC] bg-background">
         <span
           className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B7280]"
           style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
@@ -190,7 +190,7 @@ export function CompetitorMonitoringAnimation() {
 
                 {/* Slack message preview */}
                 {isDone && step.isSlack && (
-                  <div className="mt-2 bg-[#F8F6F1] border border-[#E8E4DC] rounded-lg px-3 py-2.5">
+                  <div className="mt-2 bg-background border border-[#E8E4DC] rounded-lg px-3 py-2.5">
                     <div className="flex items-center gap-1.5 mb-1.5">
                       <div className="relative w-3.5 h-3.5 shrink-0">
                         <Image src="/integration_logos/slack.png" alt="Slack" fill className="object-contain" />

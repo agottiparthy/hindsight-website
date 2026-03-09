@@ -78,25 +78,19 @@ export function SlackEnablementAnimation() {
         <div className="relative w-3.5 h-3.5 shrink-0">
           <Image src="/integration_logos/slack.png" alt="Slack" fill className="object-contain" />
         </div>
-        <span
-          className="text-[11px] font-bold text-white/90"
-          style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-        >
+        <span className="text-[11px] font-bold text-white/90">
           #ask-hindsight
         </span>
         <div className="ml-auto flex items-center gap-1.5">
           <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse" />
-          <span
-            className="text-[9px] text-white/40"
-            style={{ fontFamily: "Arial, sans-serif" }}
-          >
+          <span className="text-[9px] text-white/40">
             live
           </span>
         </div>
       </div>
 
       {/* ── Message thread ─────────────────────────────────────────── */}
-      <div className="flex-1 bg-white px-4 py-4 flex flex-col gap-4 overflow-hidden">
+      <div className="flex-1 bg-card px-4 py-4 flex flex-col gap-4 overflow-hidden">
 
         {/* Rep message */}
         <div
@@ -105,31 +99,21 @@ export function SlackEnablementAnimation() {
           }`}
         >
           <div className="w-7 h-7 rounded bg-[#E8EAF6] flex items-center justify-center shrink-0 mt-0.5">
-            <span
-              className="text-[9px] font-bold text-[#3949AB]"
-              style={{ fontFamily: "Arial, sans-serif" }}
-            >
+            <span className="text-[9px] font-bold text-[#3949AB]">
               MR
             </span>
           </div>
           <div>
             <div className="flex items-baseline gap-2 mb-0.5">
-              <span
-                className="text-[12px] font-bold text-[#1D1C1D]"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-              >
+              <span className="text-[12px] font-bold text-[#1D1C1D]">
                 Marcus R.
               </span>
-              <span
-                className="text-[10px] text-[#616061]"
-                style={{ fontFamily: "Arial, sans-serif" }}
-              >
+              <span className="text-[10px] text-[#616061]">
                 10:32 AM
               </span>
             </div>
             <p
               className="text-[12px] text-[#1D1C1D] leading-snug"
-              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
             >
               {phase === "idle" ? "" : (
                 <>
@@ -158,22 +142,13 @@ export function SlackEnablementAnimation() {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-baseline gap-2 mb-1">
-                <span
-                  className="text-[12px] font-bold text-[#0F1F3D]"
-                  style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                >
+                <span className="text-[12px] font-bold text-navy">
                   Hindsight
                 </span>
-                <span
-                  className="text-[9px] px-1.5 py-0.5 rounded-sm bg-[#D4A843]/15 text-[#D4A843] font-bold tracking-wide"
-                  style={{ fontFamily: "Arial, sans-serif" }}
-                >
+                <span className="text-[9px] px-1.5 py-0.5 rounded-sm bg-amber/15 text-amber font-bold tracking-wide">
                   APP
                 </span>
-                <span
-                  className="text-[10px] text-[#616061]"
-                  style={{ fontFamily: "Arial, sans-serif" }}
-                >
+                <span className="text-[10px] text-[#616061]">
                   10:32 AM
                 </span>
               </div>
@@ -202,14 +177,11 @@ export function SlackEnablementAnimation() {
                     >
                       <span
                         className="text-[10px] font-bold mt-0.5 w-4 shrink-0 text-center rounded px-0.5 leading-[16px]"
-                        style={{ fontFamily: "Arial, sans-serif", color: b.color, background: b.bg }}
+                        style={{ color: b.color, background: b.bg }}
                       >
                         {b.icon}
                       </span>
-                      <span
-                        className="text-[11px] text-[#374151] leading-snug"
-                        style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                      >
+                      <span className="text-[11px] text-[#374151] leading-snug">
                         {b.text}
                       </span>
                     </div>
@@ -226,10 +198,7 @@ export function SlackEnablementAnimation() {
                           <Image src={src} alt="" fill className="object-contain" />
                         </div>
                       ))}
-                      <span
-                        className="text-[9px] text-[#9CA3AF]"
-                        style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
-                      >
+                      <span className="text-[9px] text-[#9CA3AF] font-mono">
                         {SOURCE_LINE}
                       </span>
                     </div>
@@ -242,12 +211,9 @@ export function SlackEnablementAnimation() {
       </div>
 
       {/* ── Input bar ─────────────────────────────────────────────── */}
-      <div className="bg-white px-4 pb-4 shrink-0">
+      <div className="bg-card px-4 pb-4 shrink-0">
         <div className="border border-[#E8E4DC] rounded-lg px-3 py-2 flex items-center gap-2">
-          <span
-            className="text-[11px] text-[#9CA3AF] flex-1"
-            style={{ fontFamily: "Arial, sans-serif" }}
-          >
+          <span className="text-[11px] text-[#9CA3AF] flex-1">
             Message #ask-hindsight
           </span>
           <span className="text-[12px] text-[#9CA3AF]">↵</span>

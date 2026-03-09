@@ -126,27 +126,20 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/[0.92] backdrop-blur-md ${
         scrolled ? "border-b border-[#E8E4DC]" : "border-b border-transparent"
       }`}
-      style={{ background: "rgba(248,246,241,0.92)", backdropFilter: "blur(12px)" }}
     >
       <div className="max-w-[1280px] mx-auto flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link href="/" className="flex flex-row gap-2 items-center">
           <Image
-            src="/hindsightlogo-mark-only.svg"
+            src="/hindsightlogo-clear.png"
             alt="Hindsight"
             width={140}
             height={32}
             className="h-8 w-auto"
           />
-            <h1
-            className="text-3xl font-bold leading-[1.1] tracking-[-0.025em] text-[#0F1F3D] mb-1"
-            style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-          >
-            Hindsight
-          </h1>
         </Link>
 
         {/* Desktop nav */}
@@ -166,13 +159,13 @@ export function Navbar() {
             </button>
 
             {solutionsOpen && (
-              <div className="absolute top-full left-0 mt-3 w-[320px] bg-white border border-[#E8E4DC] rounded-xl shadow-[0_8px_32px_rgba(15,31,61,0.12)] overflow-hidden">
+              <div className="absolute top-full left-0 mt-3 w-[320px] bg-card border border-[#E8E4DC] rounded-xl shadow-[0_8px_32px_rgba(15,31,61,0.12)] overflow-hidden">
                 {solutionsLinks.map((s) => (
                   <Link
                     key={s.href}
                     href={s.href}
                     onClick={() => setSolutionsOpen(false)}
-                    className="flex flex-col px-5 py-4 hover:bg-[#F8F6F1] transition-colors border-b border-[#F0EDE8] last:border-0 group"
+                    className="flex flex-col px-5 py-4 hover:bg-background transition-colors border-b border-[#E8E4DC] last:border-0 group"
                   >
                     <span
                       className="text-[13px] font-bold text-[#0F1F3D] mb-0.5 group-hover:text-[#D4A843] transition-colors"
@@ -207,13 +200,13 @@ export function Navbar() {
             </button>
 
             {platformOpen && (
-              <div className="absolute top-full left-0 mt-3 w-[320px] bg-white border border-[#E8E4DC] rounded-xl shadow-[0_8px_32px_rgba(15,31,61,0.12)] overflow-hidden">
+              <div className="absolute top-full left-0 mt-3 w-[320px] bg-card border border-[#E8E4DC] rounded-xl shadow-[0_8px_32px_rgba(15,31,61,0.12)] overflow-hidden">
                 {platformLinks.map((s) => (
                   <Link
                     key={s.href}
                     href={s.href}
                     onClick={() => setPlatformOpen(false)}
-                    className="flex flex-col px-5 py-4 hover:bg-[#F8F6F1] transition-colors border-b border-[#F0EDE8] last:border-0 group"
+                    className="flex flex-col px-5 py-4 hover:bg-background transition-colors border-b border-[#E8E4DC] last:border-0 group"
                   >
                     <span
                       className="text-[13px] font-bold text-[#0F1F3D] mb-0.5 group-hover:text-[#D4A843] transition-colors"
@@ -248,13 +241,13 @@ export function Navbar() {
             </button>
 
             {resourcesOpen && (
-              <div className="absolute top-full left-0 mt-3 w-[320px] bg-white border border-[#E8E4DC] rounded-xl shadow-[0_8px_32px_rgba(15,31,61,0.12)] overflow-hidden">
+              <div className="absolute top-full left-0 mt-3 w-[320px] bg-card border border-[#E8E4DC] rounded-xl shadow-[0_8px_32px_rgba(15,31,61,0.12)] overflow-hidden">
                 {resourcesLinks.map((s) => (
                   <Link
                     key={s.href}
                     href={s.href}
                     onClick={() => setResourcesOpen(false)}
-                    className="flex flex-col px-5 py-4 hover:bg-[#F8F6F1] transition-colors border-b border-[#F0EDE8] last:border-0 group"
+                    className="flex flex-col px-5 py-4 hover:bg-background transition-colors border-b border-[#E8E4DC] last:border-0 group"
                   >
                     <span
                       className="text-[13px] font-bold text-[#0F1F3D] mb-0.5 group-hover:text-[#D4A843] transition-colors"
@@ -305,10 +298,9 @@ export function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-[#E8E4DC] ${
+        className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-[#E8E4DC] bg-background ${
           mobileOpen ? "max-h-[900px] opacity-100" : "max-h-0 opacity-0"
         }`}
-        style={{ background: "rgba(248,246,241,0.98)" }}
       >
         <div className="max-w-[1280px] mx-auto px-12 py-6 flex flex-col gap-5">
           {/* Mobile Solutions accordion */}

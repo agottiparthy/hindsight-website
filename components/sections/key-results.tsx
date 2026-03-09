@@ -29,7 +29,7 @@ const testimonials = [
     slug: "ironclad",
   },
   {
-    quote: "My reps are going into deals with the most up-to-date information, letting them compete with confidence.",
+    quote: "I'm getting insights from deals that are being analyzed every day - pulling from Salesforce, Gong, and now win-loss interviews. My reps are going into deals with the most up-to-date information, letting them compete with confidence.",
     initials: "TD",
     name: "Tye Davis",
     role: "Sr. Product Marketing Manager, LaunchDarkly",
@@ -38,7 +38,7 @@ const testimonials = [
     slug: "launchdarkly",
   },
   {
-    quote: "We'd lose a $400,000 deal and it would be like, 'client wasn't interested at this time.' Hindsight lets us run off of the quant data and say, look, this is what's happening. There's no debate.",
+    quote: "We'd lose a $400,000 deal and it would be like, 'client wasn't interested at this time.' There's always friction between product and sales. Hindsight let's us run off of the quant data and say, look, this is what's happening. There's no debate.",
     initials: "TA",
     name: "Travis Allred",
     role: "VP of Commercial Operations, PurpleLab",

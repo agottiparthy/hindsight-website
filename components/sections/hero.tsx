@@ -1,7 +1,9 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { DealReviewCard } from "@/components/ui/deal-review-card"
+import { DealReportAnimation } from "../ui/deal-report-animation"
 
 export function HeroSection() {
   return (
@@ -43,7 +45,62 @@ export function HeroSection() {
             </div>
           </div>
 
-          <DealReviewCard />
+          <DealReportAnimation />
+
+          {/* Floating Salesforce loss reason dropdown */}
+          <div
+            className="absolute -bottom-6 -right-8 z-10 bg-white border border-[#E8E4DC] rounded-xl shadow-[0_8px_32px_rgba(15,31,61,0.12),0_2px_8px_rgba(15,31,61,0.06)] w-[210px] overflow-hidden animate-fadeInUp"
+            style={{ animationDuration: "0.5s", animationFillMode: "both", animationDelay: "0.4s" }}
+          >
+            {/* Card header */}
+            <div className="flex items-center justify-between px-4 py-2.5 bg-[#FAFAF8] border-b border-[#E8E4DC]">
+              <span
+                className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#6B7280]"
+                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+              >
+                Loss Reason
+              </span>
+              <div className="relative w-[18px] h-[18px] flex-shrink-0">
+                <Image
+                  src="/integration_logos/salesforce logo.png"
+                  alt="Salesforce"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+
+            {/* Options list */}
+            <div className="py-1">
+              {["Budget", "Timing", "Pricing", "Competitor", "No Decision"].map((option) => (
+                <div
+                  key={option}
+                  className={`flex items-center gap-2 px-4 py-[7px] text-[12px] ${
+                    option === "Pricing"
+                      ? "bg-[#1A6FD4] text-white font-bold"
+                      : "text-[#374151]"
+                  }`}
+                  style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                >
+                  <span className="w-3 flex-shrink-0 text-[10px]">
+                    {option === "Pricing" ? "✓" : ""}
+                  </span>
+                  {option}
+                </div>
+              ))}
+            </div>
+
+            {/* Before Hindsight badge */}
+            <div className="flex items-center gap-1.5 px-3 py-2 bg-[#FAEAEA] border-t border-[#F5C6C6]">
+              <span className="text-[#7A2828] text-[10px]">✕</span>
+              <span
+                className="text-[9px] font-bold uppercase tracking-[0.08em] text-[#7A2828]"
+                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+              >
+                Rep-reported · Unverified
+              </span>
+            </div>
+          </div>
         </div>
 
       </div>

@@ -1,77 +1,52 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { SlackEnablementAnimation } from "@/components/ui/slack-enablement-animation"
+import { WinLossInsightAnimation } from "@/components/ui/win-loss-insight-animation"
+import { DealReportAnimation } from "@/components/ui/deal-report-animation"
+import { RoleplayAnimation } from "@/components/ui/roleplay-animation"
 
 const features = [
   {
-    label: "Slack Sales Assistant",
-    headline: "Reps ask @Hindsight. Hindsight answers.",
-    copy:
-      "Mid-deal, a rep needs to know how to handle a competitive objection. They DM @Hindsight in Slack and get a verified answer backed by battlecards, deal data, and real call quotes — in seconds, not hours.",
+    label: "Ask @Hindsight Before the Call",
+    headline: "Ask @Hindsight before the call.",
+    copy: "\"How do I handle the pricing objection against Competitor X in midmarket?\" Reps get answers grounded in what actually closed similar deals. In Slack. In 30 seconds.",
   },
   {
-    label: "Talk Tracks & Objection Handling",
-    headline: "Messaging built from what actually wins.",
-    copy:
-      "Talk tracks and objection responses are generated from deals your team has already won — not theoretical frameworks. When a rep faces \"we're going with Competitor X,\" they know exactly what to say.",
+    label: "Win / Loss Intelligence",
+    headline: "See what's actually driving wins and losses.",
+    copy: "Rep level. Team level. Deal scenario. Separate execution problems from product gaps from pricing issues. Iterate on your playbook without waiting for a QBR.",
   },
   {
-    label: "One-Pagers & Battlecards",
-    headline: "Assets reps use because they trust them.",
-    copy:
-      "PMMs build once. Hindsight updates automatically. Battlecards reflect the latest competitive landscape, grounded in real deal data — so reps pull them up and act on them, instead of ignoring stale wikis.",
-  },
-  {
-    label: "Just-in-Time Coaching",
-    headline: "Surface insights before the call, not after.",
-    copy:
-      "Hindsight monitors deal activity and pushes relevant coaching alerts to reps in Slack before high-stakes calls — competitive deals, at-risk renewals, multi-stakeholder pursuits.",
-  },
-  {
-    label: "CRM Enrichment",
-    headline: "Richer context without extra rep work.",
-    copy:
-      "Every CRM record is enriched with AI-verified win/loss reasons, competitor mentions, decision drivers, and deal summaries — automatically. Reps spend less time logging, more time selling.",
-  },
-  {
-    label: "Asset Performance Tracking",
-    headline: "Know which enablement assets actually move deals.",
-    copy:
-      "Tracks which battlecards, talk tracks, and one-pagers get used in deals — and which ones correlate with wins. Keep what works. Cut what doesn't.",
+    label: "AI Roleplays",
+    headline: "Practice the objections that are actually coming up.",
+    copy: "AI roleplays built from verified deal scenarios. Not hypotheticals. Real competitive situations from your own deal history.",
+    comingSoon: true,
   },
 ]
 
 const stats = [
-  { num: "25k+", label: "Rep questions answered", company: "To date" },
+  { num: "+11%", label: "New business win rate", company: "Simpro" },
   { num: "+12%", label: "Competitive win rate", company: "LaunchDarkly" },
-  { num: "100%", label: "Deal coverage", company: "vs. <5% industry avg" },
 ]
 
 const testimonials = [
   {
-    quote:
-      "We used to rely on CRM notes, which are not reliable. It wasn't a full picture of what we were trying to learn from our lost and won deals. Hindsight helps our sellers know what's actually working in other deals — which helps them win.",
+    quote: "My reps are going into deals with the most up-to-date information, letting them compete with confidence.",
+    name: "Tye Davis",
+    role: "Sr. Product Marketing Manager — LaunchDarkly",
+    photo: "/customer_pictures/tye davis.jpeg",
+    stat: "+12%",
+    statLabel: "Competitive win rate",
+  },
+  {
+    quote: "Hindsight helps our sellers know what's actually working in other deals, which helps them win.",
     name: "Jason Bonhert",
     role: "Sr. PMM — Simpro Group",
     photo: "/customer_pictures/jason bonhert.png",
-  },
-]
-
-const problems = [
-  {
-    icon: "📁",
-    title: "Reps don't use the content you build",
-    body: "Battlecards live in Confluence or a shared drive. Reps don't have time to find them, can't tell if they're current, and don't trust them anyway. Your best enablement assets sit unused.",
-  },
-  {
-    icon: "⏱️",
-    title: "Answers come after the deal is lost",
-    body: "Win-loss reviews, call coaching, and competitive alerts happen retrospectively — too late to influence the deal that just slipped. Reps make educated guesses mid-call instead.",
-  },
-  {
-    icon: "🔗",
-    title: "Enablement is disconnected from the field",
-    body: "PMMs build messaging from analyst reports and competitor websites. Salesreps build their own from how they've heard things work. There's no shared source of truth — just conflicting narratives.",
+    stat: "+11%",
+    statLabel: "New business win rate",
   },
 ]
 
@@ -79,100 +54,55 @@ export default function SalesEnablementPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-[#F8F6F1] min-h-screen pt-[72px]">
+      <main className="bg-background min-h-screen pt-[72px]">
 
         {/* ── Hero ────────────────────────────────────────────────────── */}
-        <section className="bg-[#0F1F3D] px-12 py-[100px] relative overflow-hidden">
+        <section className="bg-navy px-12 py-[100px] relative overflow-hidden">
           <div
             className="absolute -top-[300px] right-0 w-[700px] h-[700px] pointer-events-none"
-            style={{ background: "radial-gradient(ellipse, rgba(212,168,67,0.07) 0%, transparent 65%)" }}
+            style={{ background: "radial-gradient(ellipse, rgba(217,119,6,0.07) 0%, transparent 65%)" }}
           />
           <div className="max-w-[1280px] mx-auto relative grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <p
-                className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-5"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-              >
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
                 Sales Enablement
               </p>
-              <h1
-                className="text-[clamp(38px,4.5vw,60px)] font-bold leading-[1.1] tracking-[-0.025em] text-white mb-6"
-                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-              >
-                Get reps the<br />
-                right answer,<br />
-                <em className="italic text-[#D4A843]">mid-deal, in Slack.</em>
+              <h1 className="text-[clamp(38px,4.5vw,60px)] font-bold leading-[1.1] tracking-[-0.025em] text-white mb-6">
+                Your reps know the product.
+                <em className="italic text-amber">They don&apos;t know
+                what worked in the last 10 deals.</em>
               </h1>
-              <p
-                className="text-[17px] text-white/70 leading-relaxed mb-9 max-w-[480px]"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-              >
-                Hindsight turns your deal history into verified answers, talk tracks, and battlecards — delivered where reps already work, when they actually need them.
+              <p className="text-[17px] text-white/70 leading-relaxed mb-9 max-w-[480px]">
+                Winnable competitive deals are lost mid-stage. Wrong differentiators. Wrong framing. Generic talk tracks that don&apos;t match what&apos;s actually closing deals right now.
               </p>
-              <div className="flex items-center gap-5">
+              <div className="flex items-center gap-5 mb-8">
                 <Link
                   href="/request-demo"
-                  className="bg-[#D4A843] text-[#0F1F3D] text-sm font-bold uppercase tracking-[0.06em] px-7 py-3.5 rounded hover:bg-[#e0b84e] transition-all hover:-translate-y-px"
-                  style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                  className="bg-amber text-navy text-sm font-bold uppercase tracking-[0.06em] px-7 py-3.5 rounded hover:bg-amber/90 transition-all hover:-translate-y-px"
                 >
                   Get a Demo
                 </Link>
                 <Link
                   href="/results"
                   className="text-white/70 text-sm border-b border-white/30 pb-px hover:text-white hover:border-white transition-colors"
-                  style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
                 >
-                  See customer results →
+                  See customer results &rarr;
                 </Link>
               </div>
-            </div>
-            {/* Stats */}
-            <div className="flex flex-col gap-4">
-              {stats.map((s, i) => (
-                <div
-                  key={i}
-                  className="border border-white/10 rounded-lg px-8 py-6 bg-white/[0.04] flex items-center gap-6"
-                >
-                  <div
-                    className="text-[42px] font-bold text-[#D4A843] leading-none tracking-[-0.03em]"
-                    style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-                  >
-                    {s.num}
+              {/* Stat pills */}
+              <div className="flex items-center gap-3 flex-wrap">
+                {stats.map((s, i) => (
+                  <div key={i} className="flex items-baseline gap-2 border border-white/10 rounded-lg px-4 py-2 bg-white/[0.04]">
+                    <span className="text-[18px] font-bold text-amber leading-none font-mono tracking-[-0.02em]">{s.num}</span>
+                    <span className="text-[11px] text-white/60">{s.label}</span>
+                    <span className="text-[10px] text-white/30 font-mono uppercase tracking-[0.08em]">{s.company}</span>
                   </div>
-                  <div>
-                    <div
-                      className="text-sm font-bold text-white mb-0.5"
-                      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                    >
-                      {s.label}
-                    </div>
-                    <div
-                      className="text-[12px] text-white/40 uppercase tracking-[0.1em]"
-                      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                    >
-                      {s.company}
-                    </div>
-                  </div>
-                </div>
-              ))}
-
-              {/* Slack DM mockup */}
-              <div className="border border-white/10 rounded-lg p-6 bg-white/[0.04]">
-                <div
-                  className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/40 mb-3"
-                  style={{ fontFamily: "Arial, sans-serif" }}
-                >
-                  Rep → @Hindsight · Slack
-                </div>
-                <div className="flex flex-col gap-3">
-                  <div className="bg-[#4A154B]/40 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white/80 self-end max-w-[80%]" style={{ fontFamily: "Arial, sans-serif" }}>
-                    How do I handle the Gong objection mid-demo?
-                  </div>
-                  <div className="bg-white/[0.08] border border-white/10 rounded-lg px-4 py-3 text-[13px] text-white/70 self-start max-w-[90%]" style={{ fontFamily: "Arial, sans-serif" }}>
-                    Based on 14 recent Gong deals: lead with workflow customization. Buyers who saw the audit trail demo closed at 67% vs 31%. Key quote from Tye at LaunchDarkly: &ldquo;the reporting depth is what sealed it.&rdquo;
-                  </div>
-                </div>
+                ))}
               </div>
+            </div>
+            {/* Hero animation */}
+            <div className="w-full rounded-xl overflow-hidden" style={{ height: 420 }}>
+              <SlackEnablementAnimation />
             </div>
           </div>
         </section>
@@ -180,245 +110,207 @@ export default function SalesEnablementPage() {
         {/* ── Problem ─────────────────────────────────────────────────── */}
         <section className="px-12 py-[100px]">
           <div className="max-w-[1280px] mx-auto">
-            <p
-              className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-5"
-              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-            >
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
               The Problem
             </p>
-            <h2
-              className="text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#0F1F3D] mb-14 max-w-2xl"
-              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-            >
-              Enablement built in a vacuum doesn&apos;t enable anyone.
+            <h2 className="text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy mb-16 max-w-2xl">
+              The intel exists. It just never reaches the rep.
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
-              {problems.map((p, i) => (
-                <div key={i} className="bg-white border border-[#E8E4DC] rounded-xl p-8">
-                  <div className="text-2xl mb-4">{p.icon}</div>
-                  <h3
-                    className="text-[17px] font-bold text-[#0F1F3D] mb-3 leading-snug"
-                    style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-                  >
-                    {p.title}
-                  </h3>
-                  <p
-                    className="text-[14px] text-[#6B7280] leading-relaxed"
-                    style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                  >
-                    {p.body}
-                  </p>
-                </div>
-              ))}
+              <div className="bg-card border border-[#E8E4DC] rounded-xl p-9">
+                <h3 className="text-[20px] font-bold text-navy mb-3 leading-snug">Reps wing it.</h3>
+                <p className="text-[15px] text-body leading-relaxed">
+                  Not because they ignored the battlecard. Because the battlecard feels generic and doesn&apos;t tell them what worked in the last deals like the current one.
+                </p>
+              </div>
+              <div className="bg-card border border-[#E8E4DC] rounded-xl p-9">
+                <h3 className="text-[20px] font-bold text-navy mb-3 leading-snug">Managers fly blind.</h3>
+                <p className="text-[15px] text-body leading-relaxed">
+                  Product gap, pricing issue, or execution problem? Hard to tell. Harder to fix. Relying on self-reported data or sporadic deal reviews doesn't scale.
+                </p>
+              </div>
+              <div className="bg-card border border-[#E8E4DC] rounded-xl p-9">
+                <h3 className="text-[20px] font-bold text-navy mb-3 leading-snug">Winnable deals lost.</h3>
+                <p className="text-[15px] text-body leading-relaxed">
+                  Same mistakes repeated. Advantages never used. The fix arrives a quarter late — after the next training, the next QBR, the next time someone finally looks at the data.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── Features ────────────────────────────────────────────────── */}
+        {/* ── Three ways ──────────────────────────────────────────────── */}
         <section className="px-12 pb-[100px]">
           <div className="max-w-[1280px] mx-auto">
-            <p
-              className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-5"
-              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-            >
-              How Hindsight Does It
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
+              How Hindsight Enables Your Team
             </p>
-            <h2
-              className="text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#0F1F3D] mb-16 max-w-2xl"
-              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-            >
-              Enablement grounded in what&apos;s actually winning deals.
+            <h2 className="text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy mb-16 max-w-2xl">
+              Three ways Hindsight enables your team.
             </h2>
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              {features.slice(0, 4).map((f, i) => (
-                <div key={i} className="bg-white border border-[#E8E4DC] rounded-xl p-9">
-                  <div className="w-8 h-[3px] bg-[#D4A843] mb-6" />
-                  <p
-                    className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-3"
-                    style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                  >
-                    {f.label}
+              {/* Feature 1 — Slack */}
+              <div className="bg-card border border-[#E8E4DC] rounded-xl overflow-hidden">
+                <div className="border-b border-[#E8E4DC] h-[340px] overflow-hidden">
+                  <SlackEnablementAnimation />
+                </div>
+                <div className="p-8">
+                  <div className="w-8 h-[3px] bg-amber mb-6" />
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-amber mb-3 font-mono">
+                    {features[0].label}
                   </p>
-                  <h3
-                    className="text-[20px] font-bold leading-[1.3] tracking-[-0.01em] text-[#0F1F3D] mb-4"
-                    style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-                  >
-                    {f.headline}
+                  <h3 className="text-[20px] font-bold leading-[1.3] tracking-[-0.01em] text-navy mb-4">
+                    {features[0].headline}
                   </h3>
-                  <p
-                    className="text-[14px] text-[#374151] leading-relaxed"
-                    style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                  >
-                    {f.copy}
+                  <p className="text-[14px] text-body leading-relaxed">
+                    {features[0].copy}
                   </p>
                 </div>
-              ))}
+              </div>
+              {/* Feature 2 — Dashboard */}
+              <div className="bg-card border border-[#E8E4DC] rounded-xl overflow-hidden">
+                <div className="border-b border-[#E8E4DC] h-[340px] overflow-hidden">
+                  <WinLossInsightAnimation />
+                </div>
+                <div className="p-8">
+                  <div className="w-8 h-[3px] bg-amber mb-6" />
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-amber mb-3 font-mono">
+                    {features[1].label}
+                  </p>
+                  <h3 className="text-[20px] font-bold leading-[1.3] tracking-[-0.01em] text-navy mb-4">
+                    {features[1].headline}
+                  </h3>
+                  <p className="text-[14px] text-body leading-relaxed">
+                    {features[1].copy}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              {features.slice(4).map((f, i) => (
-                <div key={i} className="bg-white border border-[#E8E4DC] rounded-xl p-9">
-                  <div className="w-8 h-[3px] bg-[#D4A843] mb-6" />
-                  <p
-                    className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-3"
-                    style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                  >
-                    {f.label}
-                  </p>
-                  <h3
-                    className="text-[20px] font-bold leading-[1.3] tracking-[-0.01em] text-[#0F1F3D] mb-4"
-                    style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-                  >
-                    {f.headline}
-                  </h3>
-                  <p
-                    className="text-[14px] text-[#374151] leading-relaxed"
-                    style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                  >
-                    {f.copy}
-                  </p>
-                </div>
-              ))}
+            {/* Feature 3 — Roleplays (coming soon, full width) */}
+            <div className="bg-card border border-[#E8E4DC] rounded-xl p-9 grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="w-8 h-[3px] bg-amber mb-6" />
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-amber mb-3 font-mono">
+                  {features[2].label}
+                </p>
+                <h3 className="text-[20px] font-bold leading-[1.3] tracking-[-0.01em] text-navy mb-4">
+                  {features[2].headline}
+                </h3>
+                <p className="text-[14px] text-body leading-relaxed mb-5">
+                  {features[2].copy}
+                </p>
+                <span className="inline-block text-[10px] font-bold uppercase tracking-[0.18em] text-amber bg-amber/10 border border-amber/20 rounded-full px-3 py-1 font-mono">
+                  Beta
+                </span>
+              </div>
+              {/* Roleplay mockup */}
+              <div className="rounded-xl overflow-hidden" style={{ height: 340 }}>
+                <RoleplayAnimation />
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── Testimonial ─────────────────────────────────────────────── */}
-        <section className="bg-[#0F1F3D] px-12 py-[100px]">
+        {/* ── Proof ───────────────────────────────────────────────────── */}
+        <section className="bg-navy px-12 py-[100px]">
           <div className="max-w-[1280px] mx-auto">
-            {testimonials.map((t, i) => (
-              <div key={i} className="max-w-3xl mx-auto text-center">
-                <p
-                  className="text-[22px] font-bold leading-[1.5] text-white mb-8"
-                  style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-                >
-                  &ldquo;{t.quote}&rdquo;
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Left — text + before/after */}
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
+                  The Foundation
                 </p>
-                <div className="flex items-center justify-center gap-4">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={t.photo}
-                    alt={t.name}
-                    className="w-10 h-10 rounded-full object-cover"
-                  />
-                  <div className="text-left">
-                    <div
-                      className="text-sm font-bold text-white"
-                      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                    >
-                      {t.name}
+                <h2 className="text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-white mb-5 max-w-2xl">
+                  Built on verified deal outcomes. Not content.
+                </h2>
+                <p className="text-[17px] text-white/60 leading-relaxed mb-10 max-w-2xl">
+                  Every other enablement tool is built on what someone thinks works. Hindsight is built on what the data shows works. Every answer. Every insight. Cross-referenced across calls, emails, CRM, and buyer interviews.
+                </p>
+                {/* Before / After */}
+                <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/40 font-mono mb-4">Before &rarr; After</p>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-white/[0.04] border border-white/10 rounded-xl p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="relative w-4 h-4 shrink-0">
+                        <Image src="/integration_logos/salesforce logo.png" alt="Salesforce" fill className="object-contain" />
+                      </div>
+                      <span className="text-[10px] font-bold text-white/40 font-mono uppercase tracking-[0.1em]">CRM field</span>
                     </div>
-                    <div
-                      className="text-xs text-white/50"
-                      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                    >
-                      {t.role}
+                    <div className="bg-white/[0.06] rounded-lg px-3 py-2.5 mb-2">
+                      <p className="text-[11px] text-white/40 font-mono mb-1">Loss Reason</p>
+                      <p className="text-[13px] font-bold text-white/70">Pricing</p>
                     </div>
+                    <p className="text-[11px] text-white/30 leading-snug">Rep-reported &middot; Unverified</p>
+                  </div>
+                  <div className="bg-white/[0.08] border border-amber/20 rounded-xl p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-4 h-4 rounded bg-blue/40 flex items-center justify-center shrink-0">
+                        <span className="text-white text-[8px] font-bold">H</span>
+                      </div>
+                      <span className="text-[10px] font-bold text-amber font-mono uppercase tracking-[0.1em]">Verified record</span>
+                    </div>
+                    <div className="flex flex-col gap-1.5 mb-2">
+                      {[["Integration confidence", "38%"], ["Migration risk", "24%"], ["Pricing", "10%"]].map(([d, p]) => (
+                        <div key={d} className="flex items-center justify-between">
+                          <span className="text-[10px] text-white/60 truncate max-w-[100px]">{d}</span>
+                          <span className="text-[10px] font-bold text-amber font-mono">{p}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-[11px] text-amber/60 leading-snug">Cross-referenced &middot; Verified</p>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ── Who it's for ────────────────────────────────────────────── */}
-        <section className="px-12 py-[100px]">
-          <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-20 items-start">
-            <div>
-              <p
-                className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-5"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-              >
-                Built For
-              </p>
-              <h2
-                className="text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#0F1F3D] mb-5"
-                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-              >
-                The whole GTM team acts on the same intelligence.
-              </h2>
-              <p
-                className="text-[16px] text-[#374151] leading-relaxed"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-              >
-                Hindsight connects the data loop between Product, Marketing, and Sales — so the insights that come from the field actually make it back into your messaging, roadmap, and coaching.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4">
-              {[
-                {
-                  role: "Product Marketing",
-                  description: "Build battlecards and messaging that stay current automatically — grounded in real deal data, not guesswork.",
-                },
-                {
-                  role: "Sales Enablement",
-                  description: "Deliver just-in-time coaching and verified content via Slack — where reps already are, when they need it most.",
-                },
-                {
-                  role: "Sales Leadership",
-                  description: "Identify rep-level coaching opportunities, track which messaging correlates with wins, and build a feedback loop from the field.",
-                },
-                {
-                  role: "Revenue Operations",
-                  description: "Enrich CRM records automatically, improve pipeline data quality, and give leadership the clean data they need to forecast accurately.",
-                },
-              ].map((item, i) => (
-                <div key={i} className="bg-white border border-[#E8E4DC] rounded-lg px-6 py-5 flex gap-4">
-                  <div className="w-2 h-2 rounded-full bg-[#D4A843] mt-1.5 flex-shrink-0" />
-                  <div>
-                    <div
-                      className="text-sm font-bold text-[#0F1F3D] mb-1"
-                      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                    >
-                      {item.role}
+              {/* Right — Testimonials */}
+              <div className="flex flex-col gap-6">
+                {testimonials.map((t, i) => (
+                  <div key={i} className="border border-white/10 rounded-xl p-7 bg-white/[0.04]">
+                    <div className="flex items-baseline gap-3 mb-5">
+                      <span className="text-[32px] font-bold text-amber leading-none font-mono tracking-[-0.03em]">{t.stat}</span>
+                      <span className="text-[12px] text-white/50 leading-snug">{t.statLabel}</span>
                     </div>
-                    <div
-                      className="text-[13px] text-[#6B7280] leading-relaxed"
-                      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-                    >
-                      {item.description}
+                    <p className="text-[15px] leading-[1.6] text-white/80 mb-5">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+                    <div className="flex items-center gap-3">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={t.photo} alt={t.name} className="w-8 h-8 rounded-full object-cover" />
+                      <div>
+                        <div className="text-sm font-bold text-white">{t.name}</div>
+                        <div className="text-xs text-white/50">{t.role}</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         {/* ── CTA ─────────────────────────────────────────────────────── */}
-        <section className="bg-[#0F1F3D] px-12 py-[100px]">
+        <section className="px-12 py-[100px]">
           <div className="max-w-[1280px] mx-auto text-center">
-            <p
-              className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#D4A843] mb-5"
-              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-            >
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
               Get Started
             </p>
-            <h2
-              className="text-[clamp(32px,4vw,52px)] font-bold leading-[1.1] tracking-[-0.025em] text-white mb-5 max-w-2xl mx-auto"
-              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-            >
-              Winning more starts with knowing why you lose.
+            <h2 className="text-[clamp(32px,4vw,52px)] font-bold leading-[1.1] tracking-[-0.025em] text-navy mb-5 max-w-2xl mx-auto">
+              See what your last 50 deals actually say.
             </h2>
-            <p
-              className="text-[17px] text-white/60 mb-9 max-w-xl mx-auto leading-relaxed"
-              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-            >
+            <p className="text-[17px] text-body mb-9 max-w-xl mx-auto leading-relaxed">
               Connect your CRM and Slack. Get your reps verified answers in under 48 hours.
             </p>
             <div className="flex items-center justify-center gap-5">
               <Link
                 href="/request-demo"
-                className="bg-[#D4A843] text-[#0F1F3D] text-sm font-bold uppercase tracking-[0.06em] px-8 py-4 rounded hover:bg-[#e0b84e] transition-all hover:-translate-y-px"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                className="bg-amber text-navy text-sm font-bold uppercase tracking-[0.06em] px-8 py-4 rounded hover:bg-amber/90 transition-all hover:-translate-y-px"
               >
                 Get a Demo
               </Link>
               <Link
                 href="/results"
-                className="text-white/60 text-sm border-b border-white/30 pb-px hover:text-white transition-colors"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                className="text-navy text-sm border-b border-navy/40 pb-px hover:opacity-60 transition-opacity"
               >
-                Read customer stories →
+                Read customer stories &rarr;
               </Link>
             </div>
           </div>
