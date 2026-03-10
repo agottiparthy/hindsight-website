@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Metadata } from "next"
+import Script from "next/script"
 
 export const metadata: Metadata = {
   title: "Customer Results | Hindsight",
@@ -77,6 +78,36 @@ export default function ResultsPage() {
 
   return (
     <>
+      <Script id="review-schema" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": studies.map((study, index) => ({
+            "@type": "Review",
+            "position": index + 1,
+            "itemReviewed": {
+              "@type": "SoftwareApplication",
+              "name": "Hindsight"
+            },
+            "author": {
+              "@type": "Person",
+              "name": study.contactName,
+              "jobTitle": study.contactRole
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "reviewBody": study.quote,
+            "publisher": {
+              "@type": "Organization",
+              "name": study.company
+            }
+          }))
+        })}
+      </Script>
+
       <Navbar />
       <main className="bg-background min-h-screen pt-[72px]">
 

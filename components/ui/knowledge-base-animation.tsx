@@ -194,11 +194,11 @@ export function KnowledgeBaseAnimation() {
               {/* Source logos */}
               <div className="flex items-center gap-1 shrink-0 mt-0.5">
                 {[
-                  "/integration_logos/gong.png",
-                  "/integration_logos/salesforce logo.png",
-                ].map((src, i) => (
+                  { src: "/integration_logos/gong.png", alt: "Gong" },
+                  { src: "/integration_logos/salesforce logo.png", alt: "Salesforce" },
+                ].map((logo, i) => (
                   <div key={i} className="relative w-4 h-4">
-                    <Image src={src} alt="" fill className="object-contain" />
+                    <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
                   </div>
                 ))}
               </div>

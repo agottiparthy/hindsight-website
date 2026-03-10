@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer"
 import { PricingCards } from "@/components/ui/pricing-cards"
 import Link from "next/link"
 import { Metadata } from "next"
+import Script from "next/script"
 
 export const metadata: Metadata = {
   title: "Pricing | Hindsight",
@@ -56,6 +57,21 @@ const faqs = [
 export default function PricingPage() {
   return (
     <>
+      <Script id="faq-schema" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.a
+            }
+          }))
+        })}
+      </Script>
+
       <Navbar />
       <main className="bg-background min-h-screen pt-[72px]">
 
