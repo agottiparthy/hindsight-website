@@ -17,13 +17,13 @@ const platformLinks = [
     desc: "Personalized buyer & rep interviews at scale",
   },
   {
-    label: "Analyst Agent",
-    href: "/platform/analyst-agent",
+    label: "AI Assistant",
+    href: "/platform/ai-assistant",
     desc: "On-demand competitive and deal analysis",
   },
   {
     label: "Workflow Builder",
-    href: "/platform/workflow-builder",
+    href: "/platform/workflows",
     desc: "Automated AI recipes for battlecards, reports & alerts",
   },
   {
@@ -33,7 +33,7 @@ const platformLinks = [
   },
   {
     label: "API",
-    href: "/platform/api",
+    href: "https://docs.usehindsight.com/integrations/api",
     desc: "Embed deal intelligence in your own workflows",
   },
 ]
