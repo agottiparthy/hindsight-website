@@ -2,6 +2,29 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { DemoForm } from "@/components/ui/demo-form"
 import Image from "next/image"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Request a Demo | Hindsight",
+  description: "See what Hindsight finds in your deal data — usually within 48 hours. Book a demo to understand why you're winning and losing deals.",
+  openGraph: {
+    title: "Request a Demo | Hindsight",
+    description: "See what Hindsight finds in your deal data — usually within 48 hours. Book a demo to understand why you're winning and losing deals.",
+    url: "https://usehindsight.com/request-demo",
+    siteName: "Hindsight",
+    images: ["/win-loss-og-image.jpg"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Request a Demo | Hindsight",
+    description: "See what Hindsight finds in your deal data — usually within 48 hours. Book a demo to understand why you're winning and losing deals.",
+    images: ["/win-loss-og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://usehindsight.com/request-demo",
+  },
+}
 
 const logos = [
   { src: "/customer_logos/simpro.svg", alt: "Simpro" },

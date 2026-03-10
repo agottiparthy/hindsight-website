@@ -4,6 +4,29 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { InterviewPanel } from "@/components/ui/interview-animation"
 import { DealReportStatic } from "@/components/ui/deal-report-static"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Win-Loss Analysis | Hindsight",
+  description: "Analyze 100% of deals with AI-powered win-loss intelligence. Automated buyer interviews, verified deal analysis, and insights from every closed opportunity.",
+  openGraph: {
+    title: "Win-Loss Analysis | Hindsight",
+    description: "Analyze 100% of deals with AI-powered win-loss intelligence. Automated buyer interviews, verified deal analysis, and insights from every closed opportunity.",
+    url: "https://usehindsight.com/solutions/win-loss-analysis",
+    siteName: "Hindsight",
+    images: ["/win-loss-og-image.jpg"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Win-Loss Analysis | Hindsight",
+    description: "Analyze 100% of deals with AI-powered win-loss intelligence. Automated buyer interviews, verified deal analysis, and insights from every closed opportunity.",
+    images: ["/win-loss-og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://usehindsight.com/solutions/win-loss-analysis",
+  },
+}
 
 const howItWorks = [
   {

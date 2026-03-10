@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ComparisonSection } from "@/components/sections"
+import { Metadata } from "next"
 
 const contentDir = path.join(process.cwd(), "content", "comparisons")
 
@@ -28,10 +29,26 @@ function getComparisons(): ComparisonMeta[] {
   })
 }
 
-export const metadata = {
-  title: "Compare — Hindsight",
-  description:
-    "See how Hindsight compares to traditional win-loss vendors, competitive intelligence tools, and DIY solutions.",
+export const metadata: Metadata = {
+  title: "Compare | Hindsight",
+  description: "See how Hindsight compares to traditional win-loss vendors like Clozd, competitive intelligence tools like Klue and Crayon, and DIY solutions.",
+  openGraph: {
+    title: "Compare | Hindsight",
+    description: "See how Hindsight compares to traditional win-loss vendors like Clozd, competitive intelligence tools like Klue and Crayon, and DIY solutions.",
+    url: "https://usehindsight.com/compare",
+    siteName: "Hindsight",
+    images: ["/compete-og-image.jpg"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Compare | Hindsight",
+    description: "See how Hindsight compares to traditional win-loss vendors like Clozd, competitive intelligence tools like Klue and Crayon, and DIY solutions.",
+    images: ["/compete-og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://usehindsight.com/compare",
+  },
 }
 
 export default function ComparePage() {

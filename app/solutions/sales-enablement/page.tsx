@@ -6,6 +6,29 @@ import { SlackEnablementAnimation } from "@/components/ui/slack-enablement-anima
 import { WinLossInsightAnimation } from "@/components/ui/win-loss-insight-animation"
 import { DealReportAnimation } from "@/components/ui/deal-report-animation"
 import { RoleplayAnimation } from "@/components/ui/roleplay-animation"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Sales Enablement | Hindsight",
+  description: "Give reps instant competitive answers in Slack. AI-powered coaching, verified win-loss insights, and deal-specific guidance when they need it most.",
+  openGraph: {
+    title: "Sales Enablement | Hindsight",
+    description: "Give reps instant competitive answers in Slack. AI-powered coaching, verified win-loss insights, and deal-specific guidance when they need it most.",
+    url: "https://usehindsight.com/solutions/sales-enablement",
+    siteName: "Hindsight",
+    images: ["/win-loss-og-image.jpg"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sales Enablement | Hindsight",
+    description: "Give reps instant competitive answers in Slack. AI-powered coaching, verified win-loss insights, and deal-specific guidance when they need it most.",
+    images: ["/win-loss-og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://usehindsight.com/solutions/sales-enablement",
+  },
+}
 
 const features = [
   {

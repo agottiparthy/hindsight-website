@@ -3,6 +3,29 @@ import Image from "next/image"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { IntegrationsFlipGrid } from "@/components/ui/integrations-flip-grid"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Integrations | Hindsight",
+  description: "Connect Hindsight to your CRM, call recording tools, Slack, and knowledge base. Works with HubSpot, Salesforce, Gong, Clari, Notion, and more.",
+  openGraph: {
+    title: "Integrations | Hindsight",
+    description: "Connect Hindsight to your CRM, call recording tools, Slack, and knowledge base. Works with HubSpot, Salesforce, Gong, Clari, Notion, and more.",
+    url: "https://usehindsight.com/platform/integrations",
+    siteName: "Hindsight",
+    images: ["/win-loss-og-image.jpg"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Integrations | Hindsight",
+    description: "Connect Hindsight to your CRM, call recording tools, Slack, and knowledge base. Works with HubSpot, Salesforce, Gong, Clari, Notion, and more.",
+    images: ["/win-loss-og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://usehindsight.com/platform/integrations",
+  },
+}
 
 // ── Integration data ──────────────────────────────────────────────────
 const crmIntegrations = [

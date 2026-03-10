@@ -2,6 +2,29 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { PricingCards } from "@/components/ui/pricing-cards"
 import Link from "next/link"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Pricing | Hindsight",
+  description: "Win-loss intelligence and competitive insights that scale with your team. Start free or book a demo to see how Hindsight analyzes every closed deal.",
+  openGraph: {
+    title: "Pricing | Hindsight",
+    description: "Win-loss intelligence and competitive insights that scale with your team. Start free or book a demo to see how Hindsight analyzes every closed deal.",
+    url: "https://usehindsight.com/pricing",
+    siteName: "Hindsight",
+    images: ["/win-loss-og-image.jpg"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pricing | Hindsight",
+    description: "Win-loss intelligence and competitive insights that scale with your team. Start free or book a demo to see how Hindsight analyzes every closed deal.",
+    images: ["/win-loss-og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://usehindsight.com/pricing",
+  },
+}
 
 const faqs = [
   {

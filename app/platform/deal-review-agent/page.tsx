@@ -4,6 +4,29 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { DealReviewCard } from "@/components/ui/deal-review-card"
 import { DealReportStatic } from "@/components/ui/deal-report-static"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Deal Review Agent | Hindsight",
+  description: "AI agent that investigates every closed deal within 48 hours. Analyzes calls, emails, and CRM data to surface decision drivers, competitors, and feature gaps.",
+  openGraph: {
+    title: "Deal Review Agent | Hindsight",
+    description: "AI agent that investigates every closed deal within 48 hours. Analyzes calls, emails, and CRM data to surface decision drivers, competitors, and feature gaps.",
+    url: "https://usehindsight.com/platform/deal-review-agent",
+    siteName: "Hindsight",
+    images: ["/win-loss-og-image.jpg"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Deal Review Agent | Hindsight",
+    description: "AI agent that investigates every closed deal within 48 hours. Analyzes calls, emails, and CRM data to surface decision drivers, competitors, and feature gaps.",
+    images: ["/win-loss-og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://usehindsight.com/platform/deal-review-agent",
+  },
+}
 
 const investigations = [
   {

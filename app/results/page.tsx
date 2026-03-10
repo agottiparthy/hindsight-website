@@ -5,6 +5,29 @@ import Image from "next/image"
 import Link from "next/link"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Customer Results | Hindsight",
+  description: "See how teams at LaunchDarkly, Ironclad, Simpro, and PurpleLab use Hindsight to improve win rates, scale win-loss programs, and compete with confidence.",
+  openGraph: {
+    title: "Customer Results | Hindsight",
+    description: "See how teams at LaunchDarkly, Ironclad, Simpro, and PurpleLab use Hindsight to improve win rates, scale win-loss programs, and compete with confidence.",
+    url: "https://usehindsight.com/results",
+    siteName: "Hindsight",
+    images: ["/win-loss-og-image.jpg"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Customer Results | Hindsight",
+    description: "See how teams at LaunchDarkly, Ironclad, Simpro, and PurpleLab use Hindsight to improve win rates, scale win-loss programs, and compete with confidence.",
+    images: ["/win-loss-og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://usehindsight.com/results",
+  },
+}
 
 interface Stat { value: string; label: string }
 

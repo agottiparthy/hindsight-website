@@ -7,6 +7,29 @@ import { CompetitorMonitoringAnimation } from "@/components/ui/competitor-monito
 import { HarveyBallAnimation } from "@/components/ui/harvey-ball-animation"
 import { SlackEnablementAnimation } from "@/components/ui/slack-enablement-animation"
 import { IntegrationsFlipGrid } from "@/components/ui/integrations-flip-grid"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Competitive Intelligence | Hindsight",
+  description: "Auto-updated battlecards, real-time competitor monitoring, and AI-powered competitive enablement. Keep your team ahead of every competitor move.",
+  openGraph: {
+    title: "Competitive Intelligence | Hindsight",
+    description: "Auto-updated battlecards, real-time competitor monitoring, and AI-powered competitive enablement. Keep your team ahead of every competitor move.",
+    url: "https://usehindsight.com/solutions/competitive-intelligence",
+    siteName: "Hindsight",
+    images: ["/compete-og-image.jpg"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Competitive Intelligence | Hindsight",
+    description: "Auto-updated battlecards, real-time competitor monitoring, and AI-powered competitive enablement. Keep your team ahead of every competitor move.",
+    images: ["/compete-og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://usehindsight.com/solutions/competitive-intelligence",
+  },
+}
 
 const features = [
   {

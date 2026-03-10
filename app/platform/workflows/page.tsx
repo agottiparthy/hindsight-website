@@ -1,6 +1,29 @@
 import Link from "next/link"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Workflows | Hindsight",
+  description: "Automated workflows for win-loss intelligence. Weekly competitive summaries, deal alerts, insight publishing to Slack, and custom notifications.",
+  openGraph: {
+    title: "Workflows | Hindsight",
+    description: "Automated workflows for win-loss intelligence. Weekly competitive summaries, deal alerts, insight publishing to Slack, and custom notifications.",
+    url: "https://usehindsight.com/platform/workflows",
+    siteName: "Hindsight",
+    images: ["/win-loss-og-image.jpg"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Workflows | Hindsight",
+    description: "Automated workflows for win-loss intelligence. Weekly competitive summaries, deal alerts, insight publishing to Slack, and custom notifications.",
+    images: ["/win-loss-og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://usehindsight.com/platform/workflows",
+  },
+}
 
 // ── Hindsight icon ────────────────────────────────────────────────────
 const HsIcon = ({ size = 20 }: { size?: number }) => (
