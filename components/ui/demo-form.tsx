@@ -5,14 +5,48 @@ import { useState } from "react"
 export function DemoForm() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    role: "",
+    details: "",
+  })
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setLoading(true)
-    // Simulate submission — wire up to your actual endpoint
-    await new Promise((r) => setTimeout(r, 900))
-    setLoading(false)
-    setSubmitted(true)
+    setError("")
+
+    try {
+      const response = await fetch("/api/request-demo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        setError(data.error || "Something went wrong. Please try again.")
+        setLoading(false)
+        return
+      }
+
+      setSubmitted(true)
+      
+      // Optional: redirect to Calendly after a delay
+      if (data.calendlyUrl) {
+        setTimeout(() => {
+          window.open(data.calendlyUrl, "_blank")
+        }, 2000)
+      }
+    } catch (err) {
+      setError("Something went wrong. Please try again.")
+      setLoading(false)
+    }
   }
 
   if (submitted) {
@@ -24,15 +58,29 @@ export function DemoForm() {
           </svg>
         </div>
         <h3 className="text-[22px] font-bold text-white mb-3">You&apos;re on the list.</h3>
-        <p className="text-[15px] text-white/60 leading-relaxed max-w-xs">
-          We&apos;ll reach out within one business day to schedule your walkthrough.
+        <p className="text-[15px] text-white/60 leading-relaxed max-w-xs mb-6">
+          Check your email for a link to schedule your demo with our team.
         </p>
+        <a
+          href="https://calendly.com/ani-hindsight/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[13px] text-amber hover:text-amber/80 font-semibold transition-colors"
+        >
+          Schedule now →
+        </a>
       </div>
     )
   }
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-8 md:p-10">
+      {error && (
+        <div className="bg-red-500/10 border border-red-500/30 rounded-lg px-4 py-3 text-[13px] text-red-400">
+          {error}
+        </div>
+      )}
+      
       <div className="grid grid-cols-2 gap-4">
         <div className="flex flex-col gap-1.5">
           <label className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/40 font-mono">First name</label>
@@ -40,6 +88,8 @@ export function DemoForm() {
             required
             type="text"
             placeholder="Alex"
+            value={formData.firstName}
+            onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
             className="bg-white/[0.06] border border-white/[0.12] rounded-lg px-4 py-3 text-[14px] text-white placeholder:text-white/25 outline-none focus:border-amber/60 focus:bg-white/[0.08] transition-all"
           />
         </div>
@@ -49,6 +99,8 @@ export function DemoForm() {
             required
             type="text"
             placeholder="Chen"
+            value={formData.lastName}
+            onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
             className="bg-white/[0.06] border border-white/[0.12] rounded-lg px-4 py-3 text-[14px] text-white placeholder:text-white/25 outline-none focus:border-amber/60 focus:bg-white/[0.08] transition-all"
           />
         </div>
@@ -60,6 +112,8 @@ export function DemoForm() {
           required
           type="email"
           placeholder="alex@company.com"
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           className="bg-white/[0.06] border border-white/[0.12] rounded-lg px-4 py-3 text-[14px] text-white placeholder:text-white/25 outline-none focus:border-amber/60 focus:bg-white/[0.08] transition-all"
         />
       </div>
@@ -70,6 +124,8 @@ export function DemoForm() {
           required
           type="text"
           placeholder="Acme Corp"
+          value={formData.company}
+          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
           className="bg-white/[0.06] border border-white/[0.12] rounded-lg px-4 py-3 text-[14px] text-white placeholder:text-white/25 outline-none focus:border-amber/60 focus:bg-white/[0.08] transition-all"
         />
       </div>
@@ -78,16 +134,17 @@ export function DemoForm() {
         <label className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/40 font-mono">Your role</label>
         <select
           required
-          defaultValue=""
+          value={formData.role}
+          onChange={(e) => setFormData({ ...formData, role: e.target.value })}
           className="bg-white/[0.06] border border-white/[0.12] rounded-lg px-4 py-3 text-[14px] text-white/60 outline-none focus:border-amber/60 focus:bg-white/[0.08] transition-all cursor-pointer appearance-none"
         >
           <option value="" disabled>Select your role</option>
-          <option className="text-black bg-white" value="pmm">Product Marketing</option>
-          <option className="text-black bg-white" value="ci">Competitive Intelligence</option>
-          <option className="text-black bg-white" value="se">Sales Enablement</option>
-          <option className="text-black bg-white" value="revops">Revenue Operations</option>
-          <option className="text-black bg-white" value="sales">Sales Leadership</option>
-          <option className="text-black bg-white" value="other">Other</option>
+          <option className="text-black bg-white" value="Product Marketing">Product Marketing</option>
+          <option className="text-black bg-white" value="Competitive Intelligence">Competitive Intelligence</option>
+          <option className="text-black bg-white" value="Sales Enablement">Sales Enablement</option>
+          <option className="text-black bg-white" value="Revenue Operations">Revenue Operations</option>
+          <option className="text-black bg-white" value="Sales Leadership">Sales Leadership</option>
+          <option className="text-black bg-white" value="Other">Other</option>
         </select>
       </div>
 
@@ -96,6 +153,8 @@ export function DemoForm() {
         <textarea
           rows={3}
           placeholder="e.g. understand why we're losing to a specific competitor, scale win-loss across 200+ reps..."
+          value={formData.details}
+          onChange={(e) => setFormData({ ...formData, details: e.target.value })}
           className="bg-white/[0.06] border border-white/[0.12] rounded-lg px-4 py-3 text-[14px] text-white placeholder:text-white/25 outline-none focus:border-amber/60 focus:bg-white/[0.08] transition-all resize-none leading-relaxed"
         />
       </div>

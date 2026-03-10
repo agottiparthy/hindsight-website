@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { MDXRemote } from "next-mdx-remote/rsc"
+import remarkGfm from "remark-gfm"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 
@@ -206,11 +207,19 @@ export default async function CaseStudyPage({ params }: Params) {
               [&_blockquote_p:first-child]:before:content-none [&_blockquote_p:last-child]:after:content-none
               prose-table:border-collapse
               prose-th:bg-navy prose-th:text-white prose-th:px-4 prose-th:py-2 prose-th:text-[12px] prose-th:font-bold prose-th:uppercase prose-th:tracking-widest
+              [&_th]:text-white [&_th]:bg-navy [&_th_*]:text-white
               prose-td:border prose-td:border-[#E8E4DC] prose-td:px-4 prose-td:py-2.5 prose-td:text-[14px] prose-td:text-body
               prose-a:text-amber prose-a:no-underline hover:prose-a:underline
               prose-hr:border-[#E8E4DC]
             ">
-              <MDXRemote source={content} />
+              <MDXRemote 
+                source={content} 
+                options={{
+                  mdxOptions: {
+                    remarkPlugins: [remarkGfm]
+                  }
+                }}
+              />
             </article>
             </div>
           </div>

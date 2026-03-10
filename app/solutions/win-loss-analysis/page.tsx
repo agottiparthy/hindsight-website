@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { InterviewPanel } from "@/components/ui/interview-animation"
+import { DealReportStatic } from "@/components/ui/deal-report-static"
 
 const howItWorks = [
   {
@@ -102,8 +103,8 @@ const problems = [
   },
   {
     icon: "🔀",
-    title: "Win-loss gets decentralized",
-    body: "Every team runs their own version on their own data. RevOps presents from the CRM. You present from Gong. Product runs their own flow. No central source of truth.",
+    title: "Reporting bottlenecks",
+    body: "Every team (product, sales, marketing) needs different slices of the data. Reporting to everyone is impossible so everyone starts running their own version, or gives up.",
   },
 ]
 
@@ -241,6 +242,9 @@ export default function WinLossAnalysisPage() {
             <p className="text-[17px] text-white/60 mb-16 max-w-xl leading-relaxed">
               Every deal becomes a verified record your whole team can query — sliced any way that matters.
             </p>
+                        <div className="w-full mb-10">
+                          <DealReportStatic />
+                        </div>
             <div className="grid md:grid-cols-3 gap-6">
               {outputs.slice(0, 3).map((o, i) => (
                 <div key={i} className="border border-white/10 rounded-xl p-8 bg-white/[0.04]">

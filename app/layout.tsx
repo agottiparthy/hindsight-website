@@ -23,6 +23,21 @@ const dmMono = DM_Mono({
 export const metadata: Metadata = {
   title: "Hindsight — Win-Loss Intelligence",
   description: "Hindsight investigates every closed deal, interviews buyers automatically, and tells you what actually happened.",
+  metadataBase: new URL('https://usehindsight.com'),
+  openGraph: {
+    title: "Hindsight — Win-Loss Intelligence",
+    description: "Hindsight investigates every closed deal, interviews buyers automatically, and tells you what actually happened.",
+    images: ['/win-loss-og-image.jpg'],
+    url: 'https://usehindsight.com',
+    siteName: 'Hindsight',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Hindsight — Win-Loss Intelligence",
+    description: "Hindsight investigates every closed deal, interviews buyers automatically, and tells you what actually happened.",
+    images: ['/win-loss-og-image.jpg'],
+  },
 };
 
 export default function RootLayout({

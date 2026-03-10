@@ -49,24 +49,24 @@ const resourcesLinks = [
     href: "/compare",
     desc: "See how Hindsight stacks up against alternatives",
   },
-  {
-    label: "Win-Loss Playbook",
-    href: "/resources/win-loss-playbook",
-    desc: "Build a world-class win-loss program from scratch",
-  },
-  {
-    label: "Competitive Intel Playbook",
-    href: "/resources/competitive-intel-playbook",
-    desc: "How top PMMs run CI programs that actually scale",
-  },
-  {
-    label: "Templates",
-    href: "/resources/templates",
-    desc: "Battlecard, report, and interview templates",
-  },
+  // {
+  //   label: "Win-Loss Playbook",
+  //   href: "/resources/win-loss-playbook",
+  //   desc: "Build a world-class win-loss program from scratch",
+  // },
+  // {
+  //   label: "Competitive Intel Playbook",
+  //   href: "/resources/competitive-intel-playbook",
+  //   desc: "How top PMMs run CI programs that actually scale",
+  // },
+  // {
+  //   label: "Templates",
+  //   href: "/resources/templates",
+  //   desc: "Battlecard, report, and interview templates",
+  // },
   {
     label: "Security",
-    href: "/security",
+    href: "https://trust.usehindsight.com",
     desc: "SOC 2, data handling, and privacy practices",
   },
 ]

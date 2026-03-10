@@ -6,7 +6,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 
 // ── Chat interface hero visual ────────────────────────────────────────
-function HeroChatVisual() {
+export function HeroChatVisual() {
   return (
     <div
       className="rounded-xl overflow-hidden border border-[#E8E4DC] shadow-[0_8px_40px_rgba(15,31,61,0.14)] bg-white text-[12px]"
@@ -196,7 +196,7 @@ const dealRows = [
 ]
 
 // ── Quantitative analysis visual ──────────────────────────────────────
-function QuantAnalysisVisual() {
+export function QuantAnalysisVisual() {
   return (
     <div
       className="rounded-xl overflow-hidden border border-[#d8d8e4] bg-white shadow-[0_8px_32px_rgba(15,31,61,0.12)]"

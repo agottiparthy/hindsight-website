@@ -142,11 +142,11 @@ export function ProblemSection() {
               The Problem
             </p>
             <h2 className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-white mb-4">
-              That deal is not<br />
-              <em className="italic text-amber">an exception.</em>
+              Accurate data<br />
+              <em className="italic text-amber">is the exception.</em>
             </h2>
             <p className="text-lg leading-relaxed text-white/60 max-w-[480px]">
-              The problem is structural. The data was never accurate enough to act on. And now it is flowing into every positioning, product, and competitive decision your team makes.
+              The problem is structural. CRM dropdowns, raw call transcripts, and occasional interviews can't tell the real story. And that flows into positioning, product, and competitive decisions your team makes.
             </p>
           </div>
 

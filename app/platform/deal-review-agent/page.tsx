@@ -313,8 +313,8 @@ export default function DealReviewAgentPage() {
                   <rect x="19" y="27" width="4" height="9" rx="0.5" />
                   <rect x="25" y="32" width="4" height="4" rx="0.5" />
                 </svg>
-                <p className="text-[16px] font-bold text-white mb-2">For your team</p>
-                <p className="text-[14px] text-white/60 leading-relaxed">A deal report with every driver, competitor, feature, and metric in one view.</p>
+                <p className="text-[16px] font-bold text-white mb-2">For your CRM</p>
+                <p className="text-[14px] text-white/60 leading-relaxed">Verified data written back to your CRM for critical win-loss, competitive, and product data.</p>
               </div>
 
               {/* For your dashboards */}

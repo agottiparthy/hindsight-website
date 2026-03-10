@@ -1,3 +1,4 @@
+import { HeroChatVisual, QuantAnalysisVisual } from "@/app/platform/ai-assistant/page"
 import Link from "next/link"
 
 const solutions = [
@@ -6,21 +7,21 @@ const solutions = [
     headline: "Know exactly why you are losing to each competitor.",
     copy: "Battlecards built from what is actually winning deals, updated automatically as new deals close. No more stale decks. No more one-person bottleneck. Every team can pull the cut of data they need without asking you first.",
     proof: "\"We used to rely on CRM notes, which are not reliable. Hindsight helps our sellers know what's actually working in other deals.\" — Jason Bonhert, Sr. PMM, Simpro",
-    href: "#how-it-works",
+    href: "/solutions/competitive-intelligence",
   },
   {
     label: "SALES",
     headline: "Get verified answers to reps when it matters.",
     copy: "Reps DM @Hindsight in Slack mid-deal and get verified answers grounded in actual deal data. What worked against this competitor last quarter. How to handle the objection that just came up. Built from what actually closed deals.",
     proof: "\"My reps are going into deals with the most up-to-date information, letting them compete with confidence.\" — Tye Davis, Sr. PMM, LaunchDarkly",
-    href: "#how-it-works",
+    href: "/solutions/sales-enablement",
   },
   {
     label: "REVOPS",
-    headline: "A verification layer for the stack you already built.",
-    copy: "Plug in via API and MCP. Your existing tools read verified deal records instead of raw transcripts. Clean inputs. Reliable outputs. Hindsight sits in your operational hub and generates the insights every other team acts on.",
-    proof: "\"It really kind of sits in our operational hub, to generate insights that everybody else will act on.\" — Travis Allred, VP Commercial Operations, PurpleLab",
-    href: "#compare",
+    headline: "A verification layer for better reporting.",
+    copy: "Your existing tools read verified deal records instead of raw transcripts. Clean inputs. Reliable outputs. Hindsight sits in your operational hub and generates the insights every other team acts on. Use Hindsight's AI, your CRM, or plug in via API or MCP.",
+    proof: "\"It really sits in our operational hub, to generate insights that everybody else will act on.\" — Travis Allred, VP Commercial Operations, PurpleLab",
+    href: "/platform/deal-review-agent",
   },
 ]
 
@@ -32,9 +33,17 @@ export function SolutionsSection() {
         <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
           Who Uses It
         </p>
-        <h2 className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy mb-16 max-w-2xl">
+        <h2 className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy max-w-2xl">
           Win-loss intelligence for every team that touches a deal.
         </h2>
+        <div className="flex flex-row gap-4 py-12">
+                                    <QuantAnalysisVisual />
+
+                                <HeroChatVisual />
+        
+        </div>
+
+        
         {/* Three columns */}
         <div className="grid md:grid-cols-3 gap-0 divide-x divide-border">
           {solutions.map((s, i) => (

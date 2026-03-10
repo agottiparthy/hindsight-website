@@ -70,7 +70,7 @@ export function HowItWorksSection() {
               How It Works
             </p>
             <h2 className="text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy">
-              Every closed deal. Automatically.<br />No analyst required.
+              Every closed deal, verified automatically.<br />No analyst required.
             </h2>
           </div>
 
