@@ -137,7 +137,7 @@ export function SlackEnablementAnimation() {
               style={{ background: "linear-gradient(140deg, #2563eb 0%, #60a5fa 100%)" }}
             >
               <div className="relative w-4 h-4">
-                <Image src="/hindsightlogo-mark-only.svg" alt="Hindsight" fill className="object-contain brightness-0 invert" />
+                <Image src="/hindsighticon.svg" alt="Hindsight" fill className="object-contain brightness-0 invert" />
               </div>
             </div>
             <div className="flex-1 min-w-0">

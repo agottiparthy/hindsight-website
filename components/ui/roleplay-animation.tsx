@@ -108,7 +108,7 @@ export function RoleplayAnimation() {
         >
           <div className="relative w-9 h-9 mb-1.5">
             <Image
-              src="/hindsightlogo-mark-only.svg"
+              src="/hindsighticon.svg"
               alt="Hindsight"
               fill
               className="object-contain brightness-0 invert opacity-80"

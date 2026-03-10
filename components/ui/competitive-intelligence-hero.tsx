@@ -99,7 +99,7 @@ export function CompetitiveIntelligenceHero() {
           }}
         >
           <Image
-            src="/hindsightlogo-mark-only.svg"
+            src="/hindsighticon.svg"
             alt="Hindsight"
             width={32}
             height={32}
@@ -334,7 +334,7 @@ export function CompetitiveIntelligenceHero() {
                 style={{ background: "linear-gradient(140deg, #2563eb 0%, #60a5fa 100%)" }}
               >
                 <Image
-                  src="/hindsightlogo-mark-only.svg"
+                  src="/hindsighticon.svg"
                   alt="Hindsight"
                   width={14}
                   height={14}

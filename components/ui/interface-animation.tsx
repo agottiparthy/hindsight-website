@@ -179,7 +179,7 @@ export function InterfacePanel() {
               <div className="flex items-center gap-2 bg-[#2A2A2A] border border-white/10 rounded-lg px-2.5 py-2">
                 <div className="w-5 h-5 rounded bg-[#0F1F3D] flex items-center justify-center shrink-0">
                   <div className="relative w-3 h-3">
-                    <Image src="/hindsightlogo-mark-only.svg" alt="Hindsight" fill className="object-contain brightness-0 invert" />
+                    <Image src="/hindsighticon.svg" alt="Hindsight" fill className="object-contain brightness-0 invert" />
                   </div>
                 </div>
                 <div className="flex-1 min-w-0">
