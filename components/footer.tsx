@@ -51,12 +51,12 @@ const footerColumns = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#080F1E] px-12 pt-16 pb-10 border-t border-white/[0.06]">
+    <footer className="bg-[#080F1E] px-4 sm:px-6 md:px-8 lg:px-12 pt-12 md:pt-16 pb-8 md:pb-10 border-t border-white/[0.06]">
       <div className="max-w-[1280px] mx-auto">
         {/* Top row: logo + columns */}
-        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-10 mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-8 md:gap-10 mb-10 md:mb-14">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <Link href="/" className="flex flex-row gap-2 items-center mb-3">
               <Image
                 src="/hindsightlogo-clear-white.svg"
@@ -67,7 +67,7 @@ export function Footer() {
               />
             </Link>
             <p
-              className="text-sm text-white/40 max-w-[220px] leading-relaxed"
+              className="text-[13px] md:text-sm text-white/40 max-w-[220px] leading-relaxed"
               style={{ fontFamily: "Arial, Helvetica, sans-serif", letterSpacing: "0.01em" }}
             >
               Winning more starts with knowing why you lose.

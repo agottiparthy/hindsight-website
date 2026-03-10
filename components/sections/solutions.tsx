@@ -27,16 +27,16 @@ const solutions = [
 
 export function SolutionsSection() {
   return (
-    <section className="bg-surface px-12 pb-[100px]">
+    <section className="bg-surface px-4 sm:px-6 md:px-8 lg:px-12 pb-[60px] md:pb-[100px]">
       <div className="max-w-[1280px] mx-auto">
         {/* Eyebrow + headline */}
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
+        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-4 md:mb-5 font-mono">
           Who Uses It
         </p>
-        <h2 className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy max-w-2xl">
+        <h2 className="text-[clamp(28px,6vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy max-w-2xl">
           Win-loss intelligence for every team that touches a deal.
         </h2>
-        <div className="flex flex-row gap-4 py-12">
+        <div className="flex flex-col md:flex-row gap-4 py-8 md:py-12">
                                     <QuantAnalysisVisual />
 
                                 <HeroChatVisual />
@@ -45,11 +45,11 @@ export function SolutionsSection() {
 
         
         {/* Three columns */}
-        <div className="grid md:grid-cols-3 gap-0 divide-x divide-border">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:divide-x divide-border">
           {solutions.map((s, i) => (
-            <div key={i} className="px-10 first:pl-0 last:pr-0 flex flex-col">
+            <div key={i} className="px-0 md:px-10 md:first:pl-0 md:last:pr-0 flex flex-col pb-8 md:pb-0 mb-8 md:mb-0 border-b md:border-b-0 last:border-b-0 last:mb-0">
               {/* Amber top rule */}
-              <div className="w-8 h-[3px] bg-amber mb-8" />
+              <div className="w-8 h-[3px] bg-amber mb-6 md:mb-8" />
 
               {/* Label */}
               <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-amber mb-4 font-mono">
@@ -57,18 +57,18 @@ export function SolutionsSection() {
               </p>
 
               {/* Headline */}
-              <h3 className="text-[22px] font-bold leading-[1.25] tracking-[-0.01em] text-navy mb-4">
+              <h3 className="text-[19px] md:text-[22px] font-bold leading-[1.25] tracking-[-0.01em] text-navy mb-3 md:mb-4">
                 {s.headline}
               </h3>
 
               {/* Description */}
-              <p className="text-[15px] text-body leading-relaxed mb-6 flex-1">
+              <p className="text-[14px] md:text-[15px] text-body leading-relaxed mb-5 md:mb-6 flex-1">
                 {s.copy}
               </p>
 
               {/* Proof point */}
-              <div className="mb-6 px-3.5 py-3 rounded-lg bg-surface border border-[#D3DAE8] border-l-[3px] border-l-amber">
-                <p className="text-[12px] text-body leading-snug italic">
+              <div className="mb-5 md:mb-6 px-3 md:px-3.5 py-2.5 md:py-3 rounded-lg bg-surface border border-[#D3DAE8] border-l-[3px] border-l-amber">
+                <p className="text-[11px] md:text-[12px] text-body leading-snug italic">
                   {s.proof}
                 </p>
               </div>
@@ -76,7 +76,7 @@ export function SolutionsSection() {
               {/* Link */}
               <Link
                 href={s.href}
-                className="text-[13px] font-bold text-navy hover:text-amber transition-colors"
+                className="text-[12px] md:text-[13px] font-bold text-navy hover:text-amber transition-colors"
               >
                 Learn more →
               </Link>

@@ -74,14 +74,14 @@ export function DemoForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-8 md:p-10">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-6 md:p-8 lg:p-10">
       {error && (
         <div className="bg-red-500/10 border border-red-500/30 rounded-lg px-4 py-3 text-[13px] text-red-400">
           {error}
         </div>
       )}
       
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1.5">
           <label className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/40 font-mono">First name</label>
           <input

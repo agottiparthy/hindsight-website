@@ -18,22 +18,22 @@ const logos = [
 
 export function LogoCloudSection() {
   return (
-    <section className="bg-background pb-[50px] border-b border-[#E8E4DC]">
+    <section className="bg-background pb-[40px] md:pb-[50px] border-b border-[#E8E4DC]">
       <Container>
         <p
-          className="text-center text-[11px] uppercase tracking-[0.12em] text-[#6B7280] mb-8"
+          className="text-center text-[11px] uppercase tracking-[0.12em] text-[#6B7280] mb-6 md:mb-8"
           style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
         >
           AI-Powered GTM Teams Use Hindsight
         </p>
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border-l border-t border-[#E8E4DC]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border-l border-t border-[#E8E4DC]">
           {logos.map((logo, i) => (
             <div
               key={i}
-              className="border-r border-b border-[#E8E4DC] flex items-center justify-center px-6 py-6"
+              className="border-r border-b border-[#E8E4DC] flex items-center justify-center px-4 md:px-6 py-5 md:py-6"
               title={logo.name}
             >
-              <div className="relative h-7 w-full">
+              <div className="relative h-6 md:h-7 w-full">
                 <Image
                   src={logo.src}
                   alt={logo.name}

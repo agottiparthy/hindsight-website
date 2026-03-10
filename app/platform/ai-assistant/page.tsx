@@ -214,30 +214,31 @@ export function QuantAnalysisVisual() {
       </div>
 
       {/* Toolbar */}
-      <div className="flex items-center justify-between px-5 py-2.5 border-b border-[#e8e8ec]">
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-[#e0e0ea] bg-[#fafafa] min-w-[140px]">
+      <div className="flex items-center justify-between px-3 sm:px-5 py-2.5 border-b border-[#e8e8ec]">
+        <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-[#e0e0ea] bg-[#fafafa] min-w-[140px]">
           <svg width="10" height="10" viewBox="0 0 16 16" fill="none" className="text-[#9999aa] flex-shrink-0">
             <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" strokeWidth="1.5"/>
             <path d="M10 10l3.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
           </svg>
           <span className="text-[10px] text-[#aaaabc]">Search deals</span>
         </div>
-        <div className="flex items-center gap-2">
-          <button className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-[#e0e0ea] text-[10px] font-medium text-[#555566] bg-white">
-            <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M4 8h8M6 12h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
-            Filters
+        <div className="w-full sm:w-auto flex items-center justify-end gap-1.5 sm:gap-2">
+          <button className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-md border border-[#e0e0ea] text-[9px] sm:text-[10px] font-medium text-[#555566] bg-white">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" className="flex-shrink-0"><path d="M2 4h12M4 8h8M6 12h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
+            <span className="hidden sm:inline">Filters</span>
           </button>
-          <button className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-[#e0e0ea] text-[10px] font-medium text-[#555566] bg-white">
-            <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5"/><rect x="9" y="2" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5"/><rect x="2" y="9" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5"/><rect x="9" y="9" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5"/></svg>
-            Columns ∨
+          <button className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-md border border-[#e0e0ea] text-[9px] sm:text-[10px] font-medium text-[#555566] bg-white">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" className="flex-shrink-0"><rect x="2" y="2" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5"/><rect x="9" y="2" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5"/><rect x="2" y="9" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5"/><rect x="9" y="9" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5"/></svg>
+            <span className="hidden sm:inline">Columns ∨</span>
           </button>
         </div>
       </div>
 
-      {/* Table */}
-      <div className="overflow-hidden">
-        {/* Header */}
-        <div className="grid gap-x-4 items-center px-5 py-2 border-b border-[#e8e8ec] bg-[#fafafa]" style={{ gridTemplateColumns: "16px 1fr 52px 72px 140px 52px 72px 50px 80px" }}>
+      {/* Table - Horizontally Scrollable */}
+      <div className="overflow-x-auto overflow-y-visible">
+        <div className="min-w-[720px]">
+          {/* Header */}
+          <div className="grid gap-x-4 items-center px-5 py-2 border-b border-[#e8e8ec] bg-[#fafafa]" style={{ gridTemplateColumns: "16px 1fr 52px 72px 140px 52px 72px 50px 80px" }}>
           <div className="w-3 h-3" />
           <div className="text-[9px] font-semibold uppercase tracking-[0.08em] text-[#9999aa] min-w-0 truncate">Name</div>
           <div className="text-[9px] font-semibold uppercase tracking-[0.08em] text-[#9999aa] min-w-0">Comp.</div>
@@ -289,17 +290,18 @@ export function QuantAnalysisVisual() {
             <span className="text-[9px] text-[#9999aa]">{row.date}</span>
           </div>
         ))}
+        </div>
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-between px-5 py-3 border-t border-[#e8e8ec] bg-[#fafafa]">
-        <span className="text-[9px] text-[#9999aa]">Showing 1–50 of 53 deals</span>
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 sm:gap-0 px-3 sm:px-5 py-3 border-t border-[#e8e8ec] bg-[#fafafa]">
+        <span className="text-[9px] text-[#9999aa] text-center sm:text-left">Showing 1–50 of 53 deals</span>
         <div className="flex items-center gap-2">
-          <button className="text-[10px] text-[#555566] border border-[#d8d8e4] bg-white px-3 py-1.5 rounded-md">
+          <button className="flex-1 sm:flex-none text-[9px] sm:text-[10px] text-[#555566] border border-[#d8d8e4] bg-white px-3 py-1.5 rounded-md">
             Cancel
           </button>
-          <button className="text-[10px] font-bold text-white bg-[#0F1F3D] px-3 py-1.5 rounded-md">
-            Use This Dataset
+          <button className="flex-1 sm:flex-none text-[9px] sm:text-[10px] font-bold text-white bg-[#0F1F3D] px-3 py-1.5 rounded-md whitespace-nowrap">
+            Use Dataset
           </button>
         </div>
       </div>

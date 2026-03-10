@@ -50,7 +50,7 @@ const testimonials = [
 
 export function KeyResultsSection() {
   return (
-    <section id="results" className="bg-navy px-12 pt-[100px] pb-[50px] relative overflow-hidden">
+    <section id="results" className="bg-navy px-4 sm:px-6 md:px-8 lg:px-12 pt-[60px] md:pt-[100px] pb-[40px] md:pb-[50px] relative overflow-hidden">
       {/* Radial glow */}
       <div
         className="absolute -top-[200px] -left-[200px] w-[600px] h-[600px] pointer-events-none"
@@ -60,30 +60,30 @@ export function KeyResultsSection() {
       />
 
       <div className="max-w-[1280px] mx-auto relative">
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
+        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-4 md:mb-5 font-mono">
           Proven Results
         </p>
-        <h2 className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-white mb-12">
+        <h2 className="text-[clamp(28px,6vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-white mb-8 md:mb-12">
           The numbers that matter<br />to the teams that use it.
         </h2>
 
         {/* Results grid */}
         <div
-          className="grid grid-cols-2 md:grid-cols-5 rounded-lg overflow-hidden mb-16"
+          className="grid grid-cols-2 lg:grid-cols-5 rounded-lg overflow-hidden mb-10 md:mb-16"
           style={{ gap: "2px", background: "rgba(255,255,255,0.06)" }}
         >
           {results.map((r, i) => (
             <div
               key={i}
-              className="bg-navy/50 px-6 py-8 text-center hover:bg-white/[0.04] transition-colors"
+              className={`bg-navy/50 px-4 md:px-6 py-6 md:py-8 text-center hover:bg-white/[0.04] transition-colors ${i === 4 ? 'hidden lg:block' : ''}`}
             >
-              <div className="text-[40px] font-bold text-amber leading-none tracking-[-0.03em] mb-2">
+              <div className="text-[32px] md:text-[40px] font-bold text-amber leading-none tracking-[-0.03em] mb-2">
                 {r.num}
               </div>
-              <div className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/40 mb-2 font-mono">
+              <div className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.1em] text-white/40 mb-2 font-mono">
                 {r.company}
               </div>
-              <div className="text-sm text-white/60 leading-snug">
+              <div className="text-[13px] md:text-sm text-white/60 leading-snug">
                 {r.desc}
               </div>
             </div>
@@ -91,27 +91,27 @@ export function KeyResultsSection() {
         </div>
 
         {/* Testimonials */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-white/[0.04] border border-white/[0.08] rounded-lg p-8 flex flex-col"
+              className="bg-white/[0.04] border border-white/[0.08] rounded-lg p-6 md:p-8 flex flex-col"
             >
               {/* Company logo */}
-              <div className="h-7 flex items-center mb-6">
+              <div className="h-6 md:h-7 flex items-center mb-5 md:mb-6">
                 <Image
                   src={t.logo}
                   alt={t.name.split(" ").slice(-1)[0]}
                   width={120}
                   height={28}
-                  className="h-6 w-auto object-contain brightness-0 invert opacity-70"
+                  className="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-70"
                 />
               </div>
 
-              <p className="text-lg italic text-white/85 leading-relaxed mb-6 flex-1">
+              <p className="text-base md:text-lg italic text-white/85 leading-relaxed mb-5 md:mb-6 flex-1">
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-5 md:mb-6">
                 <div className="w-9 h-9 rounded-full bg-sub flex items-center justify-center overflow-hidden flex-shrink-0">
                   {t.photo ? (
                     <Image src={t.photo} alt={t.name} width={36} height={36} className="object-cover w-full h-full" />
@@ -122,20 +122,20 @@ export function KeyResultsSection() {
                   )}
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-white">
+                  <div className="text-[13px] md:text-sm font-bold text-white">
                     {t.name}
                   </div>
-                  <div className="text-xs text-white/40">
+                  <div className="text-[11px] md:text-xs text-white/40">
                     {t.role}
                   </div>
                 </div>
               </div>
 
               {/* Case study link */}
-              <div className="border-t border-white/[0.08] pt-5">
+              <div className="border-t border-white/[0.08] pt-4 md:pt-5">
                 <Link
                   href={`/results/${t.slug}`}
-                  className="text-sm font-bold text-amber hover:text-[#e8a83a] transition-colors"
+                  className="text-[13px] md:text-sm font-bold text-amber hover:text-[#e8a83a] transition-colors"
                 >
                   See case study →
                 </Link>

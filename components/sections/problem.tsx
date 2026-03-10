@@ -124,7 +124,7 @@ function ConveyorBelt() {
 
 export function ProblemSection() {
   return (
-    <section className="bg-navy px-12 py-[100px] relative overflow-hidden">
+    <section className="bg-navy px-4 sm:px-6 md:px-8 lg:px-12 py-[60px] md:py-[100px] relative overflow-hidden">
       {/* Radial glow */}
       <div
         className="absolute bottom-0 right-0 w-[40%] h-full pointer-events-none"
@@ -136,16 +136,16 @@ export function ProblemSection() {
       <div className="max-w-[1280px] mx-auto relative">
 
         {/* Top: text left, animation right */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:mb-16">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-4 md:mb-5 font-mono">
               The Problem
             </p>
-            <h2 className="text-[clamp(32px,4vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-white mb-4">
+            <h2 className="text-[clamp(28px,6vw,48px)] font-bold leading-[1.15] tracking-[-0.02em] text-white mb-3 md:mb-4">
               Accurate data<br />
               <em className="italic text-amber">is the exception.</em>
             </h2>
-            <p className="text-lg leading-relaxed text-white/60 max-w-[480px]">
+            <p className="text-base md:text-lg leading-relaxed text-white/60 max-w-[480px]">
               The problem is structural. CRM dropdowns, raw call transcripts, and occasional interviews can't tell the real story. And that flows into positioning, product, and competitive decisions your team makes.
             </p>
           </div>
@@ -157,13 +157,13 @@ export function ProblemSection() {
         </div>
 
         <div
-          className="grid md:grid-cols-3 rounded-lg overflow-hidden border border-white/[0.08]"
+          className="grid grid-cols-1 md:grid-cols-3 rounded-lg overflow-hidden border border-white/[0.08]"
           style={{ gap: "2px", background: "rgba(255,255,255,0.06)" }}
         >
           {problems.map((p, i) => (
             <div
               key={i}
-              className="bg-navy/60 px-8 py-9 hover:bg-white/[0.04] transition-colors"
+              className="bg-navy/60 px-5 md:px-8 py-6 md:py-9 hover:bg-white/[0.04] transition-colors"
             >
               <div className="text-[11px] text-amber tracking-[0.1em] mb-5 font-mono">
                 {p.num}

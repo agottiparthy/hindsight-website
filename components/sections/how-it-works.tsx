@@ -61,42 +61,42 @@ export function HowItWorksSection() {
 
   return (
     <div ref={sectionRef} id="how-it-works" style={{ height: "400vh" }}>
-      <div className="sticky top-0 h-screen flex flex-col justify-center px-12 overflow-hidden bg-surface">
+      <div className="sticky top-0 md:min-h-screen flex flex-col md:justify-center px-4 sm:px-6 md:px-8 lg:px-12 py-12 md:py-8 overflow-y-auto bg-surface">
         <div className="max-w-[1280px] mx-auto w-full">
 
           {/* Header */}
-          <div className="mb-10">
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-3 font-mono">
+          <div className="mb-6 md:mb-10">
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-2 md:mb-3 font-mono">
               How It Works
             </p>
-            <h2 className="text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy">
-              Every closed deal, verified automatically.<br />No analyst required.
+            <h2 className="text-[clamp(24px,5vw,42px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy">
+              Every closed deal, verified automatically.<br className="hidden md:inline" />No analyst required.
             </h2>
           </div>
 
           {/* Two-col grid */}
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
 
             {/* Steps list */}
             <div className="flex flex-col">
               {steps.map((step, i) => (
                 <div
                   key={i}
-                  className={`flex gap-6 py-5 transition-all duration-400 ${
+                  className={`flex gap-4 md:gap-6 py-4 md:py-5 transition-all duration-400 ${
                     i < steps.length - 1 ? "border-b border-border" : ""
                   } ${i === 0 ? "pt-0" : ""}`}
                   style={{ opacity: i === activeStep ? 1 : 0.25 }}
                 >
-                  <div className="text-xs text-muted-foreground tracking-[0.06em] pt-1 min-w-[32px] font-mono">
+                  <div className="text-xs text-muted-foreground tracking-[0.06em] pt-1 min-w-[24px] md:min-w-[32px] font-mono">
                     {step.num}
                   </div>
                   <div>
-                    <div className="flex items-center gap-2.5 mb-1.5">
-                      <h3 className="text-lg font-bold text-navy">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2.5 mb-1.5">
+                      <h3 className="text-base md:text-lg font-bold text-navy">
                         {step.title}
                       </h3>
                       <span
-                        className="inline-block shrink-0 text-[10px] font-bold uppercase tracking-[0.1em] px-2 py-0.5 rounded-sm"
+                        className="inline-block shrink-0 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.1em] px-1.5 md:px-2 py-0.5 rounded-sm w-fit"
                         style={{
                           fontFamily: "var(--font-ibm-plex-mono), monospace",
                           background: "rgba(217,119,6,0.12)",
@@ -106,7 +106,7 @@ export function HowItWorksSection() {
                         {step.badge}
                       </span>
                     </div>
-                    <p className="text-[14px] text-body leading-relaxed">
+                    <p className="text-[13px] md:text-[14px] text-body leading-relaxed">
                       {step.body}
                     </p>
                   </div>
@@ -115,7 +115,7 @@ export function HowItWorksSection() {
             </div>
 
             {/* Panels — stacked in same grid cell via CSS grid */}
-            <div className="grid">
+            <div className="hidden md:grid">
               {panels.map((Panel, i) => (
                 <div
                   key={i}

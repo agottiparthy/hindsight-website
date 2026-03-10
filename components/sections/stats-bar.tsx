@@ -7,7 +7,7 @@ const stats = [
 
 export function StatsBarSection() {
   return (
-    <section className="bg-navy py-10 px-12 relative overflow-hidden">
+    <section className="bg-navy py-8 md:py-10 px-4 sm:px-6 md:px-8 lg:px-12 relative overflow-hidden">
       {/* Diagonal stripe texture */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -22,17 +22,19 @@ export function StatsBarSection() {
         }}
       />
       <div className="max-w-[1280px] mx-auto relative">
-        <div className="grid grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-0">
           {stats.map((s, i) => (
             <div
               key={i}
-              className={`py-2 px-10 ${i !== 0 ? "border-l border-white/[0.08]" : ""} ${i === 0 ? "pl-0" : ""}`}
+              className={`py-2 px-0 sm:px-6 md:px-10 ${
+                i !== 0 ? "sm:border-l border-white/[0.08]" : ""
+              } ${i === 0 ? "sm:pl-0" : ""}`}
             >
-              <div className="text-[40px] font-bold text-white leading-none tracking-[-0.03em] mb-1.5">
+              <div className="text-[36px] md:text-[40px] font-bold text-white leading-none tracking-[-0.03em] mb-1.5">
                 {s.num}
                 <span className="text-amber">{s.suffix}</span>
               </div>
-              <div className="text-sm text-white/50 leading-snug">
+              <div className="text-[13px] md:text-sm text-white/50 leading-snug">
                 {s.desc}
               </div>
             </div>

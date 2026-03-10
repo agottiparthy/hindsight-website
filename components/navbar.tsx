@@ -130,7 +130,7 @@ export function Navbar() {
         scrolled ? "border-b border-[#E8E4DC]" : "border-b border-transparent"
       }`}
     >
-      <div className="max-w-[1280px] mx-auto flex items-center justify-between h-[72px]">
+      <div className="max-w-[1280px] mx-auto flex items-center justify-between h-[64px] md:h-[72px] px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Logo */}
         <Link href="/" className="flex flex-row gap-2 items-center">
           <Image
@@ -138,7 +138,7 @@ export function Navbar() {
             alt="Hindsight"
             width={140}
             height={32}
-            className="h-8 w-auto"
+            className="h-7 md:h-8 w-auto"
           />
         </Link>
 
@@ -302,7 +302,7 @@ export function Navbar() {
           mobileOpen ? "max-h-[900px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="max-w-[1280px] mx-auto px-12 py-6 flex flex-col gap-5">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-6 flex flex-col gap-5">
           {/* Mobile Solutions accordion */}
           <button
             className="flex items-center justify-between text-sm text-[#374151] hover:text-[#0F1F3D] text-left"
