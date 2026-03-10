@@ -80,7 +80,7 @@ export function IntegrationsFlipGrid() {
                 <div className="w-8 h-8 rounded-lg bg-[#F8F9FA] border border-[#E8E4DC] flex items-center justify-center shrink-0">
                   <Image src={tile.src} alt={tile.alt} width={20} height={20} className="object-contain" />
                 </div>
-                <div className="min-w-0">
+                <div className="min-w-0 hidden sm:block">
                   <div className="text-sm font-bold text-[#0F1F3D] truncate" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
                     {tile.alt}
                   </div>
@@ -98,7 +98,7 @@ export function IntegrationsFlipGrid() {
                 <div className="w-8 h-8 rounded-lg bg-[#FFF8E7] border border-[#D4A843]/30 flex items-center justify-center shrink-0">
                   <Image src={tile.back.src} alt={tile.back.alt} width={20} height={20} className="object-contain" />
                 </div>
-                <div className="min-w-0">
+                <div className="min-w-0 hidden sm:block">
                   <div className="text-sm font-bold text-[#0F1F3D] truncate" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
                     {tile.back.alt}
                   </div>

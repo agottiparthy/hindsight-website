@@ -103,12 +103,12 @@ export default function CompetitiveIntelligencePage() {
       <main className="bg-background min-h-screen pt-[72px]">
 
         {/* ── Hero ────────────────────────────────────────────────────── */}
-        <section className="bg-navy px-12 py-[100px] relative overflow-hidden">
+        <section className="bg-navy px-4 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-[100px] relative overflow-hidden">
           <div
             className="absolute -top-[300px] right-0 w-[700px] h-[700px] pointer-events-none"
             style={{ background: "radial-gradient(ellipse, rgba(212,168,67,0.07) 0%, transparent 65%)" }}
           />
-          <div className="max-w-[1280px] mx-auto relative grid md:grid-cols-2 gap-16 items-center">
+          <div className="max-w-[1280px] mx-auto relative grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             <div>
               <p
               className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono"
@@ -129,16 +129,16 @@ export default function CompetitiveIntelligencePage() {
               >
                 Battlecards built from verified deal data, not slop. Direct integration into Slack. Insights your reps will actually use to win deals.
               </p>
-              <div className="flex items-center gap-5">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5">
                 <Link
                   href="/request-demo"
-                  className="bg-amber text-navy text-sm font-bold uppercase tracking-[0.06em] px-7 py-3.5 rounded hover:bg-amber/90 transition-all hover:-translate-y-px"
+                  className="bg-amber text-navy text-sm font-bold uppercase tracking-[0.06em] px-7 py-3.5 rounded hover:bg-amber/90 transition-all hover:-translate-y-px text-center"
                 >
                   Get a Demo
                 </Link>
                 <Link
                   href="/results"
-                  className="text-white/70 text-sm border-b border-white/30 pb-px hover:text-white hover:border-white transition-colors"
+                  className="text-white/70 text-sm border-b border-white/30 pb-px hover:text-white hover:border-white transition-colors text-center"
                 >
                   See customer results →
                 </Link>
@@ -152,7 +152,7 @@ export default function CompetitiveIntelligencePage() {
         </section>
 
         {/* ── Problem ─────────────────────────────────────────────────── */}
-        <section className="px-12 py-[100px]">
+        <section className="px-4 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-[100px]">
           <div className="max-w-[1280px] mx-auto">
             <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
               The Problem
@@ -174,12 +174,12 @@ export default function CompetitiveIntelligencePage() {
         </section>
 
         {/* ── Features ────────────────────────────────────────────────── */}
-        <section className="px-12 pb-[100px]">
+        <section className="px-4 sm:px-8 lg:px-12 pb-16 sm:pb-20 lg:pb-[100px]">
           <div className="max-w-[1280px] mx-auto">
             <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
               How Hindsight Does It
             </p>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
               {features.map((f, i) => {
                 const hasAnimation = i === 0 || i === 1 || i === 2 || i === 3
                 return (
@@ -232,7 +232,7 @@ export default function CompetitiveIntelligencePage() {
         </section>
 
         {/* ── Proof ───────────────────────────────────────────────────── */}
-        <section className="bg-navy px-12 py-[100px]">
+        <section className="bg-navy px-4 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-[100px]">
           <div className="max-w-[1280px] mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Left — text + before/after */}
@@ -308,7 +308,7 @@ export default function CompetitiveIntelligencePage() {
         </section>
 
         {/* ── How it integrates ───────────────────────────────────────── */}
-        <section className="px-12 py-[100px]">
+        <section className="px-4 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-[100px]">
           <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-20 items-center">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
@@ -334,7 +334,7 @@ export default function CompetitiveIntelligencePage() {
         </section>
 
         {/* ── CTA ─────────────────────────────────────────────────────── */}
-        <section className="bg-navy px-12 py-[100px]">
+        <section className="bg-navy px-4 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-[100px]">
           <div className="max-w-[1280px] mx-auto text-center">
             <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
               Get Started
@@ -347,16 +347,16 @@ export default function CompetitiveIntelligencePage() {
             >
               Connect your CRM and get your first competitive analysis within hours. No setup fees. No analyst to hire.
             </p>
-            <div className="flex items-center justify-center gap-5">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-5">
               <Link
                 href="/request-demo"
-                className="bg-amber text-navy text-sm font-bold uppercase tracking-[0.06em] px-8 py-4 rounded hover:bg-amber/90 transition-all hover:-translate-y-px"
+                className="bg-amber text-navy text-sm font-bold uppercase tracking-[0.06em] px-8 py-4 rounded hover:bg-amber/90 transition-all hover:-translate-y-px text-center"
               >
                 Get a Demo
               </Link>
               <Link
                 href="/results"
-                className="text-white/60 text-sm border-b border-white/30 pb-px hover:text-white transition-colors"
+                className="text-white/60 text-sm border-b border-white/30 pb-px hover:text-white transition-colors text-center"
 
               >
                 Read customer stories →

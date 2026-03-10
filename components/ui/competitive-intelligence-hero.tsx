@@ -71,7 +71,7 @@ export function CompetitiveIntelligenceHero() {
   }, [])
 
   return (
-    <div className="relative w-full max-w-[480px] mx-auto aspect-square select-none">
+    <div className="relative w-full max-w-[420px] sm:max-w-[480px] mx-auto aspect-square select-none">
 
       {/* ── Concentric rings ─────────────────────────────────────────────── */}
       {[0.92, 0.66, 0.42].map((scale, i) => (
@@ -109,11 +109,11 @@ export function CompetitiveIntelligenceHero() {
       </div>
 
       {/* ── 2×2 card grid ────────────────────────────────────────────────── */}
-      <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-3 p-2">
+      <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-2 sm:gap-3 p-1.5 sm:p-2">
 
         {/* ── Top-left: Monitoring ─────────────────────────────────────── */}
         <div
-          className="bg-card rounded-2xl p-4 flex flex-col gap-2 z-10 transition-all duration-500"
+          className="bg-card rounded-xl sm:rounded-2xl p-2.5 sm:p-4 flex flex-col gap-1.5 sm:gap-2 z-10 transition-all duration-500"
           style={{
             boxShadow: "0 8px 32px rgba(15,31,61,0.18), 0 1px 4px rgba(0,0,0,0.08)",
             opacity: phase === "hidden" ? 0 : 1,
@@ -121,7 +121,7 @@ export function CompetitiveIntelligenceHero() {
             transitionDelay: "0ms",
           }}
         >
-          <span className="text-[12px] font-bold text-navy">
+          <span className="text-[10px] sm:text-[12px] font-bold text-navy">
             Monitoring
           </span>
 
@@ -163,13 +163,13 @@ export function CompetitiveIntelligenceHero() {
           {/* Status line */}
           <div className="flex items-center gap-1.5 pt-1">
             <div className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" style={{ animation: "pulse 2s ease-in-out infinite" }} />
-            <span className="text-[9px] text-[#6B7280]">Monitoring 11 sources</span>
+            <span className="text-[8px] sm:text-[9px] text-[#6B7280]">Monitoring 11 sources</span>
           </div>
         </div>
 
         {/* ── Top-right: Win Drivers ────────────────────────────────────── */}
         <div
-          className="bg-card rounded-2xl p-4 flex flex-col gap-1.5 z-10 overflow-hidden transition-all duration-500"
+          className="bg-card rounded-xl sm:rounded-2xl p-2.5 sm:p-4 flex flex-col gap-1 sm:gap-1.5 z-10 overflow-hidden transition-all duration-500"
           style={{
             boxShadow: "0 8px 32px rgba(15,31,61,0.18), 0 1px 4px rgba(0,0,0,0.08)",
             opacity: phase === "hidden" ? 0 : 1,
@@ -178,21 +178,21 @@ export function CompetitiveIntelligenceHero() {
           }}
         >
           <div className="flex items-center gap-1 mb-0.5">
-            <span className="text-[11px] font-bold text-navy">
+            <span className="text-[10px] sm:text-[11px] font-bold text-navy truncate">
               Win Drivers vs. ACME
             </span>
           </div>
           {WIN_DRIVERS.map((d, i) => (
-            <div key={d.label} className="flex flex-col gap-[3px]">
+            <div key={d.label} className="flex flex-col gap-[2px] sm:gap-[3px]">
               <div className="flex items-center justify-between">
-                <span className="text-[9px] text-[#6B7280] truncate max-w-[80px]">
+                <span className="text-[8px] sm:text-[9px] text-[#6B7280] truncate max-w-[60px] sm:max-w-[80px]">
                   {d.label}
                 </span>
-                <span className="text-[9px] font-bold text-navy ml-1 shrink-0">
+                <span className="text-[8px] sm:text-[9px] font-bold text-navy ml-1 shrink-0">
                   {d.amount}
                 </span>
               </div>
-              <div className="h-[5px] bg-[#E8E4DC] rounded-full overflow-hidden">
+              <div className="h-[4px] sm:h-[5px] bg-[#E8E4DC] rounded-full overflow-hidden">
                 <div
                   className="h-full rounded-full"
                   style={{
@@ -208,7 +208,7 @@ export function CompetitiveIntelligenceHero() {
 
         {/* ── Bottom-left: Frequency + Win Rate line chart ─────────────── */}
         <div
-          className="bg-card rounded-2xl p-4 flex flex-col z-10 transition-all duration-500"
+          className="bg-card rounded-xl sm:rounded-2xl p-2.5 sm:p-4 flex flex-col z-10 transition-all duration-500"
           style={{
             boxShadow: "0 8px 32px rgba(15,31,61,0.18), 0 1px 4px rgba(0,0,0,0.08)",
             opacity: phase === "hidden" ? 0 : 1,
@@ -217,8 +217,8 @@ export function CompetitiveIntelligenceHero() {
           }}
         >
           {/* Title + legend */}
-          <div className="flex items-start justify-between mb-2">
-            <span className="text-[11px] font-bold text-navy leading-tight">
+          <div className="flex items-start justify-between mb-1.5 sm:mb-2">
+            <span className="text-[10px] sm:text-[11px] font-bold text-navy leading-tight">
               vs. ACME
             </span>
             <div className="flex flex-col gap-[3px] items-end">
@@ -306,7 +306,7 @@ export function CompetitiveIntelligenceHero() {
 
         {/* ── Bottom-right: Battlecard ──────────────────────────────────── */}
         <div
-          className="bg-card rounded-2xl p-4 flex flex-col gap-2 z-10 transition-all duration-500"
+          className="bg-card rounded-xl sm:rounded-2xl p-2.5 sm:p-4 flex flex-col gap-1.5 sm:gap-2 z-10 transition-all duration-500"
           style={{
             boxShadow: "0 8px 32px rgba(15,31,61,0.18), 0 1px 4px rgba(0,0,0,0.08)",
             opacity: phase === "hidden" ? 0 : 1,
@@ -315,41 +315,41 @@ export function CompetitiveIntelligenceHero() {
           }}
         >
           <div className="flex items-center justify-between">
-            <span className="text-[12px] font-bold text-navy">
+            <span className="text-[10px] sm:text-[12px] font-bold text-navy">
               Acme Battlecard
             </span>
             <span
-              className="text-[9px] text-white bg-navy px-2 py-0.5 rounded-md font-bold tracking-wide"
+              className="text-[8px] sm:text-[9px] text-white bg-navy px-1.5 sm:px-2 py-0.5 rounded-md font-bold tracking-wide shrink-0"
             >
               .md
             </span>
           </div>
-          <p className="text-[10px] text-[#6B7280] leading-[1.55] flex-1">
+          <p className="text-[9px] sm:text-[10px] text-[#6B7280] leading-[1.45] sm:leading-[1.55] flex-1">
             Our base battlecard for sales reps on Acme. I'll personalize this for reps based on the deal scenario.
           </p>
-          <div className="flex items-center justify-between pt-2 border-t border-[#E8E4DC]">
-            <div className="flex items-center gap-1.5">
+          <div className="flex items-center justify-between pt-1.5 sm:pt-2 border-t border-[#E8E4DC]">
+            <div className="flex items-center gap-1 sm:gap-1.5">
               <div
-                className="w-5 h-5 rounded-md overflow-hidden flex items-center justify-center shrink-0"
+                className="w-4 h-4 sm:w-5 sm:h-5 rounded-md overflow-hidden flex items-center justify-center shrink-0"
                 style={{ background: "linear-gradient(140deg, #2563eb 0%, #60a5fa 100%)" }}
               >
                 <Image
                   src="/hindsighticon.svg"
                   alt="Hindsight"
-                  width={14}
-                  height={14}
-                  className="brightness-0 invert"
+                  width={12}
+                  height={12}
+                  className="brightness-0 invert sm:w-[14px] sm:h-[14px]"
                 />
               </div>
-              <span className="text-[10px] text-[#374151]">
+              <span className="text-[9px] sm:text-[10px] text-[#374151]">
                 Feb 20
               </span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <div className="w-5 h-5 rounded-full bg-[#DBEAFE] flex items-center justify-center">
-                <span className="text-[8px] font-bold text-[#2563eb]">RD</span>
+            <div className="flex items-center gap-1 sm:gap-1.5">
+              <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#DBEAFE] flex items-center justify-center">
+                <span className="text-[7px] sm:text-[8px] font-bold text-[#2563eb]">RD</span>
               </div>
-              <span className="text-[10px] text-[#374151]">
+              <span className="text-[9px] sm:text-[10px] text-[#374151] truncate max-w-[55px] sm:max-w-none">
                 Riley Davis
               </span>
             </div>
