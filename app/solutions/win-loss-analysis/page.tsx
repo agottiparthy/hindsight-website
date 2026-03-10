@@ -138,34 +138,34 @@ export default function WinLossAnalysisPage() {
       <main className="bg-background min-h-screen pt-[72px]">
 
         {/* ── Hero ────────────────────────────────────────────────────── */}
-        <section className="bg-navy px-12 py-[100px] relative overflow-hidden">
+        <section className="bg-navy px-4 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-[100px] relative overflow-hidden">
           <div
             className="absolute -top-[300px] right-0 w-[700px] h-[700px] pointer-events-none"
             style={{ background: "radial-gradient(ellipse, rgba(217,119,6,0.07) 0%, transparent 65%)" }}
           />
-          <div className="max-w-[1280px] mx-auto relative grid md:grid-cols-2 gap-16 items-center">
+          <div className="max-w-[1280px] mx-auto relative grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
                 Win-Loss Analysis
               </p>
               <h1 className="text-[clamp(38px,4.5vw,60px)] font-bold leading-[1.1] tracking-[-0.025em] text-white mb-6">
-                The win-loss program
-                you<br />  always wanted.<br />
+                The win-loss program<br />
+                you always wanted.<br />
                 <em className="italic text-amber">Without the tradeoffs.</em>
               </h1>
-              <p className="text-[17px] text-white/70 leading-relaxed mb-9 max-w-[480px]">
+              <p className="text-[15px] sm:text-[17px] text-white/70 leading-relaxed mb-9 max-w-[480px]">
                 Hindsight gives you 100% deal coverage, automated buyer interviews at scale, and insights on demand. No analysts. No per-interview fees. No quarter-late insights.
               </p>
-              <div className="flex items-center gap-5">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5">
                 <Link
                   href="/request-demo"
-                  className="bg-amber text-navy text-sm font-bold uppercase tracking-[0.06em] px-7 py-3.5 rounded hover:bg-amber/90 transition-all hover:-translate-y-px"
+                  className="bg-amber text-navy text-sm font-bold uppercase tracking-[0.06em] px-7 py-3.5 rounded hover:bg-amber/90 transition-all hover:-translate-y-px text-center"
                 >
                   Get a Demo
                 </Link>
                 <Link
                   href="/results"
-                  className="text-white/70 text-sm border-b border-white/30 pb-px hover:text-white hover:border-white transition-colors"
+                  className="text-white/70 text-sm border-b border-white/30 pb-px hover:text-white hover:border-white transition-colors text-center"
                 >
                   See customer results →
                 </Link>
@@ -173,7 +173,7 @@ export default function WinLossAnalysisPage() {
             </div>
             {/* Interview animation */}
             <div className="flex items-center justify-center">
-              <div className="w-full rounded-xl overflow-hidden" style={{ height: 420 }}>
+              <div className="w-full max-w-[600px] rounded-xl overflow-hidden" style={{ height: "clamp(300px, 45vw, 420px)" }}>
                 <InterviewPanel />
               </div>
             </div>
@@ -181,17 +181,17 @@ export default function WinLossAnalysisPage() {
         </section>
 
         {/* ── Problem ─────────────────────────────────────────────────── */}
-        <section className="px-12 py-[100px]">
+        <section className="px-4 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-[100px]">
           <div className="max-w-[1280px] mx-auto">
             <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
               The Problem
             </p>
-            <h2 className="text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy mb-14 max-w-2xl">
+            <h2 className="text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy mb-10 sm:mb-14 max-w-2xl">
               Most win-loss programs hit a roadblock, then get sidelined.
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
               {problems.map((p, i) => (
-                <div key={i} className="bg-card border border-[#E8E4DC] rounded-xl p-8">
+                <div key={i} className="bg-card border border-[#E8E4DC] rounded-xl p-6 sm:p-8">
                   <div className="text-2xl mb-4">{p.icon}</div>
                   <h3 className="text-[17px] font-bold text-navy mb-3 leading-snug">
                     {p.title}
@@ -206,43 +206,43 @@ export default function WinLossAnalysisPage() {
         </section>
 
         {/* ── How it works ────────────────────────────────────────────── */}
-        <section className="px-12 pb-[100px]">
+        <section className="px-4 sm:px-8 lg:px-12 pb-16 sm:pb-20 lg:pb-[100px]">
           <div className="max-w-[1280px] mx-auto">
             <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
               How It Works
             </p>
-            <h2 className="text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy mb-16 max-w-2xl">
+            <h2 className="text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-navy mb-12 sm:mb-16 max-w-2xl">
               You stay in control. Hindsight does the heavy lifting.
             </h2>
             <div className="flex flex-col gap-6">
               {howItWorks.map((step, i) => (
-                <div key={i} className="bg-card border border-[#E8E4DC] rounded-xl p-9 grid md:grid-cols-[120px_1fr] gap-8 items-start">
-                  <div className="text-[52px] font-bold text-amber/20 leading-none tracking-[-0.04em] font-mono">
+                <div key={i} className="bg-card border border-[#E8E4DC] rounded-xl p-5 sm:p-7 lg:p-9 grid md:grid-cols-[120px_1fr] gap-5 sm:gap-6 lg:gap-8 items-start">
+                  <div className="text-[42px] sm:text-[52px] font-bold text-amber/20 leading-none tracking-[-0.04em] font-mono">
                     {step.num}
                   </div>
                   <div>
-                    <h3 className="text-[22px] font-bold leading-[1.25] tracking-[-0.01em] text-navy mb-3">
+                    <h3 className="text-[20px] sm:text-[22px] font-bold leading-[1.25] tracking-[-0.01em] text-navy mb-3">
                       {step.headline}
                     </h3>
-                    <p className="text-[15px] text-body leading-relaxed max-w-2xl mb-6">
+                    <p className="text-[14px] sm:text-[15px] text-body leading-relaxed max-w-2xl mb-6">
                       {step.copy}
                     </p>
-                    <div className="flex items-center gap-6 flex-wrap">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                       {/* Stat pill */}
-                      <div className="flex items-baseline gap-2 bg-amber/[0.08] border border-amber/20 rounded-lg px-4 py-2.5">
-                        <span className="text-[18px] font-bold text-amber leading-none font-mono tracking-[-0.02em]">{step.stat.num}</span>
-                        <span className="text-[11px] text-body">{step.stat.label}</span>
+                      <div className="flex items-baseline gap-2 bg-amber/[0.08] border border-amber/20 rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 self-start">
+                        <span className="text-[16px] sm:text-[18px] font-bold text-amber leading-none font-mono tracking-[-0.02em]">{step.stat.num}</span>
+                        <span className="text-[10px] sm:text-[11px] text-body">{step.stat.label}</span>
                       </div>
                       {/* Integration icons */}
-                      <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#9CA3AF] font-mono mr-1">Integrates with</span>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.12em] text-[#9CA3AF] font-mono mr-1">Integrates with</span>
                         {step.integrations.map((ig, j) => (
                           <div key={j} className="w-6 h-6 rounded-md bg-background border border-[#E8E4DC] flex items-center justify-center p-[3px]">
                             <Image src={ig.src} alt={ig.alt} width={16} height={16} className={`object-contain${"invert" in ig && ig.invert ? " invert" : ""}`} />
                           </div>
                         ))}
                         {step.integrationsMore && (
-                          <span className="text-[10px] font-bold text-[#9CA3AF] font-mono ml-0.5">{step.integrationsMore}</span>
+                          <span className="text-[9px] sm:text-[10px] font-bold text-[#9CA3AF] font-mono ml-0.5">{step.integrationsMore}</span>
                         )}
                       </div>
                     </div>
@@ -254,7 +254,7 @@ export default function WinLossAnalysisPage() {
         </section>
 
         {/* ── What your team gets ─────────────────────────────────────── */}
-        <section className="bg-navy px-12 py-[100px]">
+        <section className="bg-navy px-4 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-[100px]">
           <div className="max-w-[1280px] mx-auto">
             <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
               What Your Team Gets
@@ -262,15 +262,17 @@ export default function WinLossAnalysisPage() {
             <h2 className="text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-white mb-4 max-w-2xl">
               Not a report you have to interpret.<br />Answers you can act on.
             </h2>
-            <p className="text-[17px] text-white/60 mb-16 max-w-xl leading-relaxed">
+            <p className="text-[15px] sm:text-[17px] text-white/60 mb-10 sm:mb-16 max-w-xl leading-relaxed">
               Every deal becomes a verified record your whole team can query — sliced any way that matters.
             </p>
-                        <div className="w-full mb-10">
-                          <DealReportStatic />
-                        </div>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="w-full mb-8 sm:mb-10 overflow-x-auto">
+              <div className="min-w-[800px]">
+                <DealReportStatic />
+              </div>
+            </div>
+            <div className="grid md:grid-cols-3 gap-5 sm:gap-6">
               {outputs.slice(0, 3).map((o, i) => (
-                <div key={i} className="border border-white/10 rounded-xl p-8 bg-white/[0.04]">
+                <div key={i} className="border border-white/10 rounded-xl p-6 sm:p-8 bg-white/[0.04]">
                   <div className="w-8 h-[3px] bg-amber mb-6" />
                   <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-amber mb-3 font-mono">
                     {o.label}
@@ -284,9 +286,9 @@ export default function WinLossAnalysisPage() {
                 </div>
               ))}
             </div>
-            <div className="grid md:grid-cols-2 gap-6 mt-6">
+            <div className="grid md:grid-cols-2 gap-5 sm:gap-6 mt-5 sm:mt-6">
               {outputs.slice(3).map((o, i) => (
-                <div key={i} className="border border-white/10 rounded-xl p-8 bg-white/[0.04]">
+                <div key={i} className="border border-white/10 rounded-xl p-6 sm:p-8 bg-white/[0.04]">
                   <div className="w-8 h-[3px] bg-amber mb-6" />
                   <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-amber mb-3 font-mono">
                     {o.label}
@@ -304,14 +306,14 @@ export default function WinLossAnalysisPage() {
         </section>
 
         {/* ── Testimonials ────────────────────────────────────────────── */}
-        <section className="px-12 py-[100px]">
+        <section className="px-4 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-[100px]">
           <div className="max-w-[1280px] mx-auto">
             <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-12 text-center font-mono">
               What Teams Are Saying
             </p>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
               {testimonials.map((t, i) => (
-                <div key={i} className="bg-card border border-[#E8E4DC] rounded-xl p-8">
+                <div key={i} className="bg-card border border-[#E8E4DC] rounded-xl p-6 sm:p-8">
                   <p className="text-[17px] font-bold leading-[1.55] text-navy mb-7">
                     &ldquo;{t.quote}&rdquo;
                   </p>
@@ -338,7 +340,7 @@ export default function WinLossAnalysisPage() {
         </section>
 
         {/* ── CTA ─────────────────────────────────────────────────────── */}
-        <section className="bg-navy px-12 py-[100px]">
+        <section className="bg-navy px-4 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-[100px]">
           <div className="max-w-[1280px] mx-auto text-center">
             <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
               Get Started
@@ -346,19 +348,19 @@ export default function WinLossAnalysisPage() {
             <h2 className="text-[clamp(32px,4vw,52px)] font-bold leading-[1.1] tracking-[-0.025em] text-white mb-5 max-w-2xl mx-auto">
               See what your deal data is actually telling you.
             </h2>
-            <p className="text-[17px] text-white/60 mb-9 max-w-xl mx-auto leading-relaxed">
+            <p className="text-[15px] sm:text-[17px] text-white/60 mb-9 max-w-xl mx-auto leading-relaxed">
               Connect your CRM and get your first verified deal analysis within hours. No setup fees. No analyst to hire.
             </p>
-            <div className="flex items-center justify-center gap-5">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-5">
               <Link
                 href="/request-demo"
-                className="bg-amber text-navy text-sm font-bold uppercase tracking-[0.06em] px-8 py-4 rounded hover:bg-amber/90 transition-all hover:-translate-y-px"
+                className="bg-amber text-navy text-sm font-bold uppercase tracking-[0.06em] px-8 py-4 rounded hover:bg-amber/90 transition-all hover:-translate-y-px text-center"
               >
                 Get a Demo
               </Link>
               <Link
                 href="/results"
-                className="text-white/60 text-sm border-b border-white/30 pb-px hover:text-white transition-colors"
+                className="text-white/60 text-sm border-b border-white/30 pb-px hover:text-white transition-colors text-center"
               >
                 Read customer stories →
               </Link>
