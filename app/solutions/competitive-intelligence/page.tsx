@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { CompetitiveIntelligenceHero } from "@/components/ui/competitive-intelligence-hero"
@@ -60,12 +61,20 @@ const features = [
 
 const testimonials = [
   {
-    quote:
-      "I'm getting insights from deals that are being analyzed every day — pulling from Salesforce, Gong, and now win-loss interviews. My reps are going into deals with the most up-to-date information, letting them compete with confidence.",
+    quote: "My battlecards stay current with what's actually working in the field. Reps have the right message for every competitive scenario.",
     name: "Tye Davis",
     role: "Sr. Product Marketing Manager — LaunchDarkly",
     photo: "/customer_pictures/tye davis.jpeg",
-    logo: "/customer_logos/launchdarkly-Logo-Vector.svg-.png",
+    stat: "+12%",
+    statLabel: "Competitive win rate",
+  },
+  {
+    quote: "Hindsight helps me see which messaging actually resonates and wins deals. No more guessing what works.",
+    name: "Jason Bonhert",
+    role: "Sr. PMM — Simpro Group",
+    photo: "/customer_pictures/jason bonhert.png",
+    stat: "+11%",
+    statLabel: "New business win rate",
   },
 ]
 
@@ -222,32 +231,79 @@ export default function CompetitiveIntelligencePage() {
           </div>
         </section>
 
-        {/* ── Testimonial ─────────────────────────────────────────────── */}
+        {/* ── Proof ───────────────────────────────────────────────────── */}
         <section className="bg-navy px-12 py-[100px]">
           <div className="max-w-[1280px] mx-auto">
-            {testimonials.map((t, i) => (
-              <div key={i} className="max-w-3xl mx-auto text-center">
-                <p className="text-[22px] font-bold leading-[1.5] text-white mb-8">
-                  &ldquo;{t.quote}&rdquo;
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Left — text + before/after */}
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber mb-5 font-mono">
+                  The Foundation
                 </p>
-                <div className="flex items-center justify-center gap-4">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={t.photo}
-                    alt={t.name}
-                    className="w-10 h-10 rounded-full object-cover"
-                  />
-                  <div className="text-left">
-                    <div className="text-sm font-bold text-white">
-                      {t.name}
+                <h2 className="text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.15] tracking-[-0.02em] text-white mb-5 max-w-2xl">
+                  Built on verified deal outcomes. Not content.
+                </h2>
+                <p className="text-[17px] text-white/60 leading-relaxed mb-10 max-w-2xl">
+                  Every other competitive intelligence tool is built on what someone thinks works. Hindsight is built on what the data shows works. Every battlecard. Every positioning message. Cross-referenced across calls, emails, CRM, and buyer interviews.
+                </p>
+                {/* Before / After */}
+                <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/40 font-mono mb-4">Before &rarr; After</p>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-white/[0.04] border border-white/10 rounded-xl p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="relative w-4 h-4 shrink-0">
+                        <Image src="/integration_logos/salesforce logo.png" alt="Salesforce" fill className="object-contain" />
+                      </div>
+                      <span className="text-[10px] font-bold text-white/40 font-mono uppercase tracking-[0.1em]">CRM field</span>
                     </div>
-                    <div className="text-xs text-white/50">
-                      {t.role}
+                    <div className="bg-white/[0.06] rounded-lg px-3 py-2.5 mb-2">
+                      <p className="text-[11px] text-white/40 font-mono mb-1">Loss Reason</p>
+                      <p className="text-[13px] font-bold text-white/70">Pricing</p>
                     </div>
+                    <p className="text-[11px] text-white/30 leading-snug">Rep-reported &middot; Unverified</p>
+                  </div>
+                  <div className="bg-white/[0.08] border border-amber/20 rounded-xl p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-4 h-4 rounded bg-blue/40 flex items-center justify-center shrink-0">
+                        <span className="text-white text-[8px] font-bold">H</span>
+                      </div>
+                      <span className="text-[10px] font-bold text-amber font-mono uppercase tracking-[0.1em]">Verified record</span>
+                    </div>
+                    <div className="flex flex-col gap-1.5 mb-2">
+                      {[["Integration confidence", "38%"], ["Migration risk", "24%"], ["Pricing", "10%"]].map(([d, p]) => (
+                        <div key={d} className="flex items-center justify-between">
+                          <span className="text-[10px] text-white/60 truncate max-w-[100px]">{d}</span>
+                          <span className="text-[10px] font-bold text-amber font-mono">{p}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-[11px] text-amber/60 leading-snug">Cross-referenced &middot; Verified</p>
                   </div>
                 </div>
               </div>
-            ))}
+              {/* Right — Testimonials */}
+              <div className="flex flex-col gap-6">
+                {testimonials.map((t, i) => (
+                  <div key={i} className="border border-white/10 rounded-xl p-7 bg-white/[0.04]">
+                    <div className="flex items-baseline gap-3 mb-5">
+                      <span className="text-[32px] font-bold text-amber leading-none font-mono tracking-[-0.03em]">{t.stat}</span>
+                      <span className="text-[12px] text-white/50 leading-snug">{t.statLabel}</span>
+                    </div>
+                    <p className="text-[15px] leading-[1.6] text-white/80 mb-5">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+                    <div className="flex items-center gap-3">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={t.photo} alt={t.name} className="w-8 h-8 rounded-full object-cover" />
+                      <div>
+                        <div className="text-sm font-bold text-white">{t.name}</div>
+                        <div className="text-xs text-white/50">{t.role}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
