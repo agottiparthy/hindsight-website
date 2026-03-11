@@ -134,7 +134,7 @@ export function InterviewPanel() {
       </div>
 
       {/* ── Sliding viewport ── */}
-      <div className="overflow-hidden h-full" style={{ minHeight: 280, maxHeight: 420 }}>
+      <div className="overflow-hidden" style={{ height: 360 }}>
         <div
           className="flex transition-transform duration-700 ease-in-out"
           style={{ transform: onBuyerScreen ? "translateX(-50%)" : "translateX(0%)", width: "200%", height: "100%" }}
