@@ -30,7 +30,7 @@ const footerColumns = [
       { label: "vs. Klue", href: "/compare/hindsight-vs-klue" },
       { label: "vs. Crayon", href: "/compare/hindsight-vs-crayon" },
       { label: "vs. DIY", href: "/compare/hindsight-vs-diy" },
-      // { label: "Win-Loss Playbook", href: "/resources/win-loss-playbook" },
+      { label: "Win-Loss Playbook", href: "/resources/win-loss-playbook" },
       // { label: "Competitive Intel Playbook", href: "/resources/competitive-intel-playbook" },
       // { label: "Templates", href: "/resources/templates" },
       { label: "Security", href: "/security" },

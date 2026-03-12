@@ -49,11 +49,11 @@ const resourcesLinks = [
     href: "/compare",
     desc: "See how Hindsight stacks up against alternatives",
   },
-  // {
-  //   label: "Win-Loss Playbook",
-  //   href: "/resources/win-loss-playbook",
-  //   desc: "Build a world-class win-loss program from scratch",
-  // },
+  {
+    label: "Win-Loss Playbook",
+    href: "/resources/win-loss-playbook",
+    desc: "Build a world-class win-loss program from scratch",
+  },
   // {
   //   label: "Competitive Intel Playbook",
   //   href: "/resources/competitive-intel-playbook",
