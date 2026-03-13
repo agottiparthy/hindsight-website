@@ -30,6 +30,12 @@ export function HeroSection() {
             >
               See What Your Last 50 Buyers Said
             </Link>
+            <Link
+              href="https://app.usehindsight.com/survey/demo"
+              className="text-navy text-xs sm:text-sm font-bold uppercase tracking-[0.06em] px-5 sm:px-7 py-3 sm:py-3.5 rounded hover:text-blue transition-all hover:-translate-y-px text-center"
+            >
+              Try One →
+            </Link>
           </div>
         </div>
 
