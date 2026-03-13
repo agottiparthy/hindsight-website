@@ -16,19 +16,19 @@ export function HeroSection() {
             Win-Loss Intelligence
           </p>
           <h1 className="text-[clamp(32px,8vw,64px)] font-bold leading-[1.1] tracking-[-0.025em] text-navy mb-5 md:mb-7">
-            Win-loss analysis<br />
-            that actually<br />
-            <em className="italic text-navy opacity-60">works.</em>
+            Your buyers know<br />
+            why you lost.<br />
+            <em className="italic text-navy opacity-60">Now you can too.</em>
           </h1>
           <p className="text-base md:text-lg leading-relaxed text-body max-w-[480px] mb-6 md:mb-10">
-            Your CRM says pricing. Your buyer said something else. Hindsight investigates every closed deal, interviews buyers automatically, and tells you what actually happened.
+            Hindsight runs your buyer interview program on autopilot. Stop guessing and get verified insights into why you lose deals, churn customers, and more.
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-10 md:mb-14">
             <Link
               href="/request-demo"
               className="bg-navy text-white text-xs sm:text-sm font-bold uppercase tracking-[0.06em] px-5 sm:px-7 py-3 sm:py-3.5 rounded hover:bg-blue transition-all hover:-translate-y-px text-center"
             >
-              Analyze Your Last 50 Deals
+              See What Your Last 50 Buyers Said
             </Link>
           </div>
         </div>
@@ -38,10 +38,10 @@ export function HeroSection() {
           {/* Floating stat */}
           <div className="absolute -top-6 -right-6 bg-amber text-white rounded-lg px-[18px] py-3.5 shadow-[0_4px_16px_rgba(217,119,6,0.4)] z-10">
             <div className="text-[28px] font-bold leading-none tracking-[-0.03em] mb-1">
-              44%
+              12%
             </div>
             <div className="text-[10px] font-bold uppercase tracking-[0.08em] opacity-90 font-mono">
-              Better accuracy
+              Response Rate
             </div>
           </div>
 
